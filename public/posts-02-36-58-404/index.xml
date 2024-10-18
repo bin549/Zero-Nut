@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>文章归档 on Z的枯燥生活</title>
+    <link>http://localhost:1313/posts-02-36-58-404/</link>
+    <description>Recent content in 文章归档 on Z的枯燥生活</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copy right. 2024</copyright>
+    <lastBuildDate>Sat, 19 Oct 2024 02:36:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts-02-36-58-404/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guitar</title>
+      <link>http://localhost:1313/posts-02-36-58-404/guitar/</link>
+      <pubDate>Sat, 19 Oct 2024 02:36:52 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts-02-36-58-404/guitar/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>http://localhost:1313/posts-02-36-58-404/another-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts-02-36-58-404/another-post/</guid>
+      <description>See what&amp;rsquo;s possible with Blowfish.</description>
+      
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>http://localhost:1313/posts-02-36-58-404/first-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts-02-36-58-404/first-post/</guid>
+      <description>See what&amp;rsquo;s possible with Blowfish.</description>
+      
+    </item>
+    
+    <item>
+      <title>爵士乐的发展史</title>
+      <link>http://localhost:1313/posts-02-36-58-404/jazz/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts-02-36-58-404/jazz/</guid>
+      <description>爵士乐的发展史 爵士乐（Jazz）是一种起源于美国的音乐形式，以其即兴演奏、复杂的节奏结构以及融合多种音乐风格的能力而闻名。爵士乐在20世纪初兴起，经过多年的演变，逐渐发展成为一种影响深远的全球音乐文化现象。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

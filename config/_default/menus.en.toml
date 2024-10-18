@@ -11,33 +11,32 @@
 # ordered by weight from lowest to highest.
 
 [[main]] 
-name = "Post"
+name = "归档"
 pre = "codepen"
-pageRef = "newSite"
+pageRef = "posts"
 identifier = "mjDbN4xP62v"
 weight = 1
 
 [[main]]
-name = "Project"
-pre = "codepen"
-pageRef = "newSite" 
-identifier = "mjDbN4xP6v"
-weight = 9999
-
-[[main]]
-name = "Game"
+name = "游戏"
 pre = "dribbble"
 pageRef = "newSite"
 identifier = "eHs9DV6fBg"
-weight = 9999
+weight = 2
 
 [[main]]
-name = "Music"
+name = "音乐"
 pre = "apple"
-pageRef = "newSite"
+pageRef = "tags"
 identifier = "dz6sfeg70B"
-weight = 9999
+weight = 3
 
+[[main]]
+name = "其他"
+pre = "codepen"
+pageRef = "users" 
+identifier = "mjDbN4xP6v"
+weight = 4
 
 #[[main]]
 #  name = "example sub-menu 1"
