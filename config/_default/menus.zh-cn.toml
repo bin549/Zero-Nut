@@ -11,13 +11,13 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  pre = "dribbble" 
+  pre = "skull-crossbones" 
   name = "随笔"
   pageRef = "thoughts"
   weight = 30
 
 [[main]]
-  pre = "dribbble" 
+  pre = "ghost" 
   name = "碎碎念"
   pageRef = "murmur"
   weight = 40
