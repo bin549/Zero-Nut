@@ -1,279 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Z的枯燥生活</title>
+    <title>标签 on 首页</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on Z的枯燥生活</description>
+    <description>Recent content in 标签 on 首页</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copy right. 2024</copyright>
-    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2024 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
+    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Sample</title>
-      <link>http://localhost:1313/tags/sample/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <title>方大同</title>
+      <link>http://localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</link>
+      <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/sample/</guid>
+      <guid>http://localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Users</title>
-      <link>http://localhost:1313/tags/users/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <title>音乐</title>
+      <link>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</link>
+      <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/users/</guid>
+      <guid>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>友链</title>
-      <link>http://localhost:1313/tags/%E5%8F%8B%E9%93%BE/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <title>游戏</title>
+      <link>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%8F%8B%E9%93%BE/</guid>
+      <guid>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>示例</title>
-      <link>http://localhost:1313/tags/%E7%A4%BA%E4%BE%8B/</link>
-      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <title>Jazz</title>
+      <link>http://localhost:1313/tags/jazz/</link>
+      <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E7%A4%BA%E4%BE%8B/</guid>
+      <guid>http://localhost:1313/tags/jazz/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Academia</title>
-      <link>http://localhost:1313/tags/academia/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>前端</title>
+      <link>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/academia/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Advanced</title>
-      <link>http://localhost:1313/tags/advanced/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/advanced/</guid>
-      <description>This is the advanced tag.</description>
-      
-    </item>
-    
-    <item>
-      <title>App Site</title>
-      <link>http://localhost:1313/tags/app-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/app-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Author</title>
-      <link>http://localhost:1313/tags/author/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/author/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>http://localhost:1313/tags/blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/blog/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Business Site</title>
-      <link>http://localhost:1313/tags/business-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/business-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>College Club Site</title>
-      <link>http://localhost:1313/tags/college-club-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/college-club-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Comics Site</title>
-      <link>http://localhost:1313/tags/comics-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/comics-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Company Site</title>
-      <link>http://localhost:1313/tags/company-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/company-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Digital Garden</title>
-      <link>http://localhost:1313/tags/digital-garden/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/digital-garden/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Doll Photography</title>
-      <link>http://localhost:1313/tags/doll-photography/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/doll-photography/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Game Site</title>
-      <link>http://localhost:1313/tags/game-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/game-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Games Site</title>
-      <link>http://localhost:1313/tags/games-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/games-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Modeller</title>
-      <link>http://localhost:1313/tags/modeller/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/modeller/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Organization Site</title>
-      <link>http://localhost:1313/tags/organization-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/organization-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Personal Blog</title>
-      <link>http://localhost:1313/tags/personal-blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/personal-blog/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Personal Site</title>
-      <link>http://localhost:1313/tags/personal-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/personal-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Portfolio Site</title>
-      <link>http://localhost:1313/tags/portfolio-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/portfolio-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Project Site</title>
-      <link>http://localhost:1313/tags/project-site/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/project-site/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Software Developer</title>
-      <link>http://localhost:1313/tags/software-developer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/software-developer/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Technology Blog</title>
-      <link>http://localhost:1313/tags/technology-blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/technology-blog/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Theme Author</title>
-      <link>http://localhost:1313/tags/theme-author/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/theme-author/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Videogame Developer</title>
-      <link>http://localhost:1313/tags/videogame-developer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/videogame-developer/</guid>
+      <guid>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</guid>
       <description></description>
       
     </item>

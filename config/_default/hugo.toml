@@ -4,13 +4,14 @@
 
 theme = "blowfish" # UNCOMMENT THIS LINE
 baseURL = "https://www.zero-nut.cc/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
 enableRobotsTXT = true
 paginate = 10
 summaryLength = 0
+hasCJKLanguage = true
 
 buildDrafts = false
 buildFuture = false
