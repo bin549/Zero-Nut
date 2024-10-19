@@ -18,23 +18,16 @@ identifier = "mjDbN4xP62v"
 weight = 1
 
 [[main]]
-name = "游戏"
+name = "随笔"
 pre = "dribbble"
-pageRef = "newSite"
+pageRef = "tags"
 identifier = "eHs9DV6fBg"
 weight = 2
 
 [[main]]
-name = "音乐"
+name = "关于"
 pre = "apple"
-pageRef = "tags"
-identifier = "dz6sfeg70B"
-weight = 3
-
-[[main]]
-name = "其他"
-pre = "codepen"
-pageRef = "users" 
+pageRef = "examples" 
 identifier = "mjDbN4xP6v"
 weight = 4
 
