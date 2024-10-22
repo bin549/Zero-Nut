@@ -21,6 +21,7 @@ title = "首页"
   links = [
     { github = "https://github.com/bin549" },
     { itch-io = "https://bin549.itch.io" },
-    { spotify = "https://learn.stem-powered.com" },
-    { ko-fi = "https://ko-fi.com/username" },
+    { spotify = "https://learn.stem-powered.com/course/creator?id=11" },
+    { ko-fi = "https://afdian.com/a/bin549" },
   ]
+  
