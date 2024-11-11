@@ -1,0 +1,15 @@
+FROM alpine:latest AS build
+
+RUN apk add --no-cache git hugo
+
+WORKDIR /src
+
+COPY . .
+
+RUN hugo
+
+FROM nginx:alpine
+
+COPY --from=build /src/public /usr/share/nginx/html
+
+EXPOSE 80
