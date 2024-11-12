@@ -1,13 +1,15 @@
 version: '3.8'
 
 services:
-  web:
+  hugo:
     build:
-      context: .
+      context: ./src
       dockerfile: Dockerfile
-    ports:
-      - "80:80"
     volumes:
-      - ./public:/usr/share/nginx/html:ro 
+      - ./src:/src
+    ports:
+      - "1313:1313"
     environment:
-      - HUGO_ENV=production
+      - HUGO_ENV=development 
+    command: ["hugo", "server", "--bind", "0.0.0.0", "--port", "1313"]
+

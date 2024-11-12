@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>缘起 on 首页</title>
+    <link>http://localhost:1313/tags/%E7%BC%98%E8%B5%B7/</link>
+    <description>Recent content in 缘起 on 首页</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2024 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
+    <lastBuildDate>Wed, 10 Jul 2024 09:32:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BC%98%E8%B5%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>反抗</title>
+      <link>http://localhost:1313/thoughts/resist/</link>
+      <pubDate>Wed, 10 Jul 2024 09:32:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/thoughts/resist/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/resist/featured.jpeg" />
+    </item>
+    
+  </channel>
+</rss>

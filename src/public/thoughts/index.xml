@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随笔 on 首页</title>
+    <link>http://localhost:1313/thoughts/</link>
+    <description>Recent content in 随笔 on 首页</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2024 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
+    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>梦想家</title>
+      <link>http://localhost:1313/thoughts/dream/</link>
+      <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
+      
+      <guid>http://localhost:1313/thoughts/dream/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/dream/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>洛克人</title>
+      <link>http://localhost:1313/thoughts/mega/</link>
+      <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/thoughts/mega/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/mega/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>爵士乐</title>
+      <link>http://localhost:1313/thoughts/jazz/</link>
+      <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
+      
+      <guid>http://localhost:1313/thoughts/jazz/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/jazz/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>博客搭建</title>
+      <link>http://localhost:1313/thoughts/blog/</link>
+      <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/thoughts/blog/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/blog/featured.jpg" />
+    </item>
+    
+  </channel>
+</rss>
