@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>首页</title>
-    <link>https://www.zero-nut.cc/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 首页</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="https://www.zero-nut.cc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>梦想家</title>
-      <link>https://www.zero-nut.cc/thoughts/dream/</link>
+      <link>http://localhost:1313/thoughts/dream/</link>
       <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
       
-      <guid>https://www.zero-nut.cc/thoughts/dream/</guid>
+      <guid>http://localhost:1313/thoughts/dream/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.zero-nut.cc/thoughts/dream/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/dream/featured.jpg" />
     </item>
     
     <item>
       <title>洛克人</title>
-      <link>https://www.zero-nut.cc/thoughts/mega/</link>
+      <link>http://localhost:1313/thoughts/mega/</link>
       <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
       
-      <guid>https://www.zero-nut.cc/thoughts/mega/</guid>
+      <guid>http://localhost:1313/thoughts/mega/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.zero-nut.cc/thoughts/mega/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/mega/featured.jpg" />
     </item>
     
     <item>
       <title>爵士乐</title>
-      <link>https://www.zero-nut.cc/thoughts/jazz/</link>
+      <link>http://localhost:1313/thoughts/jazz/</link>
       <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>https://www.zero-nut.cc/thoughts/jazz/</guid>
+      <guid>http://localhost:1313/thoughts/jazz/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.zero-nut.cc/thoughts/jazz/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/jazz/featured.jpg" />
     </item>
     
     <item>
       <title>博客搭建</title>
-      <link>https://www.zero-nut.cc/thoughts/blog/</link>
+      <link>http://localhost:1313/thoughts/blog/</link>
       <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
       
-      <guid>https://www.zero-nut.cc/thoughts/blog/</guid>
+      <guid>http://localhost:1313/thoughts/blog/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://www.zero-nut.cc/thoughts/blog/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/blog/featured.jpg" />
     </item>
     
     <item>
       <title>碎碎念</title>
-      <link>https://www.zero-nut.cc/murmur/</link>
+      <link>http://localhost:1313/murmur/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.zero-nut.cc/murmur/</guid>
+      <guid>http://localhost:1313/murmur/</guid>
       <description></description>
       
     </item>
