@@ -3,7 +3,6 @@
 
 ### Hugo ###
 # Generated files by hugo
-/public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -17,3 +16,4 @@ hugo.linux
 /.hugo_build.lock
 
 # End of https://www.toptal.com/developers/gitignore/api/hugo
+src/public/*
