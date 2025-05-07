@@ -28,4 +28,3 @@ jobs:
             docker-compose -f docker-compose-prod.yml down
             docker system prune -a
             docker-compose -f docker-compose-prod.yml up   -d
-            EOF
