@@ -7,7 +7,5 @@ services:
       dockerfile: Dockerfile-prod
     ports:
       - "1313:80"
-    volumes:
-      - ./src/public:/usr/share/nginx/html:ro
     environment:
       - HUGO_ENV=production
