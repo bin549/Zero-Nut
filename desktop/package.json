@@ -1,0 +1,24 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder",
+    "pack": "electron-packager . --platform=darwin --arch=arm64 --out=dist"
+  },
+  "build": {
+    "appId": "com.zero.0",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  }
+}

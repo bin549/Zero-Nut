@@ -17,3 +17,11 @@ hugo.linux
 
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 .idea/*
+
+desktop/dist/*
+desktop/node_modules/*
+desktop/build/*
+desktop/dist/*
+desktop/node_modules/*
+desktop/build/*
+desktop/.idea/*

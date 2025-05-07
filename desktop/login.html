@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>Posts Manager - Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: white;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+            padding: 8px;
+            background-color: #f8d7da;
+            border-radius: 4px;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Posts Manager Login</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="off" spellcheck="false">
+            </div>
+            <button type="submit">Login</button>
+            <div id="error-message" class="error-message">Incorrect password. Please try again.</div>
+        </form>
+    </div>
+
+    <script>
+        let ipcRenderer;
+        try {
+            const electron = require('electron');
+            ipcRenderer = electron.ipcRenderer;
+            console.log('Successfully loaded electron module and ipcRenderer');
+        } catch (error) {
+            console.error('Failed to load electron module:', error);
+            alert('Cannot load electron module. Please ensure the application is running in an Electron environment.');
+        }
+        
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Login form submitted');
+            const password = document.getElementById('password').value;
+            console.log('Password received, length:', password.length);
+            if (ipcRenderer) {
+                console.log('Sending login-attempt message');
+                ipcRenderer.send('login-attempt', password);
+            } else {
+                console.error('ipcRenderer unavailable, cannot send message');
+                alert('Communication module unavailable, cannot send login request');
+            }
+        });
+        
+        if (ipcRenderer) {
+            ipcRenderer.on('login-failed', function() {
+                console.log('Received login-failed message');
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+            });
+        }
+        
+        window.addEventListener('load', function() {
+            console.log('Page loaded, focusing on password input');
+            document.getElementById('password').focus();
+        });
+    </script>
+</body>
+</html>
