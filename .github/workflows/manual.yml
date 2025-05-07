@@ -19,12 +19,13 @@ jobs:
           echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
-
+          
       - name: Run deployment commands on server
         run: |
-            ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             cd /var/local/zero-nut/Zero-Nut
             git pull
             docker-compose -f docker-compose-prod.yml down
-            docker system prune -a
-            docker-compose -f docker-compose-prod.yml up   -d
+            docker system prune -a -f
+            docker-compose -f docker-compose-prod.yml up -d
+          EOF
