@@ -430,8 +430,6 @@
             <div id="status-message" class="status-message"></div>
         </div>
     </div>
-
-    <!-- Edit Modal -->
     <div id="edit-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -454,7 +452,6 @@
         </div>
     </div>
 
-    <!-- Delete Confirmation Dialog -->
     <div id="delete-dialog" class="confirm-dialog">
         <div class="confirm-content">
             <h3>Delete Post</h3>
@@ -469,121 +466,87 @@
 
     <script>
         const { ipcRenderer } = require('electron');
-
-        // Set the default date to now when the page loads
         window.addEventListener('DOMContentLoaded', () => {
             setDefaultDateTime();
         });
-
-        // Set the default datetime to now
         function setDefaultDateTime() {
             const now = new Date();
-            // Format date for datetime-local input: YYYY-MM-DDTHH:MM
             const formattedDate = now.getFullYear() + '-' +
                                  padZero(now.getMonth() + 1) + '-' +
                                  padZero(now.getDate()) + 'T' +
                                  padZero(now.getHours()) + ':' +
                                  padZero(now.getMinutes());
-
             document.getElementById('post-date').value = formattedDate;
         }
-
-        // Helper function to pad numbers with leading zeros
         function padZero(num) {
             return num.toString().padStart(2, '0');
         }
-
-        // Handle posts data from the main process
         ipcRenderer.on('posts-data', (event, posts) => {
             const container = document.getElementById('posts-container');
             const noPostsMessage = document.getElementById('no-posts-message');
-
             container.innerHTML = '';
-
             if (!posts || posts.length === 0) {
                 container.style.display = 'none';
                 noPostsMessage.style.display = 'block';
                 return;
             }
-
             container.style.display = 'block';
             noPostsMessage.style.display = 'none';
-
             posts.forEach(post => {
                 const postCard = document.createElement('div');
                 postCard.className = 'post-card';
-
                 const postHeader = document.createElement('div');
                 postHeader.className = 'post-header';
-
                 const postId = document.createElement('span');
                 postId.textContent = `ID: ${post.id}`;
-
                 const postDate = document.createElement('span');
                 postDate.textContent = formatDate(post.date);
-
                 postHeader.appendChild(postId);
                 postHeader.appendChild(postDate);
-
                 const postText = document.createElement('div');
                 postText.className = 'post-text';
                 postText.textContent = post.text;
-
                 const postActions = document.createElement('div');
                 postActions.className = 'post-actions';
-
                 const editButton = document.createElement('button');
                 editButton.className = 'edit-button';
                 editButton.textContent = 'Edit';
                 editButton.onclick = () => openEditModal(post);
-
                 const deleteButton = document.createElement('button');
                 deleteButton.className = 'delete-button';
                 deleteButton.textContent = 'Delete';
                 deleteButton.onclick = () => openDeleteDialog(post.id);
-
                 postActions.appendChild(editButton);
                 postActions.appendChild(deleteButton);
-
                 postCard.appendChild(postHeader);
                 postCard.appendChild(postText);
                 postCard.appendChild(postActions);
-
                 container.appendChild(postCard);
             });
         });
 
-        // Show the posts.json file path
         ipcRenderer.on('posts-file-path', (event, path) => {
             document.getElementById('post-file-path').textContent = `File path: ${path}`;
         });
 
-        // Handle post addition response
         ipcRenderer.on('post-added', (event, result) => {
             const statusMessage = document.getElementById('status-message');
-
             if (result.success) {
                 statusMessage.textContent = 'Post added successfully!';
                 statusMessage.className = 'status-message success';
                 statusMessage.style.display = 'block';
-
-                // Clear the form
                 document.getElementById('post-text').value = '';
-                // Reset the date to current time
                 setDefaultDateTime();
             } else {
                 statusMessage.textContent = `Error adding post: ${result.error || 'Unknown error'}`;
                 statusMessage.className = 'status-message error';
                 statusMessage.style.display = 'block';
             }
-
-            // Hide the message after 3 seconds
             setTimeout(() => {
                 statusMessage.style.display = 'none';
             }, 3000);
         });
 
-        // Handle post edit response
         ipcRenderer.on('post-edited', (event, result) => {
             if (result.success) {
                 showStatusMessage('Post updated successfully!', 'success');
@@ -593,7 +556,6 @@
             }
         });
 
-        // Handle post delete response
         ipcRenderer.on('post-deleted', (event, result) => {
             if (result.success) {
                 showStatusMessage('Post deleted successfully!', 'success');
@@ -604,9 +566,7 @@
             }
         });
 
-        // Handle GitHub sync response
         ipcRenderer.on('github-sync-result', (event, result) => {
-            // Hide the spinner
             document.getElementById('sync-spinner').style.display = 'none';
 
             if (result.success) {
@@ -616,7 +576,6 @@
             }
         });
 
-        // Add a new post
         function addPost() {
             const text = document.getElementById('post-text').value.trim();
             const dateInput = document.getElementById('post-date').value;
@@ -630,112 +589,84 @@
                 text: text,
                 images: []
             };
-
-            // Add date if provided, otherwise it will use the current time on the server
             if (dateInput) {
                 post.date = new Date(dateInput).toISOString();
             }
-
             ipcRenderer.send('add-post', post);
         }
 
-        // Open edit modal
         function openEditModal(post) {
             document.getElementById('edit-post-id').value = post.id;
             document.getElementById('edit-post-text').value = post.text;
-
-            // Format date for the datetime-local input
             const date = new Date(post.date);
-            const formattedDate = date.toISOString().slice(0, 16); // Format: YYYY-MM-DDTHH:MM
+            const formattedDate = date.toISOString().slice(0, 16);
             document.getElementById('edit-post-date').value = formattedDate;
-
             document.getElementById('edit-modal').style.display = 'flex';
         }
 
-        // Close edit modal
         function closeEditModal() {
             document.getElementById('edit-modal').style.display = 'none';
         }
 
-        // Save edited post
         function saveEditedPost() {
             const postId = parseInt(document.getElementById('edit-post-id').value);
             const text = document.getElementById('edit-post-text').value.trim();
             const dateInput = document.getElementById('edit-post-date').value;
-
             if (!text) {
                 showStatusMessage('Post text cannot be empty', 'error');
                 return;
             }
-
             const post = {
                 text: text
             };
-
-            // Add date if provided
             if (dateInput) {
                 post.date = new Date(dateInput).toISOString();
             }
-
             ipcRenderer.send('edit-post', { id: postId, post: post });
         }
 
-        // Open delete confirmation dialog
         function openDeleteDialog(postId) {
             document.getElementById('delete-post-id').value = postId;
             document.getElementById('delete-dialog').style.display = 'flex';
         }
 
-        // Close delete confirmation dialog
         function closeDeleteDialog() {
             document.getElementById('delete-dialog').style.display = 'none';
         }
 
-        // Confirm post deletion
         function confirmDelete() {
             const postId = parseInt(document.getElementById('delete-post-id').value);
             ipcRenderer.send('delete-post', postId);
         }
 
-        // Show status message
         function showStatusMessage(message, type) {
             const statusMessage = document.getElementById('status-message');
             statusMessage.textContent = message;
             statusMessage.className = `status-message ${type}`;
             statusMessage.style.display = 'block';
-
             setTimeout(() => {
                 statusMessage.style.display = 'none';
             }, 3000);
         }
 
-        // Format the date for display
         function formatDate(dateString) {
             const date = new Date(dateString);
             return date.toLocaleString();
         }
 
-        // Toggle fullscreen
         function toggleFullscreen() {
             ipcRenderer.send('toggle-fullscreen');
         }
 
-        // Sync with GitHub - simplified version
         function syncWithGitHub() {
-            // Show spinner to indicate syncing
             document.getElementById('sync-spinner').style.display = 'inline-block';
-
-            // Send direct sync request to main process
             ipcRenderer.send('github-sync-direct');
         }
 
-        // Delete unused GitHub dialog functions
         function closeGitHubDialog() {
-            // This function is kept to avoid errors but does nothing now
         }
 
         function commitToGitHub() {
-            // This function is kept to avoid errors but does nothing now
         }
     </script>
 </body>
