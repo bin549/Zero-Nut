@@ -13,7 +13,7 @@ showAuthor: false
 layout: telegram
 ---
 {{< lead >}}
-表达的冲动只是一时喉痒，清一清嗓子就没有开口的欲望了。
+
 {{< /lead >}}
 
 {{< json file="data/tg/posts.json" >}}
