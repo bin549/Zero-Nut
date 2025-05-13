@@ -1,11 +1,12 @@
 {
   "name": "desktop",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "npm run build && electron .",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-builder",
+    "electron": "electron .",
     "pack": "electron-packager . --platform=darwin --arch=arm64 --out=dist"
   },
   "build": {
@@ -18,7 +19,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/node": "^20.10.5",
     "electron": "^33.2.1",
-    "electron-builder": "^25.1.8"
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.3.3"
   }
 }

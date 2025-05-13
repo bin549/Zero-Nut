@@ -1,22 +1,14 @@
 {
-  root: '/Users/Shared/1_work/haven-box/desktop',
+  root: '/Users/Shared/1_work/web/zero-nut/desktop',
   registry: 'https://registry.npmmirror.com',
-  pkgs: [
-    {
-      name: 'electron-packager',
-      version: 'latest',
-      type: 'tag',
-      alias: undefined,
-      arg: [Result]
-    }
-  ],
+  pkgs: [],
   production: false,
   cacheStrict: false,
   cacheDir: '/Users/godot/.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/godot/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","electron-packager"],"original":["--fix-bug-versions","--china","--userconfig=/Users/godot/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","electron-packager"]}',
-    npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v22.12.0 darwin arm64',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/godot/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"],"original":["--fix-bug-versions","--china","--userconfig=/Users/godot/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"]}',
+    npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v22.14.0 darwin arm64',
     npm_config_cache: '/Users/godot/.npminstall_tarball',
     NODE: '/usr/local/bin/node',
     npm_node_execpath: '/usr/local/bin/node',
@@ -50,8 +42,9 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-    npm_rootpath: '/Users/Shared/1_work/haven-box/desktop',
-    INIT_CWD: '/Users/Shared/1_work/haven-box/desktop'
+    npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl',
+    npm_rootpath: '/Users/Shared/1_work/web/zero-nut/desktop',
+    INIT_CWD: '/Users/Shared/1_work/web/zero-nut/desktop'
   },
   binaryMirrors: {
     ENVS: {
@@ -80,7 +73,8 @@
       npm_config_keytar_binary_host: 'https://cdn.npmmirror.com/binaries/keytar',
       npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
       npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
-      npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs'
+      npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
+      npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl'
     },
     '@ali/s2': { host: 'https://cdn.npmmirror.com/binaries/looksgood-s2' },
     sharp: { replaceHostFiles: [Array], replaceHostMap: [Object] },
@@ -119,7 +113,10 @@
     },
     fsevents: { host: 'https://cdn.npmmirror.com/binaries/fsevents' },
     nodejieba: { host: 'https://cdn.npmmirror.com/binaries/nodejieba' },
-    canvas: { host: 'https://cdn.npmmirror.com/binaries/canvas' },
+    canvas: {
+      host: 'https://cdn.npmmirror.com/binaries/canvas',
+      remote_path: 'v{version}'
+    },
     'skia-canvas': { host: 'https://cdn.npmmirror.com/binaries/skia-canvas' },
     'flow-bin': {
       replaceHost: 'https://github.com/facebook/flow/releases/download/v',
@@ -187,7 +184,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: '/Users/Shared/1_work/haven-box/desktop',
+  workspaceRoot: '/Users/Shared/1_work/web/zero-nut/desktop',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,
