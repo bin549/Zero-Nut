@@ -42,11 +42,11 @@ interface PostResult {
 }
 
 const findPostsFile = (): string => {
-    console.log(`Current app path: ${app.getAppPath()}`);
-    console.log(`App is packaged: ${app.isPackaged}`);
+    console.log(`Current app path: ${ app.getAppPath() }`);
+    console.log(`App is packaged: ${ app.isPackaged }`);
     if (process.env.NODE_ENV === 'development' || !app.isPackaged) {
         const rootPath = path.dirname(app.getAppPath());
-        console.log(`Development root directory: ${rootPath}`);
+        console.log(`Development root directory: ${ rootPath }`);
         return path.join(rootPath, 'src', 'data', 'tg', 'posts.json');
     }
     const alternativePaths = [
@@ -59,18 +59,18 @@ const findPostsFile = (): string => {
     console.log('Trying to find posts.json file:');
     for (let i = 0; i < alternativePaths.length; i++) {
         const p = alternativePaths[i];
-        console.log(`${i + 1}. Checking ${p}`);
+        console.log(`${ i + 1 }. Checking ${ p }`);
         if (fs.existsSync(p)) {
-            console.log(`Found posts.json: ${p}`);
+            console.log(`Found posts.json: ${ p }`);
             return p;
         }
     }
-    console.log(`Posts file not found, using first path: ${alternativePaths[0]}`);
+    console.log(`Posts file not found, using first path: ${ alternativePaths[0] }`);
     return alternativePaths[0];
 };
 
 postsFilePath = findPostsFile();
-console.log(`Final posts file path: ${postsFilePath}`);
+console.log(`Final posts file path: ${ postsFilePath }`);
 
 const requireLogin = false;
 let mainWindow: BrowserWindow | null = null;
@@ -95,20 +95,20 @@ function createMainWindow(): void {
 }
 
 function loadPosts(targetWindow: BrowserWindow): void {
-    console.log(`Trying to read posts file: ${postsFilePath}`);
+    console.log(`Trying to read posts file: ${ postsFilePath }`);
     targetWindow.webContents.send('posts-file-path', postsFilePath);
     fs.readFile(postsFilePath, 'utf8', (err, data) => {
         if (err) {
-            console.error(`Failed to read posts file: ${err.message}`);
+            console.error(`Failed to read posts file: ${ err.message }`);
             targetWindow.webContents.send('posts-data', []);
             return;
         }
         try {
             const posts: Post[] = JSON.parse(data);
-            console.log(`Found ${posts.length} posts`);
+            console.log(`Found ${ posts.length } posts`);
             targetWindow.webContents.send('posts-data', posts);
         } catch (parseErr) {
-            console.error(`Failed to parse posts data: ${parseErr instanceof Error ? parseErr.message : String(parseErr)}`);
+            console.error(`Failed to parse posts data: ${ parseErr instanceof Error ? parseErr.message : String(parseErr) }`);
             targetWindow.webContents.send('posts-data', []);
         }
     });
@@ -118,7 +118,7 @@ function addNewPost(post: Partial<Post>): Promise<Post> {
     return new Promise((resolve, reject) => {
         fs.readFile(postsFilePath, 'utf8', (err, data) => {
             if (err) {
-                console.error(`Failed to read posts file: ${err.message}`);
+                console.error(`Failed to read posts file: ${ err.message }`);
                 return reject(err);
             }
             try {
@@ -134,14 +134,14 @@ function addNewPost(post: Partial<Post>): Promise<Post> {
                 posts.unshift(newPost);
                 fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), 'utf8', (writeErr) => {
                     if (writeErr) {
-                        console.error(`Failed to write posts file: ${writeErr.message}`);
+                        console.error(`Failed to write posts file: ${ writeErr.message }`);
                         return reject(writeErr);
                     }
-                    console.log(`Added new post with ID: ${newPost.id}`);
+                    console.log(`Added new post with ID: ${ newPost.id }`);
                     resolve(newPost);
                 });
             } catch (parseErr) {
-                console.error(`Failed to parse posts data: ${parseErr instanceof Error ? parseErr.message : String(parseErr)}`);
+                console.error(`Failed to parse posts data: ${ parseErr instanceof Error ? parseErr.message : String(parseErr) }`);
                 reject(parseErr);
             }
         });
@@ -152,16 +152,16 @@ function editPost(postId: number, updatedPost: UpdatedPost): Promise<Post> {
     return new Promise((resolve, reject) => {
         fs.readFile(postsFilePath, 'utf8', (err, data) => {
             if (err) {
-                console.error(`Failed to read posts file: ${err.message}`);
+                console.error(`Failed to read posts file: ${ err.message }`);
                 return reject(err);
             }
             try {
                 let posts: Post[] = JSON.parse(data);
                 const postIndex = posts.findIndex(p => p.id === postId);
                 if (postIndex === -1) {
-                    return reject(new Error(`Post with ID ${postId} not found`));
+                    return reject(new Error(`Post with ID ${ postId } not found`));
                 }
-                
+
                 posts[postIndex] = {
                     ...posts[postIndex],
                     date: updatedPost.date || posts[postIndex].date,
@@ -169,17 +169,17 @@ function editPost(postId: number, updatedPost: UpdatedPost): Promise<Post> {
                     image: updatedPost.image !== undefined ? updatedPost.image : posts[postIndex].image,
                     music: updatedPost.music !== undefined ? updatedPost.music : posts[postIndex].music
                 };
-                
+
                 fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), 'utf8', (writeErr) => {
                     if (writeErr) {
-                        console.error(`Failed to write posts file: ${writeErr.message}`);
+                        console.error(`Failed to write posts file: ${ writeErr.message }`);
                         return reject(writeErr);
                     }
-                    console.log(`Updated post with ID: ${postId}`);
+                    console.log(`Updated post with ID: ${ postId }`);
                     resolve(posts[postIndex]);
                 });
             } catch (parseErr) {
-                console.error(`Failed to parse posts data: ${parseErr instanceof Error ? parseErr.message : String(parseErr)}`);
+                console.error(`Failed to parse posts data: ${ parseErr instanceof Error ? parseErr.message : String(parseErr) }`);
                 reject(parseErr);
             }
         });
@@ -190,7 +190,7 @@ function deletePost(postId: number): Promise<{ success: boolean; postId: number 
     return new Promise((resolve, reject) => {
         fs.readFile(postsFilePath, 'utf8', (err, data) => {
             if (err) {
-                console.error(`Failed to read posts file: ${err.message}`);
+                console.error(`Failed to read posts file: ${ err.message }`);
                 return reject(err);
             }
             try {
@@ -198,18 +198,18 @@ function deletePost(postId: number): Promise<{ success: boolean; postId: number 
                 const originalLength = posts.length;
                 posts = posts.filter(p => p.id !== postId);
                 if (posts.length === originalLength) {
-                    return reject(new Error(`Post with ID ${postId} not found`));
+                    return reject(new Error(`Post with ID ${ postId } not found`));
                 }
                 fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), 'utf8', (writeErr) => {
                     if (writeErr) {
-                        console.error(`Failed to write posts file: ${writeErr.message}`);
+                        console.error(`Failed to write posts file: ${ writeErr.message }`);
                         return reject(writeErr);
                     }
-                    console.log(`Deleted post with ID: ${postId}`);
+                    console.log(`Deleted post with ID: ${ postId }`);
                     resolve({ success: true, postId });
                 });
             } catch (parseErr) {
-                console.error(`Failed to parse posts data: ${parseErr instanceof Error ? parseErr.message : String(parseErr)}`);
+                console.error(`Failed to parse posts data: ${ parseErr instanceof Error ? parseErr.message : String(parseErr) }`);
                 reject(parseErr);
             }
         });
@@ -220,34 +220,35 @@ function syncWithGitHubDirect(): Promise<SyncResult> {
     return new Promise((resolve, reject) => {
         const projectRoot = path.resolve('/Users/Shared/1_work/web/zero-nut');
         const postsRelativePath = path.relative(projectRoot, postsFilePath);
-        console.log(`Project root path: ${projectRoot}`);
-        console.log(`Posts relative path from project root: ${postsRelativePath}`);
+        console.log(`Project root path: ${ projectRoot }`);
+        console.log(`Posts relative path from project root: ${ postsRelativePath }`);
         fs.access(path.join(projectRoot, '.git'), fs.constants.F_OK, (err) => {
             if (err) {
-                return reject(new Error(`The directory "${projectRoot}" is not a git repository. Please initialize git first.`));
+                return reject(new Error(`The directory "${ projectRoot }" is not a git repository. Please initialize git first.`));
             }
             const now = new Date();
             const timestamp = now.toISOString().replace(/[:.]/g, '-').replace('T', '_').slice(0, 19);
-            const commitMessage = `Update posts (${timestamp})`;
+            const commitMessage = `Update posts (${ timestamp })`;
             const tempScriptPath = path.join(app.getPath('temp'), 'git-sync-direct.sh');
             const gitCommands = [
-                `cd "${projectRoot}"`,
-                `git add "${postsRelativePath}"`,
-                `git commit -m "${commitMessage}" || echo "No changes to commit"`,
+                `cd "${ projectRoot }"`,
+                `git add "${ postsRelativePath }"`,
+                `git commit -m "${ commitMessage }" || echo "No changes to commit"`,
                 `git pull --rebase origin main || git pull --rebase origin master || echo "No remote changes to pull"`,
                 `git push origin HEAD || echo "Not pushing to remote (possibly not configured)"`
             ];
-            fs.writeFile(tempScriptPath, `#!/bin/bash\n${gitCommands.join('\n')}`, { mode: 0o700 }, (writeErr) => {
+            fs.writeFile(tempScriptPath, `#!/bin/bash\n${ gitCommands.join('\n') }`, { mode: 0o700 }, (writeErr) => {
                 if (writeErr) {
-                    return reject(new Error(`Failed to create temporary script: ${writeErr.message}`));
+                    return reject(new Error(`Failed to create temporary script: ${ writeErr.message }`));
                 }
-                exec(`bash "${tempScriptPath}"`, (execErr, stdout, stderr) => {
-                    fs.unlink(tempScriptPath, () => {});
+                exec(`bash "${ tempScriptPath }"`, (execErr, stdout, stderr) => {
+                    fs.unlink(tempScriptPath, () => {
+                    });
                     console.log('Git sync stdout:', stdout);
                     if (execErr) {
                         console.error('Git sync error:', execErr);
                         console.error('stderr:', stderr);
-                        return reject(new Error(`Git sync failed: ${stderr || execErr.message}`));
+                        return reject(new Error(`Git sync failed: ${ stderr || execErr.message }`));
                     }
                     resolve({ success: true, message: commitMessage });
                 });
@@ -261,7 +262,7 @@ function getStaticDir(): { imagesDir: string, musicDir: string } {
     const projectRoot = path.resolve('/Users/Shared/1_work/web/zero-nut');
     const imagesDir = path.join(projectRoot, 'src', 'static', 'images', 'backgrounds');
     const musicDir = path.join(projectRoot, 'src', 'static', 'music');
-    
+
     // 确保目录存在
     if (!fs.existsSync(imagesDir)) {
         fs.mkdirSync(imagesDir, { recursive: true });
@@ -269,7 +270,7 @@ function getStaticDir(): { imagesDir: string, musicDir: string } {
     if (!fs.existsSync(musicDir)) {
         fs.mkdirSync(musicDir, { recursive: true });
     }
-    
+
     return { imagesDir, musicDir };
 }
 
@@ -287,22 +288,22 @@ function selectImageFile(): Promise<string | null> {
                 resolve(null);
                 return;
             }
-            
+
             const { imagesDir } = getStaticDir();
             const sourceFile = result.filePaths[0];
-            const fileName = `bg_${Date.now()}${path.extname(sourceFile)}`;
+            const fileName = `bg_${ Date.now() }${ path.extname(sourceFile) }`;
             const destFile = path.join(imagesDir, fileName);
-            
+
             // 复制文件到静态目录
             fs.copyFile(sourceFile, destFile, (err) => {
                 if (err) {
-                    console.error(`Failed to copy image file: ${err.message}`);
+                    console.error(`Failed to copy image file: ${ err.message }`);
                     resolve(null);
                     return;
                 }
-                
+
                 // 返回相对路径用于存储
-                resolve(`/images/backgrounds/${fileName}`);
+                resolve(`/images/backgrounds/${ fileName }`);
             });
         }).catch(err => {
             console.error('Failed to select image file:', err);
@@ -325,24 +326,24 @@ function selectMusicFile(): Promise<{ filePath: string, fileName: string } | nul
                 resolve(null);
                 return;
             }
-            
+
             const { musicDir } = getStaticDir();
             const sourceFile = result.filePaths[0];
             const fileName = path.basename(sourceFile);
             const destFile = path.join(musicDir, fileName);
-            
+
             // 复制文件到静态目录
             fs.copyFile(sourceFile, destFile, (err) => {
                 if (err) {
-                    console.error(`Failed to copy music file: ${err.message}`);
+                    console.error(`Failed to copy music file: ${ err.message }`);
                     resolve(null);
                     return;
                 }
-                
+
                 // 返回相对路径和原始文件名
-                resolve({ 
-                    filePath: fileName, 
-                    fileName: fileName 
+                resolve({
+                    filePath: fileName,
+                    fileName: fileName
                 });
             });
         }).catch(err => {
@@ -405,7 +406,10 @@ ipcMain.on('github-sync-direct', async (event: IpcMainEvent) => {
         event.reply('github-sync-result', { success: true, message: result.message });
     } catch (error) {
         console.error('Error during direct GitHub sync:', error);
-        event.reply('github-sync-result', { success: false, error: error instanceof Error ? error.message : String(error) });
+        event.reply('github-sync-result', {
+            success: false,
+            error: error instanceof Error ? error.message : String(error)
+        });
     }
 });
 
@@ -435,4 +439,4 @@ ipcMain.handle('select-image', async () => {
 
 ipcMain.handle('select-music', async () => {
     return await selectMusicFile();
-}); 
+});

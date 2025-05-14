@@ -187,9 +187,9 @@
   {{ range $data }}
     <li class="post-item">
       <div class="post-content" {{ if .music }}data-music-title="{{ .music.title }}" data-music-artist="{{ .music.artist }}" data-music-file="{{ .music.file }}" onclick="togglePostCard(this)"{{ end }}>
-        {{ if .image }}
-          <img src="{{ .image }}" alt="背景图片" class="post-background">
-        {{ end }}
+<!--        {{ if .image }}-->
+<!--          <img src="{{ .image }}" alt="背景图片" class="post-background">-->
+<!--        {{ end }}-->
         <div class="post-header">
           <div class="post-timestamp">
             {{ partial "badge" (time.Format "2006-01-02 15:04" .date) }}

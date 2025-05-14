@@ -20,16 +20,16 @@
       "artist": "Disasterpeace",
       "file": "Disasterpeace - Home.mp3"
     }
-  }, 
+  },
   {
     "id": 57,
     "date": "2025-03-01T22:14:00+00:00",
     "text": "死亡不是终点，遗忘才是。",
     "image": "/images/backgrounds/memory.jpg",
     "music": {
-      "title": "Time Passes",
-      "artist": "Kevin MacLeod",
-      "file": "Kevin MacLeod - Time Passes.mp3"
+      "title": "没啥好说",
+      "artist": "方大同",
+      "file": "方大同 - 没啥好说.mp3"
     }
   },
   {
@@ -38,9 +38,9 @@
     "text": "深夜蹲大同新专辑",
     "image": "/images/backgrounds/music.jpg",
     "music": {
-      "title": "Fallen Down (Reprise)",
-      "artist": "Toby Fox",
-      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+      "title": "XZMHXDXH",
+      "artist": "方大同",
+      "file": "方大同 - XZMHXDXH.mp3"
     }
   },
   {
@@ -49,9 +49,9 @@
     "text": "more care. more scare.",
     "image": "/images/backgrounds/abstract.jpg",
     "music": {
-      "title": "Time Passes",
-      "artist": "Kevin MacLeod",
-      "file": "Kevin MacLeod - Time Passes.mp3"
+      "title": "Fallen Down (Reprise)",
+      "artist": "Toby Fox",
+      "file": "Toby Fox - Fallen Down (Reprise).mp3"
     }
   },
   {
@@ -60,9 +60,9 @@
     "text": "表达的冲动只是一时喉痒，清一清嗓子就没有开口的欲望了。",
     "image": "/images/backgrounds/silence.jpg",
     "music": {
-      "title": "Home",
-      "artist": "Disasterpeace",
-      "file": "Disasterpeace - Home.mp3"
+      "title": "ジェシーのテーマ",
+      "artist": "浜渦正志",
+      "file": "浜渦正志 - ジェシーのテーマ.mp3"
     }
   },
   {
@@ -71,9 +71,9 @@
     "text": "To be alone, you need someone to be alone from.",
     "image": "/images/backgrounds/alone.jpg",
     "music": {
-      "title": "Time Passes",
-      "artist": "Kevin MacLeod",
-      "file": "Kevin MacLeod - Time Passes.mp3"
+      "title": "Gregg's Woods",
+      "artist": "Alec Holowka",
+      "file": "Alec Holowka - Gregg's Woods.mp3"
     }
   },
   {
@@ -93,20 +93,9 @@
     "text": "当这个世界被人类的期待填满，我唯有将自己的回忆细细珍藏。",
     "image": "/images/backgrounds/memory2.jpg",
     "music": {
-      "title": "Home",
-      "artist": "Disasterpeace",
-      "file": "Disasterpeace - Home.mp3"
-    }
-  },
-  {
-    "id": 41,
-    "date": "2021-06-18T00:14:06+00:00",
-    "text": "毕业啦！",
-    "image": "/images/backgrounds/graduation.jpg",
-    "music": {
-      "title": "Time Passes",
-      "artist": "Kevin MacLeod",
-      "file": "Kevin MacLeod - Time Passes.mp3"
+      "title": "赛尔号传送仓纯音乐",
+      "artist": "XX_xxdcds",
+      "file": "XX_xxdcds - 赛尔号传送仓纯音乐.mp3"
     }
   },
   {
@@ -115,20 +104,9 @@
     "text": "I liked how things were when they were.",
     "image": "/images/backgrounds/nostalgia.jpg",
     "music": {
-      "title": "Home",
-      "artist": "Disasterpeace",
-      "file": "Disasterpeace - Home.mp3"
-    }
-  },
-  {
-    "id": 1,
-    "date": "2017-07-06T09:10:39+00:00",
-    "text": "高考完咯！",
-    "image": "/images/backgrounds/celebration.jpg",
-    "music": {
-      "title": "Fallen Down (Reprise)",
-      "artist": "Toby Fox",
-      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+      "title": "Why Can't We Go Backwards",
+      "artist": "Alan Silvestri",
+      "file": "Alan Silvestri - Why Can't We Go Backwards.mp3"
     }
   }
 ]

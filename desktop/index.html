@@ -400,7 +400,7 @@
             margin-top: 5px;
             margin-bottom: 15px;
         }
-        
+
         .file-select-button {
             background-color: #6c757d;
             color: white;
@@ -410,11 +410,11 @@
             cursor: pointer;
             font-size: 0.9rem;
         }
-        
+
         .file-select-button:hover {
             background-color: #5a6268;
         }
-        
+
         .selected-file-container {
             margin-top: 10px;
             padding: 10px;
@@ -423,14 +423,14 @@
             position: relative;
             min-height: 24px;
         }
-        
+
         .file-preview {
             max-width: 100%;
             max-height: 150px;
             margin-top: 10px;
             border-radius: 4px;
         }
-        
+
         .clear-file-button {
             position: absolute;
             top: 8px;
@@ -447,17 +447,17 @@
             font-size: 10px;
             cursor: pointer;
         }
-        
+
         .clear-file-button:hover {
             background-color: #c82333;
         }
-        
+
         .music-input-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
         #music-metadata-section,
         #edit-music-metadata-section {
             padding: 12px;
@@ -465,13 +465,13 @@
             border-radius: 4px;
             background-color: #f9f9f9;
         }
-        
+
         /* 修改卡片样式，显示图片和音乐信息 */
         .post-card {
             position: relative;
             overflow: hidden;
         }
-        
+
         .post-card .post-image-bg {
             position: absolute;
             top: 0;
@@ -482,12 +482,12 @@
             opacity: 0.1;
             z-index: 0;
         }
-        
+
         .post-card .post-content {
             position: relative;
             z-index: 1;
         }
-        
+
         .post-card .post-music-info {
             display: flex;
             align-items: center;
@@ -495,7 +495,7 @@
             font-size: 0.8rem;
             color: #0066cc;
         }
-        
+
         .post-card .post-music-info svg {
             margin-right: 5px;
             width: 14px;
@@ -504,609 +504,367 @@
     </style>
 </head>
 <body>
-    <div id="navbar">
-        <h1>Posts Manager</h1>
-        <div id="navbar-buttons">
-            <button onclick="toggleFullscreen()">Toggle Fullscreen</button>
-            <button class="sync-button" onclick="syncWithGitHub()">
-                <span id="sync-icon">↑</span>
-                <span>Sync to GitHub</span>
-                <span class="sync-spinner" id="sync-spinner"></span>
-            </button>
-        </div>
+<div id="navbar">
+    <h1>Posts Manager</h1>
+    <div id="navbar-buttons">
+        <button onclick="toggleFullscreen()">Toggle Fullscreen</button>
+        <button class="sync-button" onclick="syncWithGitHub()">
+            <span id="sync-icon">↑</span>
+            <span>Sync to GitHub</span>
+            <span class="sync-spinner" id="sync-spinner"></span>
+        </button>
     </div>
-    <div id="main-container">
-        <div id="post-list">
-            <div id="posts-container"></div>
-            <div id="no-posts-message">
-                <h3>No posts found</h3>
-                <p>Add a new post using the form on the right.</p>
-            </div>
-            <div id="post-file-path"></div>
+</div>
+<div id="main-container">
+    <div id="post-list">
+        <div id="posts-container"></div>
+        <div id="no-posts-message">
+            <h3>No posts found</h3>
+            <p>Add a new post using the form on the right.</p>
         </div>
-        <div id="post-form">
-            <div class="post-form-group">
-                <label for="post-text">Post Text</label>
-                <textarea id="post-text" placeholder="Enter your post text here..."></textarea>
+        <div id="post-file-path"></div>
+    </div>
+    <div id="post-form">
+        <div class="post-form-group">
+            <label for="post-text">Post Text</label>
+            <textarea id="post-text" placeholder="Enter your post text here..."></textarea>
+        </div>
+        <div class="post-form-group">
+            <label for="post-date">Date (defaults to now)</label>
+            <input type="datetime-local" id="post-date">
+        </div>
+
+        <!-- 背景图片选择 -->
+        <div class="post-form-group">
+            <label>Background Image</label>
+            <div class="file-input-container">
+                <button type="button" class="file-select-button" onclick="selectImage()">Choose Image</button>
+                <div id="selected-image-container" class="selected-file-container">
+                    <span id="selected-image-name">No image selected</span>
+                    <img id="image-preview" class="file-preview" style="display: none;"/>
+                    <button type="button" id="clear-image-btn" class="clear-file-button" onclick="clearSelectedImage()"
+                            style="display: none;">✕
+                    </button>
+                </div>
             </div>
-            <div class="post-form-group">
-                <label for="post-date">Date (defaults to now)</label>
-                <input type="datetime-local" id="post-date">
-            </div>
-            
-            <!-- 背景图片选择 -->
-            <div class="post-form-group">
-                <label>Background Image</label>
-                <div class="file-input-container">
-                    <button type="button" class="file-select-button" onclick="selectImage()">Choose Image</button>
-                    <div id="selected-image-container" class="selected-file-container">
-                        <span id="selected-image-name">No image selected</span>
-                        <img id="image-preview" class="file-preview" style="display: none;" />
-                        <button type="button" id="clear-image-btn" class="clear-file-button" onclick="clearSelectedImage()" style="display: none;">✕</button>
+        </div>
+
+        <!-- 音乐选择 -->
+        <div class="post-form-group">
+            <label>Music</label>
+            <div class="music-input-container">
+                <div class="music-file-section">
+                    <button type="button" class="file-select-button" onclick="selectMusic()">Choose Music File</button>
+                    <div id="selected-music-container" class="selected-file-container">
+                        <span id="selected-music-name">No music selected</span>
+                        <button type="button" id="clear-music-btn" class="clear-file-button"
+                                onclick="clearSelectedMusic()" style="display: none;">✕
+                        </button>
+                    </div>
+                </div>
+
+                <div id="music-metadata-section" style="display: none;">
+                    <div class="post-form-group">
+                        <label for="music-title">Music Title</label>
+                        <input type="text" id="music-title" placeholder="Enter music title">
+                    </div>
+                    <div class="post-form-group">
+                        <label for="music-artist">Artist</label>
+                        <input type="text" id="music-artist" placeholder="Enter artist name">
                     </div>
                 </div>
             </div>
-            
-            <!-- 音乐选择 -->
-            <div class="post-form-group">
-                <label>Music</label>
-                <div class="music-input-container">
-                    <div class="music-file-section">
-                        <button type="button" class="file-select-button" onclick="selectMusic()">Choose Music File</button>
-                        <div id="selected-music-container" class="selected-file-container">
-                            <span id="selected-music-name">No music selected</span>
-                            <button type="button" id="clear-music-btn" class="clear-file-button" onclick="clearSelectedMusic()" style="display: none;">✕</button>
-                        </div>
+        </div>
+
+        <button class="submit-button" onclick="addPost()">Add Post</button>
+        <div id="status-message" class="status-message"></div>
+    </div>
+</div>
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Edit Post</h3>
+            <button class="modal-close" onclick="closeEditModal()">&times;</button>
+        </div>
+        <input type="hidden" id="edit-post-id">
+        <div class="post-form-group">
+            <label for="edit-post-text">Post Text</label>
+            <textarea id="edit-post-text"></textarea>
+        </div>
+        <div class="post-form-group">
+            <label for="edit-post-date">Date</label>
+            <input type="datetime-local" id="edit-post-date">
+        </div>
+
+        <!-- 编辑背景图片 -->
+        <div class="post-form-group">
+            <label>Background Image</label>
+            <div class="file-input-container">
+                <button type="button" class="file-select-button" onclick="selectEditImage()">Choose Image</button>
+                <div id="edit-selected-image-container" class="selected-file-container">
+                    <span id="edit-selected-image-name">No image selected</span>
+                    <img id="edit-image-preview" class="file-preview" style="display: none;"/>
+                    <button type="button" id="edit-clear-image-btn" class="clear-file-button"
+                            onclick="clearEditSelectedImage()" style="display: none;">✕
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编辑音乐 -->
+        <div class="post-form-group">
+            <label>Music</label>
+            <div class="music-input-container">
+                <div class="music-file-section">
+                    <button type="button" class="file-select-button" onclick="selectEditMusic()">Choose Music File
+                    </button>
+                    <div id="edit-selected-music-container" class="selected-file-container">
+                        <span id="edit-selected-music-name">No music selected</span>
+                        <button type="button" id="edit-clear-music-btn" class="clear-file-button"
+                                onclick="clearEditSelectedMusic()" style="display: none;">✕
+                        </button>
                     </div>
-                    
-                    <div id="music-metadata-section" style="display: none;">
-                        <div class="post-form-group">
-                            <label for="music-title">Music Title</label>
-                            <input type="text" id="music-title" placeholder="Enter music title">
-                        </div>
-                        <div class="post-form-group">
-                            <label for="music-artist">Artist</label>
-                            <input type="text" id="music-artist" placeholder="Enter artist name">
-                        </div>
+                </div>
+
+                <div id="edit-music-metadata-section" style="display: none;">
+                    <div class="post-form-group">
+                        <label for="edit-music-title">Music Title</label>
+                        <input type="text" id="edit-music-title" placeholder="Enter music title">
+                    </div>
+                    <div class="post-form-group">
+                        <label for="edit-music-artist">Artist</label>
+                        <input type="text" id="edit-music-artist" placeholder="Enter artist name">
                     </div>
                 </div>
             </div>
-            
-            <button class="submit-button" onclick="addPost()">Add Post</button>
-            <div id="status-message" class="status-message"></div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="modal-cancel" onclick="closeEditModal()">Cancel</button>
+            <button class="modal-save" onclick="saveEditedPost()">Save Changes</button>
         </div>
     </div>
-    <div id="edit-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Edit Post</h3>
-                <button class="modal-close" onclick="closeEditModal()">&times;</button>
-            </div>
-            <input type="hidden" id="edit-post-id">
-            <div class="post-form-group">
-                <label for="edit-post-text">Post Text</label>
-                <textarea id="edit-post-text"></textarea>
-            </div>
-            <div class="post-form-group">
-                <label for="edit-post-date">Date</label>
-                <input type="datetime-local" id="edit-post-date">
-            </div>
-            
-            <!-- 编辑背景图片 -->
-            <div class="post-form-group">
-                <label>Background Image</label>
-                <div class="file-input-container">
-                    <button type="button" class="file-select-button" onclick="selectEditImage()">Choose Image</button>
-                    <div id="edit-selected-image-container" class="selected-file-container">
-                        <span id="edit-selected-image-name">No image selected</span>
-                        <img id="edit-image-preview" class="file-preview" style="display: none;" />
-                        <button type="button" id="edit-clear-image-btn" class="clear-file-button" onclick="clearEditSelectedImage()" style="display: none;">✕</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 编辑音乐 -->
-            <div class="post-form-group">
-                <label>Music</label>
-                <div class="music-input-container">
-                    <div class="music-file-section">
-                        <button type="button" class="file-select-button" onclick="selectEditMusic()">Choose Music File</button>
-                        <div id="edit-selected-music-container" class="selected-file-container">
-                            <span id="edit-selected-music-name">No music selected</span>
-                            <button type="button" id="edit-clear-music-btn" class="clear-file-button" onclick="clearEditSelectedMusic()" style="display: none;">✕</button>
-                        </div>
-                    </div>
-                    
-                    <div id="edit-music-metadata-section" style="display: none;">
-                        <div class="post-form-group">
-                            <label for="edit-music-title">Music Title</label>
-                            <input type="text" id="edit-music-title" placeholder="Enter music title">
-                        </div>
-                        <div class="post-form-group">
-                            <label for="edit-music-artist">Artist</label>
-                            <input type="text" id="edit-music-artist" placeholder="Enter artist name">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="modal-cancel" onclick="closeEditModal()">Cancel</button>
-                <button class="modal-save" onclick="saveEditedPost()">Save Changes</button>
-            </div>
+</div>
+
+<div id="delete-dialog" class="confirm-dialog">
+    <div class="confirm-content">
+        <h3>Delete Post</h3>
+        <p>Are you sure you want to delete this post? This action cannot be undone.</p>
+        <input type="hidden" id="delete-post-id">
+        <div class="confirm-buttons">
+            <button class="confirm-cancel" onclick="closeDeleteDialog()">Cancel</button>
+            <button class="confirm-delete" onclick="confirmDelete()">Delete</button>
         </div>
     </div>
+</div>
 
-    <div id="delete-dialog" class="confirm-dialog">
-        <div class="confirm-content">
-            <h3>Delete Post</h3>
-            <p>Are you sure you want to delete this post? This action cannot be undone.</p>
-            <input type="hidden" id="delete-post-id">
-            <div class="confirm-buttons">
-                <button class="confirm-cancel" onclick="closeDeleteDialog()">Cancel</button>
-                <button class="confirm-delete" onclick="confirmDelete()">Delete</button>
-            </div>
-        </div>
-    </div>
+<script>
+    const {ipcRenderer} = require('electron');
+    window.addEventListener('DOMContentLoaded', () => {
+        setDefaultDateTime();
+    });
 
-    <script>
-        const { ipcRenderer } = require('electron');
-        window.addEventListener('DOMContentLoaded', () => {
-            setDefaultDateTime();
+    function setDefaultDateTime() {
+        const now = new Date();
+        const formattedDate = now.getFullYear() + '-' +
+            padZero(now.getMonth() + 1) + '-' +
+            padZero(now.getDate()) + 'T' +
+            padZero(now.getHours()) + ':' +
+            padZero(now.getMinutes());
+        document.getElementById('post-date').value = formattedDate;
+    }
+
+    function padZero(num) {
+        return num.toString().padStart(2, '0');
+    }
+
+    ipcRenderer.on('posts-data', (event, posts) => {
+        const container = document.getElementById('posts-container');
+        const noPostsMessage = document.getElementById('no-posts-message');
+        container.innerHTML = '';
+        if (!posts || posts.length === 0) {
+            container.style.display = 'none';
+            noPostsMessage.style.display = 'block';
+            return;
+        }
+        container.style.display = 'block';
+        noPostsMessage.style.display = 'none';
+        posts.forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            const postHeader = document.createElement('div');
+            postHeader.className = 'post-header';
+            const postId = document.createElement('span');
+            postId.textContent = `ID: ${post.id}`;
+            const postDate = document.createElement('span');
+            postDate.textContent = formatDate(post.date);
+            postHeader.appendChild(postId);
+            postHeader.appendChild(postDate);
+            const postText = document.createElement('div');
+            postText.className = 'post-text';
+            postText.textContent = post.text;
+            const postActions = document.createElement('div');
+            postActions.className = 'post-actions';
+            const editButton = document.createElement('button');
+            editButton.className = 'edit-button';
+            editButton.textContent = 'Edit';
+            editButton.onclick = () => openEditModal(post);
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = () => openDeleteDialog(post.id);
+            postActions.appendChild(editButton);
+            postActions.appendChild(deleteButton);
+            postCard.appendChild(postHeader);
+            postCard.appendChild(postText);
+            postCard.appendChild(postActions);
+            container.appendChild(postCard);
         });
-        function setDefaultDateTime() {
-            const now = new Date();
-            const formattedDate = now.getFullYear() + '-' +
-                                 padZero(now.getMonth() + 1) + '-' +
-                                 padZero(now.getDate()) + 'T' +
-                                 padZero(now.getHours()) + ':' +
-                                 padZero(now.getMinutes());
-            document.getElementById('post-date').value = formattedDate;
-        }
-        function padZero(num) {
-            return num.toString().padStart(2, '0');
-        }
-        function addPost() {
-            const text = document.getElementById('post-text').value.trim();
-            const dateInput = document.getElementById('post-date').value;
+    });
 
-            if (!text) {
-                showStatusMessage('Post text cannot be empty', 'error');
-                return;
-            }
+    ipcRenderer.on('posts-file-path', (event, path) => {
+        document.getElementById('post-file-path').textContent = `File path: ${path}`;
+    });
 
-            const post = {
-                text: text
-            };
-            if (dateInput) {
-                post.date = new Date(dateInput).toISOString();
-            }
-            
-            // Add image if selected
-            const selectedImage = document.getElementById('image-preview');
-            if (selectedImage.style.display !== 'none' && selectedImage.src) {
-                const imagePath = selectedImage.src;
-                if (imagePath.startsWith('file://')) {
-                    post.image = imagePath.replace('file://', '');
-                } else {
-                    post.image = imagePath;
-                }
-            }
-            
-            // Add music if selected
-            const musicName = document.getElementById('selected-music-name');
-            if (musicName.textContent !== 'No music selected') {
-                const title = document.getElementById('music-title').value.trim();
-                const artist = document.getElementById('music-artist').value.trim();
-                
-                if (!title || !artist) {
-                    showStatusMessage('Please enter music title and artist', 'error');
-                    return;
-                }
-                
-                post.music = {
-                    title: title,
-                    artist: artist,
-                    file: musicName.textContent
-                };
-            }
-            
-            ipcRenderer.send('add-post', post);
-        }
-        ipcRenderer.on('posts-data', (event, posts) => {
-            const container = document.getElementById('posts-container');
-            const noPostsMessage = document.getElementById('no-posts-message');
-            container.innerHTML = '';
-            if (!posts || posts.length === 0) {
-                container.style.display = 'none';
-                noPostsMessage.style.display = 'block';
-                return;
-            }
-            container.style.display = 'block';
-            noPostsMessage.style.display = 'none';
-            posts.forEach(post => {
-                const postCard = document.createElement('div');
-                postCard.className = 'post-card';
-                
-                // Add background image if present
-                if (post.image) {
-                    const bgImage = document.createElement('img');
-                    bgImage.className = 'post-image-bg';
-                    bgImage.src = post.image;
-                    bgImage.alt = 'Background';
-                    postCard.appendChild(bgImage);
-                }
-                
-                const postContent = document.createElement('div');
-                postContent.className = 'post-content';
-                
-                const postHeader = document.createElement('div');
-                postHeader.className = 'post-header';
-                const postId = document.createElement('span');
-                postId.textContent = `ID: ${post.id}`;
-                const postDate = document.createElement('span');
-                postDate.textContent = formatDate(post.date);
-                postHeader.appendChild(postId);
-                postHeader.appendChild(postDate);
-                
-                const postText = document.createElement('div');
-                postText.className = 'post-text';
-                postText.textContent = post.text;
-                
-                // Add music info if present
-                if (post.music) {
-                    const musicInfo = document.createElement('div');
-                    musicInfo.className = 'post-music-info';
-                    musicInfo.innerHTML = `
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
-                            <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"/>
-                            <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"/>
-                        </svg>
-                        ${post.music.title} - ${post.music.artist}
-                    `;
-                    postContent.appendChild(musicInfo);
-                }
-                
-                const postActions = document.createElement('div');
-                postActions.className = 'post-actions';
-                const editButton = document.createElement('button');
-                editButton.className = 'edit-button';
-                editButton.textContent = 'Edit';
-                editButton.onclick = () => openEditModal(post);
-                const deleteButton = document.createElement('button');
-                deleteButton.className = 'delete-button';
-                deleteButton.textContent = 'Delete';
-                deleteButton.onclick = () => openDeleteDialog(post.id);
-                postActions.appendChild(editButton);
-                postActions.appendChild(deleteButton);
-                
-                postContent.appendChild(postHeader);
-                postContent.appendChild(postText);
-                postContent.appendChild(postActions);
-                postCard.appendChild(postContent);
-                
-                container.appendChild(postCard);
-            });
-        });
-
-        ipcRenderer.on('posts-file-path', (event, path) => {
-            document.getElementById('post-file-path').textContent = `File path: ${path}`;
-        });
-
-        ipcRenderer.on('post-added', (event, result) => {
-            const statusMessage = document.getElementById('status-message');
-            if (result.success) {
-                statusMessage.textContent = 'Post added successfully!';
-                statusMessage.className = 'status-message success';
-                statusMessage.style.display = 'block';
-                document.getElementById('post-text').value = '';
-                setDefaultDateTime();
-            } else {
-                statusMessage.textContent = `Error adding post: ${result.error || 'Unknown error'}`;
-                statusMessage.className = 'status-message error';
-                statusMessage.style.display = 'block';
-            }
-            setTimeout(() => {
-                statusMessage.style.display = 'none';
-            }, 3000);
-        });
-
-        ipcRenderer.on('post-edited', (event, result) => {
-            if (result.success) {
-                showStatusMessage('Post updated successfully!', 'success');
-                closeEditModal();
-            } else {
-                showStatusMessage(`Error updating post: ${result.error || 'Unknown error'}`, 'error');
-            }
-        });
-
-        ipcRenderer.on('post-deleted', (event, result) => {
-            if (result.success) {
-                showStatusMessage('Post deleted successfully!', 'success');
-                closeDeleteDialog();
-            } else {
-                showStatusMessage(`Error deleting post: ${result.error || 'Unknown error'}`, 'error');
-                closeDeleteDialog();
-            }
-        });
-
-        ipcRenderer.on('github-sync-result', (event, result) => {
-            document.getElementById('sync-spinner').style.display = 'none';
-
-            if (result.success) {
-                showStatusMessage('Successfully synced to GitHub!', 'success');
-            } else {
-                showStatusMessage(`Error syncing to GitHub: ${result.error || 'Unknown error'}`, 'error');
-            }
-        });
-
-        function openEditModal(post) {
-            document.getElementById('edit-post-id').value = post.id;
-            document.getElementById('edit-post-text').value = post.text;
-            const date = new Date(post.date);
-            const formattedDate = date.toISOString().slice(0, 16);
-            document.getElementById('edit-post-date').value = formattedDate;
-            
-            // Handle image display
-            if (post.image) {
-                const preview = document.getElementById('edit-image-preview');
-                const nameEl = document.getElementById('edit-selected-image-name');
-                const clearBtn = document.getElementById('edit-clear-image-btn');
-                
-                // Extract filename from path
-                const fileName = post.image.split('/').pop();
-                nameEl.textContent = fileName;
-                
-                // Set preview image
-                preview.src = post.image;
-                preview.style.display = 'block';
-                clearBtn.style.display = 'block';
-            } else {
-                // Reset image section
-                document.getElementById('edit-selected-image-name').textContent = 'No image selected';
-                document.getElementById('edit-image-preview').style.display = 'none';
-                document.getElementById('edit-clear-image-btn').style.display = 'none';
-            }
-            
-            // Handle music display
-            if (post.music) {
-                document.getElementById('edit-selected-music-name').textContent = post.music.file;
-                document.getElementById('edit-clear-music-btn').style.display = 'block';
-                document.getElementById('edit-music-metadata-section').style.display = 'block';
-                document.getElementById('edit-music-title').value = post.music.title;
-                document.getElementById('edit-music-artist').value = post.music.artist;
-            } else {
-                // Reset music section
-                document.getElementById('edit-selected-music-name').textContent = 'No music selected';
-                document.getElementById('edit-clear-music-btn').style.display = 'none';
-                document.getElementById('edit-music-metadata-section').style.display = 'none';
-                document.getElementById('edit-music-title').value = '';
-                document.getElementById('edit-music-artist').value = '';
-            }
-            
-            document.getElementById('edit-modal').style.display = 'flex';
-        }
-
-        function closeEditModal() {
-            document.getElementById('edit-modal').style.display = 'none';
-        }
-
-        function saveEditedPost() {
-            const postId = parseInt(document.getElementById('edit-post-id').value);
-            const text = document.getElementById('edit-post-text').value.trim();
-            const dateInput = document.getElementById('edit-post-date').value;
-            if (!text) {
-                showStatusMessage('Post text cannot be empty', 'error');
-                return;
-            }
-            const post = {
-                text: text
-            };
-            if (dateInput) {
-                post.date = new Date(dateInput).toISOString();
-            }
-            
-            // Handle image
-            const selectedImage = document.getElementById('edit-image-preview');
-            if (selectedImage.style.display !== 'none' && selectedImage.src) {
-                const imagePath = selectedImage.src;
-                if (imagePath.startsWith('file://')) {
-                    post.image = imagePath.replace('file://', '');
-                } else {
-                    post.image = imagePath;
-                }
-            } else {
-                // If image is cleared, set to null
-                post.image = null;
-            }
-            
-            // Handle music
-            const musicName = document.getElementById('edit-selected-music-name');
-            if (musicName.textContent !== 'No music selected') {
-                const title = document.getElementById('edit-music-title').value.trim();
-                const artist = document.getElementById('edit-music-artist').value.trim();
-                
-                if (!title || !artist) {
-                    showStatusMessage('Please enter music title and artist', 'error');
-                    return;
-                }
-                
-                post.music = {
-                    title: title,
-                    artist: artist,
-                    file: musicName.textContent
-                };
-            } else {
-                // If music is cleared, set to null
-                post.music = null;
-            }
-            
-            ipcRenderer.send('edit-post', { id: postId, post: post });
-        }
-
-        function openDeleteDialog(postId) {
-            document.getElementById('delete-post-id').value = postId;
-            document.getElementById('delete-dialog').style.display = 'flex';
-        }
-
-        function closeDeleteDialog() {
-            document.getElementById('delete-dialog').style.display = 'none';
-        }
-
-        function confirmDelete() {
-            const postId = parseInt(document.getElementById('delete-post-id').value);
-            ipcRenderer.send('delete-post', postId);
-        }
-
-        function showStatusMessage(message, type) {
-            const statusMessage = document.getElementById('status-message');
-            statusMessage.textContent = message;
-            statusMessage.className = `status-message ${type}`;
+    ipcRenderer.on('post-added', (event, result) => {
+        const statusMessage = document.getElementById('status-message');
+        if (result.success) {
+            statusMessage.textContent = 'Post added successfully!';
+            statusMessage.className = 'status-message success';
             statusMessage.style.display = 'block';
-            setTimeout(() => {
-                statusMessage.style.display = 'none';
-            }, 3000);
+            document.getElementById('post-text').value = '';
+            setDefaultDateTime();
+        } else {
+            statusMessage.textContent = `Error adding post: ${result.error || 'Unknown error'}`;
+            statusMessage.className = 'status-message error';
+            statusMessage.style.display = 'block';
+        }
+        setTimeout(() => {
+            statusMessage.style.display = 'none';
+        }, 3000);
+    });
+
+    ipcRenderer.on('post-edited', (event, result) => {
+        if (result.success) {
+            showStatusMessage('Post updated successfully!', 'success');
+            closeEditModal();
+        } else {
+            showStatusMessage(`Error updating post: ${result.error || 'Unknown error'}`, 'error');
+        }
+    });
+
+    ipcRenderer.on('post-deleted', (event, result) => {
+        if (result.success) {
+            showStatusMessage('Post deleted successfully!', 'success');
+            closeDeleteDialog();
+        } else {
+            showStatusMessage(`Error deleting post: ${result.error || 'Unknown error'}`, 'error');
+            closeDeleteDialog();
+        }
+    });
+
+    ipcRenderer.on('github-sync-result', (event, result) => {
+        document.getElementById('sync-spinner').style.display = 'none';
+
+        if (result.success) {
+            showStatusMessage('Successfully synced to GitHub!', 'success');
+        } else {
+            showStatusMessage(`Error syncing to GitHub: ${result.error || 'Unknown error'}`, 'error');
+        }
+    });
+
+    function addPost() {
+        const text = document.getElementById('post-text').value.trim();
+        const dateInput = document.getElementById('post-date').value;
+
+        if (!text) {
+            showStatusMessage('Post text cannot be empty', 'error');
+            return;
         }
 
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleString();
+        const post = {
+            text: text,
+            images: []
+        };
+        if (dateInput) {
+            post.date = new Date(dateInput).toISOString();
         }
+        ipcRenderer.send('add-post', post);
+    }
 
-        function toggleFullscreen() {
-            ipcRenderer.send('toggle-fullscreen');
-        }
+    function openEditModal(post) {
+        document.getElementById('edit-post-id').value = post.id;
+        document.getElementById('edit-post-text').value = post.text;
+        const date = new Date(post.date);
+        const formattedDate = date.toISOString().slice(0, 16);
+        document.getElementById('edit-post-date').value = formattedDate;
+        document.getElementById('edit-modal').style.display = 'flex';
+    }
 
-        function syncWithGitHub() {
-            document.getElementById('sync-spinner').style.display = 'inline-block';
-            ipcRenderer.send('github-sync-direct');
-        }
+    function closeEditModal() {
+        document.getElementById('edit-modal').style.display = 'none';
+    }
 
-        function closeGitHubDialog() {
+    function saveEditedPost() {
+        const postId = parseInt(document.getElementById('edit-post-id').value);
+        const text = document.getElementById('edit-post-text').value.trim();
+        const dateInput = document.getElementById('edit-post-date').value;
+        if (!text) {
+            showStatusMessage('Post text cannot be empty', 'error');
+            return;
         }
+        const post = {
+            text: text
+        };
+        if (dateInput) {
+            post.date = new Date(dateInput).toISOString();
+        }
+        ipcRenderer.send('edit-post', {id: postId, post: post});
+    }
 
-        function commitToGitHub() {
-        }
-        
-        // Image selection functions
-        async function selectImage() {
-            const imagePath = await ipcRenderer.invoke('select-image');
-            if (imagePath) {
-                displayImagePreview(imagePath);
-            }
-        }
-        
-        function displayImagePreview(imagePath) {
-            const preview = document.getElementById('image-preview');
-            const nameEl = document.getElementById('selected-image-name');
-            const clearBtn = document.getElementById('clear-image-btn');
-            
-            // Extract filename from path
-            const fileName = imagePath.split('/').pop();
-            nameEl.textContent = fileName;
-            
-            // Set preview image
-            preview.src = imagePath;
-            preview.style.display = 'block';
-            clearBtn.style.display = 'block';
-        }
-        
-        function clearSelectedImage() {
-            document.getElementById('selected-image-name').textContent = 'No image selected';
-            document.getElementById('image-preview').style.display = 'none';
-            document.getElementById('clear-image-btn').style.display = 'none';
-        }
-        
-        // Music selection functions
-        async function selectMusic() {
-            const result = await ipcRenderer.invoke('select-music');
-            if (result) {
-                displayMusicSelection(result.fileName);
-                
-                // Try to extract artist and title from filename
-                const parts = result.fileName.replace(/\.[^/.]+$/, '').split(' - ');
-                if (parts.length > 1) {
-                    document.getElementById('music-artist').value = parts[0].trim();
-                    document.getElementById('music-title').value = parts[1].trim();
-                } else {
-                    document.getElementById('music-title').value = parts[0].trim();
-                }
-            }
-        }
-        
-        function displayMusicSelection(fileName) {
-            document.getElementById('selected-music-name').textContent = fileName;
-            document.getElementById('clear-music-btn').style.display = 'block';
-            document.getElementById('music-metadata-section').style.display = 'block';
-        }
-        
-        function clearSelectedMusic() {
-            document.getElementById('selected-music-name').textContent = 'No music selected';
-            document.getElementById('clear-music-btn').style.display = 'none';
-            document.getElementById('music-metadata-section').style.display = 'none';
-            document.getElementById('music-title').value = '';
-            document.getElementById('music-artist').value = '';
-        }
-        
-        // Edit mode image/music functions
-        async function selectEditImage() {
-            const imagePath = await ipcRenderer.invoke('select-image');
-            if (imagePath) {
-                displayEditImagePreview(imagePath);
-            }
-        }
-        
-        function displayEditImagePreview(imagePath) {
-            const preview = document.getElementById('edit-image-preview');
-            const nameEl = document.getElementById('edit-selected-image-name');
-            const clearBtn = document.getElementById('edit-clear-image-btn');
-            
-            // Extract filename from path
-            const fileName = imagePath.split('/').pop();
-            nameEl.textContent = fileName;
-            
-            // Set preview image
-            preview.src = imagePath;
-            preview.style.display = 'block';
-            clearBtn.style.display = 'block';
-        }
-        
-        function clearEditSelectedImage() {
-            document.getElementById('edit-selected-image-name').textContent = 'No image selected';
-            document.getElementById('edit-image-preview').style.display = 'none';
-            document.getElementById('edit-clear-image-btn').style.display = 'none';
-        }
-        
-        async function selectEditMusic() {
-            const result = await ipcRenderer.invoke('select-music');
-            if (result) {
-                displayEditMusicSelection(result.fileName);
-                
-                // Try to extract artist and title from filename
-                const parts = result.fileName.replace(/\.[^/.]+$/, '').split(' - ');
-                if (parts.length > 1) {
-                    document.getElementById('edit-music-artist').value = parts[0].trim();
-                    document.getElementById('edit-music-title').value = parts[1].trim();
-                } else {
-                    document.getElementById('edit-music-title').value = parts[0].trim();
-                }
-            }
-        }
-        
-        function displayEditMusicSelection(fileName) {
-            document.getElementById('edit-selected-music-name').textContent = fileName;
-            document.getElementById('edit-clear-music-btn').style.display = 'block';
-            document.getElementById('edit-music-metadata-section').style.display = 'block';
-        }
-        
-        function clearEditSelectedMusic() {
-            document.getElementById('edit-selected-music-name').textContent = 'No music selected';
-            document.getElementById('edit-clear-music-btn').style.display = 'none';
-            document.getElementById('edit-music-metadata-section').style.display = 'none';
-            document.getElementById('edit-music-title').value = '';
-            document.getElementById('edit-music-artist').value = '';
-        }
-    </script>
+    function openDeleteDialog(postId) {
+        document.getElementById('delete-post-id').value = postId;
+        document.getElementById('delete-dialog').style.display = 'flex';
+    }
+
+    function closeDeleteDialog() {
+        document.getElementById('delete-dialog').style.display = 'none';
+    }
+
+    function confirmDelete() {
+        const postId = parseInt(document.getElementById('delete-post-id').value);
+        ipcRenderer.send('delete-post', postId);
+    }
+
+    function showStatusMessage(message, type) {
+        const statusMessage = document.getElementById('status-message');
+        statusMessage.textContent = message;
+        statusMessage.className = `status-message ${type}`;
+        statusMessage.style.display = 'block';
+        setTimeout(() => {
+            statusMessage.style.display = 'none';
+        }, 3000);
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString();
+    }
+
+    function toggleFullscreen() {
+        ipcRenderer.send('toggle-fullscreen');
+    }
+
+    function syncWithGitHub() {
+        document.getElementById('sync-spinner').style.display = 'inline-block';
+        ipcRenderer.send('github-sync-direct');
+    }
+
+    function closeGitHubDialog() {
+    }
+
+    function commitToGitHub() {
+    }
+</script>
 </body>
 </html>

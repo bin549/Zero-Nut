@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56352&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="zh-cn" />
@@ -15,7 +15,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:56352/topics/" />
+  <link rel="canonical" href="http://localhost:1313/topics/" />
   
   <link rel="alternate" type="application/rss+xml" href="/topics/index.xml" title="首页" />
   
@@ -65,7 +65,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:56352/topics/">
+  <meta property="og:url" content="http://localhost:1313/topics/">
   <meta property="og:site_name" content="首页">
   <meta property="og:title" content="Topics">
   <meta property="og:description" content="I&#39;m Z, A Coder &amp; Musician.">
@@ -192,7 +192,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="随笔">
+    <p class="text-base font-medium" title="">
         随笔
     </p>
 </a>
@@ -214,7 +214,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="碎碎念">
+    <p class="text-base font-medium" title="">
         碎碎念
     </p>
 </a>
@@ -369,7 +369,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="随笔">
+        <p class="text-bg font-bg" title="">
             随笔
         </p>
     </a>
@@ -395,7 +395,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="碎碎念">
+        <p class="text-bg font-bg" title="">
             碎碎念
         </p>
     </a>
@@ -529,7 +529,7 @@
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="标签">
+            title="">
             
             标签
           </a>
@@ -824,6 +824,66 @@
       height: 22px;
     }
   }
+  
+   
+  .song-info {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    background-color: white;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    min-width: 180px;
+    max-width: 240px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  
+  #music-player:hover .song-info {
+    opacity: 1;
+  }
+  
+  .dark-mode .song-info {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .song-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .song-artist {
+    font-size: 12px;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  @media (max-width: 768px) {
+    .song-info {
+      top: -50px;
+      min-width: 160px;
+      padding: 6px 10px;
+    }
+    
+    .song-title {
+      font-size: 12px;
+    }
+    
+    .song-artist {
+      font-size: 10px;
+    }
+  }
 </style>
 
 <div id="music-player">
@@ -843,6 +903,11 @@
   </div>
   
   <div class="now-playing-dot"></div>
+  
+  <div id="song-info" class="song-info">
+    <div id="song-title" class="song-title"></div>
+    <div id="song-artist" class="song-artist"></div>
+  </div>
   
   <audio id="audio-player">
     <source id="audio-source" src="/music/Toby Fox - Fallen Down (Reprise).mp3" type="audio/mpeg">
@@ -892,11 +957,33 @@
     
     function loadSong(index) {
       const song = currentPlaylist[index];
+      console.log(`加载歌曲: ${song.title} - ${song.artist}, 路径: ${song.src}`);
       
-      playPauseBtn.setAttribute('title', `${song.title} - ${song.artist}`);
-      audioSource.src = song.src;
-      currentMusicFile = song.src.split('/').pop();
+      currentMusicFile = song.src.replace(/^\/music\//, '');
+      console.log(`当前音乐文件: ${currentMusicFile}`);
+      
+      songTitle.textContent = song.title;
+      songArtist.textContent = song.artist;
+      
+      
+      audioPlayer.removeEventListener('error', handleAudioError);
+      
+      
+      audioPlayer.addEventListener('error', handleAudioError);
+      
+      
+      audioPlayer.src = song.src;
+      
+      
       audioPlayer.load();
+    }
+    
+    
+    function handleAudioError(e) {
+      console.error('音频加载错误:', e);
+      const errorCode = e.target.error ? e.target.error.code : '未知错误';
+      console.error(`错误代码: ${errorCode}, 资源: ${audioPlayer.src}`);
+      alert(`音乐加载失败: 错误代码${errorCode}, 资源: ${audioPlayer.src}`);
     }
     
     
@@ -992,12 +1079,23 @@
     window.togglePostMusic = function(button, title, artist, file) {
       
       const musicFile = file.replace(/^\/music\//, '');
+      console.log(`尝试播放音乐: ${title} - ${artist}, 文件: ${musicFile}`);
       
       
       const isSameMusic = currentMusicFile === musicFile;
       
       
       const isPlaying = !audioPlayer.paused;
+      
+      
+      if (window.otherAudioPlayers && window.otherAudioPlayers.length > 0) {
+        window.otherAudioPlayers.forEach(player => {
+          if (!player.paused) {
+            console.log('暂停其他正在播放的音频');
+            player.pause();
+          }
+        });
+      }
       
       
       if (activeButton && activeButton !== button) {
@@ -1035,7 +1133,10 @@
           if (activeButton) updateButtonState(activeButton, false);
         } else {
           
-          audioPlayer.play();
+          audioPlayer.play().catch(error => {
+            console.error('播放出错:', error);
+            alert(`播放失败: ${error.message}`);
+          });
           playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
           
           if (activeCard) updateButtonState(activeCard, true);
@@ -1046,20 +1147,41 @@
         currentPlaylist = [{ 
           title: title, 
           artist: artist, 
-          src: '/music/' + file 
+          src: '/music/' + musicFile 
         }];
         currentSongIndex = 0;
         loadSong(0);
-        audioPlayer.play();
+        audioPlayer.play().catch(error => {
+          console.error('播放出错:', error);
+          alert(`播放失败: ${error.message}`);
+        });
         playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
         
         if (activeCard) updateButtonState(activeCard, true);
         if (activeButton) updateButtonState(activeButton, true);
       }
+      
+      
+      if (!window.otherAudioPlayers) {
+        window.otherAudioPlayers = [];
+      }
+      if (!window.otherAudioPlayers.includes(audioPlayer)) {
+        window.otherAudioPlayers.push(audioPlayer);
+      }
     };
     
     
     window.playPostMusic = function(title, artist, file) {
+      
+      if (window.otherAudioPlayers && window.otherAudioPlayers.length > 0) {
+        window.otherAudioPlayers.forEach(player => {
+          if (!player.paused) {
+            console.log('暂停其他正在播放的音频');
+            player.pause();
+          }
+        });
+      }
+      
       musicPlayer.classList.remove('fade-in');
       
       if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
@@ -1068,21 +1190,39 @@
       }
       
       if (title && artist && file) {
+        
+        const musicFile = file.replace(/^\/music\//, '');
+        console.log(`尝试播放音乐: ${title} - ${artist}, 文件: ${musicFile}`);
+        
         currentPlaylist = [{ 
           title: title, 
           artist: artist, 
-          src: '/music/' + file 
+          src: '/music/' + musicFile 
         }];
         currentSongIndex = 0;
         loadSong(0);
-        audioPlayer.play();
+        audioPlayer.play().catch(error => {
+          console.error('播放出错:', error);
+          alert(`播放失败: ${error.message}`);
+        });
         playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
       } else {
         currentPlaylist = [...defaultPlaylist];
         currentSongIndex = 0;
         loadSong(0);
-        audioPlayer.play();
+        audioPlayer.play().catch(error => {
+          console.error('播放出错:', error);
+          alert(`播放失败: ${error.message}`);
+        });
         playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      }
+      
+      
+      if (!window.otherAudioPlayers) {
+        window.otherAudioPlayers = [];
+      }
+      if (!window.otherAudioPlayers.includes(audioPlayer)) {
+        window.otherAudioPlayers.push(audioPlayer);
       }
     };
     
@@ -1127,7 +1267,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:56352/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
