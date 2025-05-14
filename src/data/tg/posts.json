@@ -3,72 +3,132 @@
     "id": 60,
     "date": "2025-05-07T13:07:00.000Z",
     "text": "我一直抵抗着那股要带走自己的洪流，却真正地随回忆一起融化在了时间里。",
-    "images": []
+    "image": "/images/backgrounds/time.jpg",
+    "music": {
+      "title": "Time Passes",
+      "artist": "Kevin MacLeod",
+      "file": "Kevin MacLeod - Time Passes.mp3"
+    }
   },
   {
     "id": 59,
     "date": "2025-05-06T15:14:00.000Z",
     "text": "怎么会喜欢一个不存在的东西，世界上哪有正方体，只有我心爱的正方形。",
-    "images": []
+    "image": "/images/backgrounds/geometry.jpg",
+    "music": {
+      "title": "Home",
+      "artist": "Disasterpeace",
+      "file": "Disasterpeace - Home.mp3"
+    }
   },
   {
     "id": 57,
     "date": "2025-03-01T22:14:00+00:00",
     "text": "死亡不是终点，遗忘才是。",
-    "images": []
+    "image": "/images/backgrounds/memory.jpg",
+    "music": {
+      "title": "Time Passes",
+      "artist": "Kevin MacLeod",
+      "file": "Kevin MacLeod - Time Passes.mp3"
+    }
   },
   {
     "id": 56,
     "date": "2024-10-18T00:14:06+00:00",
     "text": "深夜蹲大同新专辑",
-    "images": []
+    "image": "/images/backgrounds/music.jpg",
+    "music": {
+      "title": "Fallen Down (Reprise)",
+      "artist": "Toby Fox",
+      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+    }
   },
   {
     "id": 55,
     "date": "2023-03-18T14:46:00.000Z",
     "text": "more care. more scare.",
-    "images": []
+    "image": "/images/backgrounds/abstract.jpg",
+    "music": {
+      "title": "Time Passes",
+      "artist": "Kevin MacLeod",
+      "file": "Kevin MacLeod - Time Passes.mp3"
+    }
   },
   {
     "id": 54,
     "date": "2025-02-10T14:20:00.000Z",
     "text": "表达的冲动只是一时喉痒，清一清嗓子就没有开口的欲望了。",
-    "images": []
+    "image": "/images/backgrounds/silence.jpg",
+    "music": {
+      "title": "Home",
+      "artist": "Disasterpeace",
+      "file": "Disasterpeace - Home.mp3"
+    }
   },
   {
     "id": 53,
     "date": "2023-01-13T20:52:00.000Z",
     "text": "To be alone, you need someone to be alone from.",
-    "images": []
+    "image": "/images/backgrounds/alone.jpg",
+    "music": {
+      "title": "Time Passes",
+      "artist": "Kevin MacLeod",
+      "file": "Kevin MacLeod - Time Passes.mp3"
+    }
   },
   {
     "id": 52,
     "date": "2023-01-06T15:59:00.000Z",
     "text": "越喜欢某样东西，当失去时，失落感也将越强烈。",
-    "images": []
+    "image": "/images/backgrounds/loss.jpg",
+    "music": {
+      "title": "Fallen Down (Reprise)",
+      "artist": "Toby Fox",
+      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+    }
   },
   {
     "id": 42,
     "date": "2022-07-13T21:40:06+00:00",
     "text": "当这个世界被人类的期待填满，我唯有将自己的回忆细细珍藏。",
-    "images": []
+    "image": "/images/backgrounds/memory2.jpg",
+    "music": {
+      "title": "Home",
+      "artist": "Disasterpeace",
+      "file": "Disasterpeace - Home.mp3"
+    }
   },
   {
     "id": 41,
     "date": "2021-06-18T00:14:06+00:00",
     "text": "毕业啦！",
-    "images": []
+    "image": "/images/backgrounds/graduation.jpg",
+    "music": {
+      "title": "Time Passes",
+      "artist": "Kevin MacLeod",
+      "file": "Kevin MacLeod - Time Passes.mp3"
+    }
   },
   {
     "id": 1,
     "date": "2018-03-29T12:10:39+00:00",
     "text": "I liked how things were when they were.",
-    "images": []
+    "image": "/images/backgrounds/nostalgia.jpg",
+    "music": {
+      "title": "Home",
+      "artist": "Disasterpeace",
+      "file": "Disasterpeace - Home.mp3"
+    }
   },
   {
     "id": 1,
     "date": "2017-07-06T09:10:39+00:00",
     "text": "高考完咯！",
-    "images": []
+    "image": "/images/backgrounds/celebration.jpg",
+    "music": {
+      "title": "Fallen Down (Reprise)",
+      "artist": "Toby Fox",
+      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+    }
   }
 ]
