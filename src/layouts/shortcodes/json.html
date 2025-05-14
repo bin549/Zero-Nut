@@ -2,28 +2,222 @@
 {{ $jsonContent := readFile $file }}
 {{ $data := $jsonContent | unmarshal }}
 
-<ol class="border-l-2 border-primary-500 dark:border-primary-300 list-none">
+<style>
+  .post-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  
+  .post-item {
+    margin-bottom: 1.25rem;
+  }
+  
+  .post-content {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .post-content:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .post-content.playing {
+    background-color: rgba(0, 102, 204, 0.05);
+    border-left: 4px solid #0066cc;
+  }
+  
+  .post-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.12;
+    z-index: 0;
+    filter: blur(1.5px) saturate(1.2);
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+  }
+  
+  .post-content:hover .post-background {
+    opacity: 0.15;
+    filter: blur(1px) saturate(1.3);
+  }
+  
+  .post-content.playing .post-background {
+    opacity: 0.18;
+    filter: blur(1px) saturate(1.4);
+  }
+  
+  .dark .post-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .post-content.playing {
+    background-color: rgba(51, 153, 255, 0.1);
+    border-left: 4px solid #3399ff;
+  }
+  
+  .dark .post-background {
+    opacity: 0.08;
+    filter: blur(1.5px) contrast(0.9) brightness(0.7);
+  }
+  
+  .dark .post-content:hover .post-background {
+    opacity: 0.12;
+  }
+  
+  .dark .post-content.playing .post-background {
+    opacity: 0.15;
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-timestamp {
+    white-space: nowrap;
+  }
+  
+  .post-body {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-body p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .music-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    margin-right: 6px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-content.playing .music-indicator {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .post-content {
+      padding: 0.65rem;
+    }
+    
+    .post-header {
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-body p {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-image {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-item {
+      margin-bottom: 0.8rem;
+    }
+    
+    .music-indicator {
+      width: 8px;
+      height: 8px;
+      margin-right: 4px;
+    }
+  }
+</style>
+
+<ol class="post-list">
   {{ range $data }}
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              {{ partial "icon" "star" }}
-            </h2>
-            <h3 class="">
-              {{ partial "badge" (time.Format "2006-01-02 15:04" .date) }}
-            </h3>
+    <li class="post-item">
+      <div class="post-content" {{ if .music }}data-music-title="{{ .music.title }}" data-music-artist="{{ .music.artist }}" data-music-file="{{ .music.file }}" onclick="togglePostCard(this)"{{ end }}>
+        {{ if .image }}
+          <img src="{{ .image }}" alt="背景图片" class="post-background">
+        {{ end }}
+        <div class="post-header">
+          <div class="post-timestamp">
+            {{ partial "badge" (time.Format "2006-01-02 15:04" .date) }}
           </div>
-          <div class="mb-6">
-            {{ range .images }}
-              <img src="{{ .url }}" alt="Post image" class="w-full h-auto rounded-lg mt-4">
-            {{ end }}
-            <p>{{ .text }}</p>
-          </div>
+        </div>
+        <div class="post-body">
+          {{ if .music }}
+            <div class="music-indicator"></div>
+          {{ end }}
+          <p>{{ .text }}</p>
         </div>
       </div>
     </li>
   {{ end }}
 </ol>
+
+<script>
+  // 点击卡片控制音乐播放函数
+  function togglePostCard(card) {
+    const title = card.dataset.musicTitle;
+    const artist = card.dataset.musicArtist;
+    const file = card.dataset.musicFile;
+    
+    // 如果卡片包含音乐数据，则播放或暂停音乐
+    if (title && artist && file) {
+      // 切换卡片的高亮状态
+      togglePostMusic(card, title, artist, file);
+    }
+  }
+</script>
 

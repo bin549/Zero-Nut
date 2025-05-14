@@ -8,17 +8,25 @@ app.disableHardwareAcceleration();
 
 let postsFilePath: string;
 
+interface Music {
+    title: string;
+    artist: string;
+    file: string;
+}
+
 interface Post {
     id: number;
     date: string;
     text: string;
-    images: string[];
+    image?: string;
+    music?: Music;
 }
 
 interface UpdatedPost {
     date?: string;
     text?: string;
-    images?: string[];
+    image?: string;
+    music?: Music;
 }
 
 interface SyncResult {
@@ -120,7 +128,8 @@ function addNewPost(post: Partial<Post>): Promise<Post> {
                     id: highestId + 1,
                     date: post.date || new Date().toISOString(),
                     text: post.text || '',
-                    images: post.images || []
+                    image: post.image,
+                    music: post.music
                 };
                 posts.unshift(newPost);
                 fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), 'utf8', (writeErr) => {
@@ -152,11 +161,15 @@ function editPost(postId: number, updatedPost: UpdatedPost): Promise<Post> {
                 if (postIndex === -1) {
                     return reject(new Error(`Post with ID ${postId} not found`));
                 }
+                
                 posts[postIndex] = {
                     ...posts[postIndex],
                     date: updatedPost.date || posts[postIndex].date,
-                    text: updatedPost.text || posts[postIndex].text
+                    text: updatedPost.text || posts[postIndex].text,
+                    image: updatedPost.image !== undefined ? updatedPost.image : posts[postIndex].image,
+                    music: updatedPost.music !== undefined ? updatedPost.music : posts[postIndex].music
                 };
+                
                 fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2), 'utf8', (writeErr) => {
                     if (writeErr) {
                         console.error(`Failed to write posts file: ${writeErr.message}`);
@@ -243,6 +256,102 @@ function syncWithGitHubDirect(): Promise<SyncResult> {
     });
 }
 
+// 获取静态资源目录路径
+function getStaticDir(): { imagesDir: string, musicDir: string } {
+    const projectRoot = path.resolve('/Users/Shared/1_work/web/zero-nut');
+    const imagesDir = path.join(projectRoot, 'src', 'static', 'images', 'backgrounds');
+    const musicDir = path.join(projectRoot, 'src', 'static', 'music');
+    
+    // 确保目录存在
+    if (!fs.existsSync(imagesDir)) {
+        fs.mkdirSync(imagesDir, { recursive: true });
+    }
+    if (!fs.existsSync(musicDir)) {
+        fs.mkdirSync(musicDir, { recursive: true });
+    }
+    
+    return { imagesDir, musicDir };
+}
+
+// 选择图片文件
+function selectImageFile(): Promise<string | null> {
+    return new Promise((resolve) => {
+        dialog.showOpenDialog({
+            title: '选择背景图片',
+            filters: [
+                { name: '图片文件', extensions: ['jpg', 'jpeg', 'png', 'gif'] }
+            ],
+            properties: ['openFile']
+        }).then(result => {
+            if (result.canceled || !result.filePaths.length) {
+                resolve(null);
+                return;
+            }
+            
+            const { imagesDir } = getStaticDir();
+            const sourceFile = result.filePaths[0];
+            const fileName = `bg_${Date.now()}${path.extname(sourceFile)}`;
+            const destFile = path.join(imagesDir, fileName);
+            
+            // 复制文件到静态目录
+            fs.copyFile(sourceFile, destFile, (err) => {
+                if (err) {
+                    console.error(`Failed to copy image file: ${err.message}`);
+                    resolve(null);
+                    return;
+                }
+                
+                // 返回相对路径用于存储
+                resolve(`/images/backgrounds/${fileName}`);
+            });
+        }).catch(err => {
+            console.error('Failed to select image file:', err);
+            resolve(null);
+        });
+    });
+}
+
+// 选择音乐文件
+function selectMusicFile(): Promise<{ filePath: string, fileName: string } | null> {
+    return new Promise((resolve) => {
+        dialog.showOpenDialog({
+            title: '选择音乐文件',
+            filters: [
+                { name: '音乐文件', extensions: ['mp3', 'wav', 'ogg'] }
+            ],
+            properties: ['openFile']
+        }).then(result => {
+            if (result.canceled || !result.filePaths.length) {
+                resolve(null);
+                return;
+            }
+            
+            const { musicDir } = getStaticDir();
+            const sourceFile = result.filePaths[0];
+            const fileName = path.basename(sourceFile);
+            const destFile = path.join(musicDir, fileName);
+            
+            // 复制文件到静态目录
+            fs.copyFile(sourceFile, destFile, (err) => {
+                if (err) {
+                    console.error(`Failed to copy music file: ${err.message}`);
+                    resolve(null);
+                    return;
+                }
+                
+                // 返回相对路径和原始文件名
+                resolve({ 
+                    filePath: fileName, 
+                    fileName: fileName 
+                });
+            });
+        }).catch(err => {
+            console.error('Failed to select music file:', err);
+            resolve(null);
+        });
+    });
+}
+
 app.whenReady().then(() => {
     console.log('Application is ready');
     console.log('Node version:', process.versions.node);
@@ -317,4 +426,13 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createMainWindow();
     }
+});
+
+// 添加新的IPC处理
+ipcMain.handle('select-image', async () => {
+    return await selectImageFile();
+});
+
+ipcMain.handle('select-music', async () => {
+    return await selectMusicFile();
 }); 

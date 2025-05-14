@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56352&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="zh-cn" />
@@ -15,7 +15,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/" />
+  <link rel="canonical" href="http://localhost:56352/tags/%E6%B8%B8%E6%88%8F/" />
   
   <link rel="alternate" type="application/rss+xml" href="/tags/%E6%B8%B8%E6%88%8F/index.xml" title="首页" />
   
@@ -65,7 +65,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/">
+  <meta property="og:url" content="http://localhost:56352/tags/%E6%B8%B8%E6%88%8F/">
   <meta property="og:site_name" content="首页">
   <meta property="og:title" content="游戏">
   <meta property="og:description" content="I&#39;m Z, A Coder &amp; Musician.">
@@ -192,7 +192,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="">
+    <p class="text-base font-medium" title="随笔">
         随笔
     </p>
 </a>
@@ -214,7 +214,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="">
+    <p class="text-base font-medium" title="碎碎念">
         碎碎念
     </p>
 </a>
@@ -369,7 +369,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="">
+        <p class="text-bg font-bg" title="随笔">
             随笔
         </p>
     </a>
@@ -395,7 +395,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="">
+        <p class="text-bg font-bg" title="碎碎念">
             碎碎念
         </p>
     </a>
@@ -674,7 +674,7 @@
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="">
+            title="标签">
             
             标签
           </a>
@@ -727,11 +727,552 @@
   <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
+  
+<style>
+  #music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: white;
+    color: #333;
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    display: none;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  #music-player.dark-mode {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    font-size: 10px;
+    padding: 0;
+    z-index: 10000;
+  }
+  
+  .dark-mode .close-button {
+    background-color: #333;
+    color: #999;
+  }
+  
+  .close-button:hover {
+    background-color: #f0f0f0;
+    color: #cc0000;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .close-button:hover {
+    background-color: #444;
+    color: #ff6666;
+  }
+  
+  .control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .control-button:hover {
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .control-button {
+    color: #999;
+  }
+  
+  .dark-mode .control-button:hover {
+    color: #3399ff;
+  }
+  
+  .now-playing-dot {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .dark-mode .now-playing-dot {
+    box-shadow: 0 0 0 2px #333;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+   
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.7); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .play-music-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .play-music-button:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .play-music-button,
+  .dark .play-music-button {
+    color: #999;
+  }
+  
+  .dark-mode .play-music-button:hover,
+  .dark .play-music-button:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #3399ff;
+  }
+  
+   
+  .play-music-button.playing svg path:last-child {
+    d: path('M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z');
+  }
+  
+   
+  #audio-player {
+    display: none;
+  }
+  
+   
+  @media (max-width: 768px) {
+    #music-player {
+      bottom: 15px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+    }
+    
+    .control-button {
+      width: 38px;
+      height: 38px;
+    }
+    
+    .control-button svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .close-button {
+      width: 18px;
+      height: 18px;
+      top: -6px;
+      right: -6px;
+    }
+    
+    .close-button svg {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .now-playing-dot {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #music-player {
+      bottom: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      padding: 3px;
+    }
+    
+    .control-button {
+      width: 34px;
+      height: 34px;
+    }
+    
+    .control-button svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+</style>
+
+<div id="music-player">
+  <button id="close-player" class="close-button" title="关闭播放器">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+  
+  <div class="player-controls">
+    <button id="play-pause" class="control-button" title="播放/暂停">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="now-playing-dot"></div>
+  
+  <audio id="audio-player">
+    <source id="audio-source" src="/music/Toby Fox - Fallen Down (Reprise).mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放。
+  </audio>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    function detectDarkMode() {
+      if (document.documentElement.classList.contains('dark') || 
+          window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementById('music-player').classList.add('dark-mode');
+      }
+    }
+    
+    
+    const defaultPlaylist = [
+      { title: "Fallen Down (Reprise)", artist: "Toby Fox", src: "/music/Toby Fox - Fallen Down (Reprise).mp3" },
+      { title: "Home", artist: "Disasterpeace", src: "/music/Disasterpeace - Home.mp3" },
+      { title: "Time Passes", artist: "Kevin MacLeod", src: "/music/Kevin MacLeod - Time Passes.mp3" }
+    ];
+    
+    
+    let currentPlaylist = [...defaultPlaylist];
+    
+    
+    let currentSongIndex = 0;
+    
+    
+    let activeButton = null;
+    
+    
+    let currentMusicFile = null;
+    
+    
+    let activeCard = null;
+    
+    
+    const musicPlayer = document.getElementById('music-player');
+    const audioPlayer = document.getElementById('audio-player');
+    const audioSource = document.getElementById('audio-source');
+    const playPauseBtn = document.getElementById('play-pause');
+    const closePlayerBtn = document.getElementById('close-player');
+    
+    
+    function loadSong(index) {
+      const song = currentPlaylist[index];
+      
+      playPauseBtn.setAttribute('title', `${song.title} - ${song.artist}`);
+      audioSource.src = song.src;
+      currentMusicFile = song.src.split('/').pop();
+      audioPlayer.load();
+    }
+    
+    
+    playPauseBtn.addEventListener('click', function() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, true);
+        }
+      } else {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+        }
+      }
+    });
+    
+    
+    closePlayerBtn.addEventListener('click', function() {
+      musicPlayer.classList.add('fade-out');
+      
+      
+      setTimeout(function() {
+        musicPlayer.style.display = 'none';
+        musicPlayer.classList.remove('fade-out');
+        
+        audioPlayer.pause();
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+          activeButton = null;
+        }
+        
+        if (activeCard) {
+          updateButtonState(activeCard, false);
+          activeCard = null;
+        }
+      }, 300);
+    });
+    
+    
+    audioPlayer.addEventListener('ended', function() {
+      currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+      loadSong(currentSongIndex);
+      audioPlayer.play();
+    });
+    
+    
+    function updateButtonState(button, isPlaying) {
+      if (button.classList.contains('play-music-button')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        } else {
+          button.classList.remove('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        }
+      } else if (button.classList.contains('post-content')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+        } else {
+          button.classList.remove('playing');
+        }
+      }
+    }
+    
+    
+    loadSong(currentSongIndex);
+    
+    
+    detectDarkMode();
+    
+    
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          detectDarkMode();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true
+    });
+    
+    
+    window.togglePostMusic = function(button, title, artist, file) {
+      
+      const musicFile = file.replace(/^\/music\//, '');
+      
+      
+      const isSameMusic = currentMusicFile === musicFile;
+      
+      
+      const isPlaying = !audioPlayer.paused;
+      
+      
+      if (activeButton && activeButton !== button) {
+        updateButtonState(activeButton, false);
+      }
+      
+      
+      if (button.classList.contains('post-content')) {
+        
+        if (activeCard && activeCard !== button) {
+          updateButtonState(activeCard, false);
+        }
+        activeCard = button;
+      } else {
+        
+        activeButton = button;
+      }
+      
+      
+      musicPlayer.classList.remove('fade-in');
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      
+      if (isSameMusic) {
+        
+        if (isPlaying) {
+          
+          audioPlayer.pause();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, false);
+          if (activeButton) updateButtonState(activeButton, false);
+        } else {
+          
+          audioPlayer.play();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, true);
+          if (activeButton) updateButtonState(activeButton, true);
+        }
+      } else {
+        
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeCard) updateButtonState(activeCard, true);
+        if (activeButton) updateButtonState(activeButton, true);
+      }
+    };
+    
+    
+    window.playPostMusic = function(title, artist, file) {
+      musicPlayer.classList.remove('fade-in');
+      
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      if (title && artist && file) {
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      } else {
+        currentPlaylist = [...defaultPlaylist];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      }
+    };
+    
+    
+    document.addEventListener('keydown', function(e) {
+      
+      if (musicPlayer.style.display === 'flex') {
+        
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault(); 
+          playPauseBtn.click();
+        }
+        
+        else if (e.code === 'Escape') {
+          closePlayerBtn.click();
+        }
+      }
+    });
+    
+    
+    audioPlayer.addEventListener('play', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, true);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, true);
+      }
+    });
+    
+    audioPlayer.addEventListener('pause', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, false);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, false);
+      }
+    });
+  });
+</script>  
+  
 </footer>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="http://localhost:56352/"
   style="z-index:500"
 >
   <div

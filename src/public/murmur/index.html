@@ -100,7 +100,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "97"
+    "wordCount": "219"
   }]
   </script>
 
@@ -217,7 +217,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="">
+    <p class="text-base font-medium" title="随笔">
         随笔
     </p>
 </a>
@@ -239,7 +239,7 @@
 
     </span>
     
-    <p class="text-base font-medium" title="">
+    <p class="text-base font-medium" title="碎碎念">
         碎碎念
     </p>
 </a>
@@ -394,7 +394,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="">
+        <p class="text-bg font-bg" title="随笔">
             随笔
         </p>
     </a>
@@ -420,7 +420,7 @@
 
         </div>
         
-        <p class="text-bg font-bg" title="">
+        <p class="text-bg font-bg" title="碎碎念">
             碎碎念
         </p>
     </a>
@@ -619,277 +619,488 @@
 
         <div class="article-content max-w-prose mb-20">
           <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  表达的冲动只是一时喉痒，清一清嗓子就没有开口的欲望了。
+  
 </div>
 
 
 
 
 
-<ol class="border-l-2 border-primary-500 dark:border-primary-300 list-none">
+<style>
+  .post-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
+  .post-item {
+    margin-bottom: 1.25rem;
+  }
+  
+  .post-content {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .post-content:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .post-content.playing {
+    background-color: rgba(0, 102, 204, 0.05);
+    border-left: 4px solid #0066cc;
+  }
+  
+  .post-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.12;
+    z-index: 0;
+    filter: blur(1.5px) saturate(1.2);
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+  }
+  
+  .post-content:hover .post-background {
+    opacity: 0.15;
+    filter: blur(1px) saturate(1.3);
+  }
+  
+  .post-content.playing .post-background {
+    opacity: 0.18;
+    filter: blur(1px) saturate(1.4);
+  }
+  
+  .dark .post-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .post-content.playing {
+    background-color: rgba(51, 153, 255, 0.1);
+    border-left: 4px solid #3399ff;
+  }
+  
+  .dark .post-background {
+    opacity: 0.08;
+    filter: blur(1.5px) contrast(0.9) brightness(0.7);
+  }
+  
+  .dark .post-content:hover .post-background {
+    opacity: 0.12;
+  }
+  
+  .dark .post-content.playing .post-background {
+    opacity: 0.15;
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-timestamp {
+    white-space: nowrap;
+  }
+  
+  .post-body {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-body p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .music-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    margin-right: 6px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .post-content.playing .music-indicator {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .post-content {
+      padding: 0.65rem;
+    }
+    
+    .post-header {
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-body p {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-image {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    .post-item {
+      margin-bottom: 0.8rem;
+    }
+    
+    .music-indicator {
+      width: 8px;
+      height: 8px;
+      margin-right: 4px;
+    }
+  }
+</style>
 
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+<ol class="post-list">
+  
+    <li class="post-item">
+      <div class="post-content" data-music-title="Time Passes" data-music-artist="Kevin MacLeod" data-music-file="Kevin MacLeod - Time Passes.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/time.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2025-03-01 11:14
+    2025-05-07 13:07
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>难受......</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>我一直抵抗着那股要带走自己的洪流，却真正地随回忆一起融化在了时间里。</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Home" data-music-artist="Disasterpeace" data-music-file="Disasterpeace - Home.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/geometry.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2025-02-24 08:43
+    2025-05-06 15:14
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>从此就是打工人</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>怎么会喜欢一个不存在的东西，世界上哪有正方体，只有我心爱的正方形。</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Time Passes" data-music-artist="Kevin MacLeod" data-music-file="Kevin MacLeod - Time Passes.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/memory.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2025-01-01 00:00
+    2025-03-01 22:14
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>辞旧迎新！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>死亡不是终点，遗忘才是。</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Fallen Down (Reprise)" data-music-artist="Toby Fox" data-music-file="Toby Fox - Fallen Down (Reprise).mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/music.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     2024-10-18 00:14
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>深夜蹲大同新专辑</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>深夜蹲大同新专辑</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Time Passes" data-music-artist="Kevin MacLeod" data-music-file="Kevin MacLeod - Time Passes.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/abstract.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-08-18 00:00
+    2023-03-18 14:46
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>中元节快乐！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>more care. more scare.</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Home" data-music-artist="Disasterpeace" data-music-file="Disasterpeace - Home.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/silence.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-06-18 00:14
+    2025-02-10 14:20
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>毕业咯！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>表达的冲动只是一时喉痒，清一清嗓子就没有开口的欲望了。</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
-  </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+    <li class="post-item">
+      <div class="post-content" data-music-title="Time Passes" data-music-artist="Kevin MacLeod" data-music-file="Kevin MacLeod - Time Passes.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/alone.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2022-05-18 00:14
+    2023-01-13 20:52
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>回校工作！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>To be alone, you need someone to be alone from.</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
+    <li class="post-item">
+      <div class="post-content" data-music-title="Fallen Down (Reprise)" data-music-artist="Toby Fox" data-music-file="Toby Fox - Fallen Down (Reprise).mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/loss.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    2023-01-06 15:59
   </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+</span>
+          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>越喜欢某样东西，当失去时，失落感也将越强烈。</p>
+        </div>
+      </div>
+    </li>
+  
+    <li class="post-item">
+      <div class="post-content" data-music-title="Home" data-music-artist="Disasterpeace" data-music-file="Disasterpeace - Home.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/memory2.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    2022-07-13 21:40
+  </span>
+</span>
+          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>当这个世界被人类的期待填满，我唯有将自己的回忆细细珍藏。</p>
+        </div>
+      </div>
+    </li>
+  
+    <li class="post-item">
+      <div class="post-content" data-music-title="Time Passes" data-music-artist="Kevin MacLeod" data-music-file="Kevin MacLeod - Time Passes.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/graduation.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     2021-06-18 00:14
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>毕业啦！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>毕业啦！</p>
         </div>
       </div>
     </li>
   
-    <li>
-      <div class="flex flex-start">
-        <div class="block p-6 rounded-lg shadow-2xl min-w-full ml-6 mb-10 break-words">
-          <div class="flex justify-between">
-            <h2 class="mt-0 text-white">
-              
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
+    <li class="post-item">
+      <div class="post-content" data-music-title="Home" data-music-artist="Disasterpeace" data-music-file="Disasterpeace - Home.mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/nostalgia.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    2018-03-29 12:10
   </span>
-
-
-            </h2>
-            <h3 class="">
-              <span class="flex" style="cursor: pointer;">
+</span>
+          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>I liked how things were when they were.</p>
+        </div>
+      </div>
+    </li>
+  
+    <li class="post-item">
+      <div class="post-content" data-music-title="Fallen Down (Reprise)" data-music-artist="Toby Fox" data-music-file="Toby Fox - Fallen Down (Reprise).mp3" onclick="togglePostCard(this)">
+        
+          <img src="/images/backgrounds/celebration.jpg" alt="背景图片" class="post-background">
+        
+        <div class="post-header">
+          <div class="post-timestamp">
+            <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     2017-07-06 09:10
   </span>
 </span>
-            </h3>
           </div>
-          <div class="mb-6">
-            
-            <p>高考完咯！</p>
-          </div>
+        </div>
+        <div class="post-body">
+          
+            <div class="music-indicator"></div>
+          
+          <p>高考完咯！</p>
         </div>
       </div>
     </li>
   
 </ol>
+
+<script>
+  
+  function togglePostCard(card) {
+    const title = card.dataset.musicTitle;
+    const artist = card.dataset.musicArtist;
+    const file = card.dataset.musicFile;
+    
+    
+    if (title && artist && file) {
+      
+      togglePostMusic(card, title, artist, file);
+    }
+  }
+</script>
 
 
 
@@ -947,7 +1158,7 @@
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="">
+            title="标签">
             
             标签
           </a>
@@ -999,6 +1210,547 @@
   
   <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
+  
+  
+<style>
+  #music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: white;
+    color: #333;
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    display: none;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  #music-player.dark-mode {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    font-size: 10px;
+    padding: 0;
+    z-index: 10000;
+  }
+  
+  .dark-mode .close-button {
+    background-color: #333;
+    color: #999;
+  }
+  
+  .close-button:hover {
+    background-color: #f0f0f0;
+    color: #cc0000;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .close-button:hover {
+    background-color: #444;
+    color: #ff6666;
+  }
+  
+  .control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .control-button:hover {
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .control-button {
+    color: #999;
+  }
+  
+  .dark-mode .control-button:hover {
+    color: #3399ff;
+  }
+  
+  .now-playing-dot {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .dark-mode .now-playing-dot {
+    box-shadow: 0 0 0 2px #333;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+   
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.7); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .play-music-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .play-music-button:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .play-music-button,
+  .dark .play-music-button {
+    color: #999;
+  }
+  
+  .dark-mode .play-music-button:hover,
+  .dark .play-music-button:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #3399ff;
+  }
+  
+   
+  .play-music-button.playing svg path:last-child {
+    d: path('M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z');
+  }
+  
+   
+  #audio-player {
+    display: none;
+  }
+  
+   
+  @media (max-width: 768px) {
+    #music-player {
+      bottom: 15px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+    }
+    
+    .control-button {
+      width: 38px;
+      height: 38px;
+    }
+    
+    .control-button svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .close-button {
+      width: 18px;
+      height: 18px;
+      top: -6px;
+      right: -6px;
+    }
+    
+    .close-button svg {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .now-playing-dot {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #music-player {
+      bottom: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      padding: 3px;
+    }
+    
+    .control-button {
+      width: 34px;
+      height: 34px;
+    }
+    
+    .control-button svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+</style>
+
+<div id="music-player">
+  <button id="close-player" class="close-button" title="关闭播放器">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+  
+  <div class="player-controls">
+    <button id="play-pause" class="control-button" title="播放/暂停">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="now-playing-dot"></div>
+  
+  <audio id="audio-player">
+    <source id="audio-source" src="/music/Toby Fox - Fallen Down (Reprise).mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放。
+  </audio>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    function detectDarkMode() {
+      if (document.documentElement.classList.contains('dark') || 
+          window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementById('music-player').classList.add('dark-mode');
+      }
+    }
+    
+    
+    const defaultPlaylist = [
+      { title: "Fallen Down (Reprise)", artist: "Toby Fox", src: "/music/Toby Fox - Fallen Down (Reprise).mp3" },
+      { title: "Home", artist: "Disasterpeace", src: "/music/Disasterpeace - Home.mp3" },
+      { title: "Time Passes", artist: "Kevin MacLeod", src: "/music/Kevin MacLeod - Time Passes.mp3" }
+    ];
+    
+    
+    let currentPlaylist = [...defaultPlaylist];
+    
+    
+    let currentSongIndex = 0;
+    
+    
+    let activeButton = null;
+    
+    
+    let currentMusicFile = null;
+    
+    
+    let activeCard = null;
+    
+    
+    const musicPlayer = document.getElementById('music-player');
+    const audioPlayer = document.getElementById('audio-player');
+    const audioSource = document.getElementById('audio-source');
+    const playPauseBtn = document.getElementById('play-pause');
+    const closePlayerBtn = document.getElementById('close-player');
+    
+    
+    function loadSong(index) {
+      const song = currentPlaylist[index];
+      
+      playPauseBtn.setAttribute('title', `${song.title} - ${song.artist}`);
+      audioSource.src = song.src;
+      currentMusicFile = song.src.split('/').pop();
+      audioPlayer.load();
+    }
+    
+    
+    playPauseBtn.addEventListener('click', function() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, true);
+        }
+      } else {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+        }
+      }
+    });
+    
+    
+    closePlayerBtn.addEventListener('click', function() {
+      musicPlayer.classList.add('fade-out');
+      
+      
+      setTimeout(function() {
+        musicPlayer.style.display = 'none';
+        musicPlayer.classList.remove('fade-out');
+        
+        audioPlayer.pause();
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+          activeButton = null;
+        }
+        
+        if (activeCard) {
+          updateButtonState(activeCard, false);
+          activeCard = null;
+        }
+      }, 300);
+    });
+    
+    
+    audioPlayer.addEventListener('ended', function() {
+      currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+      loadSong(currentSongIndex);
+      audioPlayer.play();
+    });
+    
+    
+    function updateButtonState(button, isPlaying) {
+      if (button.classList.contains('play-music-button')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        } else {
+          button.classList.remove('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        }
+      } else if (button.classList.contains('post-content')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+        } else {
+          button.classList.remove('playing');
+        }
+      }
+    }
+    
+    
+    loadSong(currentSongIndex);
+    
+    
+    detectDarkMode();
+    
+    
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          detectDarkMode();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true
+    });
+    
+    
+    window.togglePostMusic = function(button, title, artist, file) {
+      
+      const musicFile = file.replace(/^\/music\//, '');
+      
+      
+      const isSameMusic = currentMusicFile === musicFile;
+      
+      
+      const isPlaying = !audioPlayer.paused;
+      
+      
+      if (activeButton && activeButton !== button) {
+        updateButtonState(activeButton, false);
+      }
+      
+      
+      if (button.classList.contains('post-content')) {
+        
+        if (activeCard && activeCard !== button) {
+          updateButtonState(activeCard, false);
+        }
+        activeCard = button;
+      } else {
+        
+        activeButton = button;
+      }
+      
+      
+      musicPlayer.classList.remove('fade-in');
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      
+      if (isSameMusic) {
+        
+        if (isPlaying) {
+          
+          audioPlayer.pause();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, false);
+          if (activeButton) updateButtonState(activeButton, false);
+        } else {
+          
+          audioPlayer.play();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, true);
+          if (activeButton) updateButtonState(activeButton, true);
+        }
+      } else {
+        
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeCard) updateButtonState(activeCard, true);
+        if (activeButton) updateButtonState(activeButton, true);
+      }
+    };
+    
+    
+    window.playPostMusic = function(title, artist, file) {
+      musicPlayer.classList.remove('fade-in');
+      
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      if (title && artist && file) {
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      } else {
+        currentPlaylist = [...defaultPlaylist];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      }
+    };
+    
+    
+    document.addEventListener('keydown', function(e) {
+      
+      if (musicPlayer.style.display === 'flex') {
+        
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault(); 
+          playPauseBtn.click();
+        }
+        
+        else if (e.code === 'Escape') {
+          closePlayerBtn.click();
+        }
+      }
+    });
+    
+    
+    audioPlayer.addEventListener('play', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, true);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, true);
+      }
+    });
+    
+    audioPlayer.addEventListener('pause', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, false);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, false);
+      }
+    });
+  });
+</script>  
   
 </footer>
 <div
