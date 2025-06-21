@@ -1,7 +1,7 @@
 # -- Main Menu --
 # The main menu is displayed in the header at the top of the page.
 # Acceptable parameters are name, pageRef, page, url, title, weight.
-# 
+#
 # The simplest menu configuration is to provide:
 #   name = The name to be displayed for this menu link
 #   pageRef = The identifier of the page or section to link to
@@ -11,13 +11,13 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  pre = "skull-crossbones" 
+  pre = "skull-crossbones"
   name = "随笔"
   pageRef = "thoughts"
   weight = 30
 
 [[main]]
-  pre = "ghost" 
+  pre = "ghost"
   name = "碎碎念"
   pageRef = "murmur"
   weight = 40
@@ -30,7 +30,7 @@
  name = "标签"
  pageRef = "tags"
  weight = 10
- 
+
 [[footer]]
   name = "关于"
   pageRef = "about"

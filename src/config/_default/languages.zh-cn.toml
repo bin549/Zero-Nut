@@ -17,7 +17,7 @@ title = "首页"
 
 [params.author]
   name = " "
-  image = "img/avatar.png" 
+  image = "img/avatar.png"
  # headline = "于身为长物 于世为闲事"
   bio = "反者道之动"
   links = [
@@ -26,4 +26,4 @@ title = "首页"
     { spotify = "https://learn.stem-powered.com/course/creator?id=11" },
     { ko-fi = "https://afdian.com/a/bin549" },
   ]
-  
+
