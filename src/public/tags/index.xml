@@ -2,58 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>标签 on 首页</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>//localhost:1313/tags/</link>
     <description>Recent content in 标签 on 首页</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>方大同</title>
-      <link>http://localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</link>
+      <link>//localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</link>
       <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</guid>
+      <guid>//localhost:1313/tags/%E6%96%B9%E5%A4%A7%E5%90%8C/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>音乐</title>
-      <link>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</link>
+      <link>//localhost:1313/tags/%E9%9F%B3%E4%B9%90/</link>
       <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E9%9F%B3%E4%B9%90/</guid>
+      <guid>//localhost:1313/tags/%E9%9F%B3%E4%B9%90/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>游戏</title>
-      <link>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</link>
+      <link>//localhost:1313/tags/%E6%B8%B8%E6%88%8F/</link>
       <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</guid>
+      <guid>//localhost:1313/tags/%E6%B8%B8%E6%88%8F/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Jazz</title>
-      <link>http://localhost:1313/tags/jazz/</link>
+      <link>//localhost:1313/tags/jazz/</link>
       <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/jazz/</guid>
+      <guid>//localhost:1313/tags/jazz/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>前端</title>
-      <link>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
+      <link>//localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>//localhost:1313/tags/%E5%89%8D%E7%AB%AF/</guid>
       <description></description>
       
     </item>

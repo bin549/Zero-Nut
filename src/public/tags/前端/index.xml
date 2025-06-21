@@ -2,20 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>前端 on 首页</title>
-    <link>http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
+    <link>//localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
     <description>Recent content in 前端 on 首页</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Sat, 17 Aug 2024 17:26:56 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Aug 2024 17:26:56 +0800</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>博客搭建</title>
-      <link>http://localhost:1313/thoughts/blog/</link>
+      <link>//localhost:1313/thoughts/blog/</link>
       <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/thoughts/blog/</guid>
+      <guid>//localhost:1313/thoughts/blog/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/thoughts/blog/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/blog/featured.jpg" />
     </item>
     
   </channel>
