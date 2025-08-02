@@ -12,11 +12,11 @@ categories: [想法]
 ---
 
 
-本文为笔者从首次拿到设备开箱到配置开发环境，最后对项目进行打包部署到Hololens2真机的整个流程。
+> 本文为笔者从首次拿到设备开箱到配置开发环境，最后对项目进行打包部署到Hololens2真机的整个流程。
 
-微软的官方文档中有HoloLens2部署的权威教程。但一些问题官方文档并没有列出，需要在实际开发过程中去根据自身或者前人的经验去解决。
+> 微软的官方文档中有HoloLens2部署的权威教程。但一些问题官方文档并没有列出，需要在实际开发过程中去根据自身或者前人的经验去解决。
 
-开发环境使用Unity2020.3.8+ MRTK2.7.0。MRTK2.7 已在2021年9月份开始支持Unity2020.3LTS版本，通常而言，Unity2019.4+MRTK2.6 或者 Unity2020.3+MRTK2.7是最佳搭配，不建议混合搭配（如Unity2019.4+MRTK2.7）。
+> 开发环境使用Unity2020.3.8+ MRTK2.7.0。MRTK2.7 已在2021年9月份开始支持Unity2020.3LTS版本，通常而言，Unity2019.4+MRTK2.6 或者 Unity2020.3+MRTK2.7是最佳搭配，不建议混合搭配（如Unity2019.4+MRTK2.7）。
 
 ## 一、开发环境搭建
 
@@ -122,11 +122,3 @@ Build Settings → 输出到本地文件夹
 - [Unity X HoloLens 2 混合现实开发入门](https://learn.u3d.cn/tutorial/mr-development-hololens2)
 - [HoloLens2之路－Unity2020.3+MRTK2.7配置](https://blog.csdn.net/yolon3000/article/details/121776416)
 - [HoloLens2之路－部署到真机](https://blog.csdn.net/yolon3000/article/details/122072266)
-
----
-
-**结论**  
-本文详细介绍了从开发环境搭建到项目部署的完整流程，为 HoloLens 2 开发提供了实用指导。
-
-**摘要**  
-本文为笔者从首次拿到设备开箱到配置开发环境，最后对项目进行打包部署到HoloLens2真机的整个流程。
