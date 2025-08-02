@@ -1,7 +1,7 @@
 ---
 title: "Pygame入门到入土"
-date: 2025-08-02T19:14:37+08:00
-lastmod: 2025-08-02T19:14:37+08:00
+date: 2024-01-09T17:14:37+08:00
+lastmod: 2024-01-09T17:14:37+08:00
 author: "Z"
 draft: false
 description: "Pygame 游戏开发完整教程，包含环境配置、基本用法、图形学、UI交互和项目实战"

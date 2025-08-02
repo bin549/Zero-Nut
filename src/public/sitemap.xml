@@ -99,13 +99,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/thoughts/hololens/</loc>
+    <loc>//localhost:1313/tags/vr/</loc>
     <lastmod>2025-08-02T19:04:57+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/tags/vr/</loc>
+    <loc>//localhost:1313/thoughts/hololens/</loc>
     <lastmod>2025-08-02T19:04:57+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
