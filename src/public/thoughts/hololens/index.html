@@ -112,7 +112,7 @@
     "keywords": ["Hololens 2","VR"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "268"
+    "wordCount": "278"
   }]
   </script>
 
@@ -583,7 +583,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2023-02-11T16:26:54&#43;08:00">2023-02-11</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2025-08-02T19:04:57&#43;08:00">更新于: 2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span>268 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2023-02-11T16:26:54&#43;08:00">2023-02-11</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2025-08-02T19:04:57&#43;08:00">更新于: 2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span>278 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -986,7 +986,7 @@
 <blockquote>
 <p>微软的官方文档中有HoloLens2部署的权威教程。但一些问题官方文档并没有列出，需要在实际开发过程中去根据自身或者前人的经验去解决。</p></blockquote>
 <blockquote>
-<p>开发环境使用Unity2020.3.8+ MRTK2.7.0。MRTK2.7 已在2021年9月份开始支持Unity2020.3LTS版本，通常而言，Unity2019.4+MRTK2.6 或者 Unity2020.3+MRTK2.7是最佳搭配，不建议混合搭配（如Unity2019.4+MRTK2.7）。</p></blockquote>
+<p>开发环境使用Unity2020.3.8 + MRTK2.7.0。MRTK2.7 已在2021年9月份开始支持Unity2020.3LTS版本，通常而言，Unity2019.4+MRTK2.6 或者Unity2020.3+MRTK2.7是最佳搭配，不建议混合搭配（如Unity2019.4+MRTK2.7）。</p></blockquote>
 
 <h2 class="relative group">一、开发环境搭建 
     <div id="一开发环境搭建" class="anchor"></div>
@@ -1007,7 +1007,7 @@
     </span>        
     
 </h3>
-<p>Unity是开发 HoloLens 应用的重点平台，而微软和 Unity 本身也是紧密合作，双向支持。</p>
+<p>Unity是开发HoloLens 应用的重点平台，而微软和Unity 本身也是紧密合作，双向支持。</p>
 
 <h4 class="relative group">1.1.1 新建Unity项目 
     <div id="111-新建unity项目" class="anchor"></div>
@@ -1047,6 +1047,7 @@
     </span>        
     
 </h3>
+<p>MRTK 是微软 Mixed Reality Toolkit 的简称。这个用于 Unity 的工具包提供跨平台的输入系统、基础组件以及用于空间交互的通用构建模块，目标就是加快面向包括 HoloLens 在内的应用程序的开发，大大降低 MR 准入门槛。</p>
 
 <h4 class="relative group">1.2.1 导入方式 
     <div id="121-导入方式" class="anchor"></div>
@@ -1126,7 +1127,6 @@
     
 </h4>
 <p>最后导入 TextMeshPro 工具包完成环境配置。</p>
-<hr>
 
 <h2 class="relative group">二、设备环境 
     <div id="二设备环境" class="anchor"></div>
@@ -1172,7 +1172,6 @@
 <li>浏览器访问 IP → 安装证书 → 输入设备Pin → 注册用户</li>
 <li>登录 Device Portal 查看状态</li>
 </ol>
-<hr>
 
 <h2 class="relative group">三、MR 场景与本机调试 
     <div id="三mr-场景与本机调试" class="anchor"></div>
@@ -1235,7 +1234,6 @@
 <li><strong>USB</strong>：USB-C 直连</li>
 <li><strong>WiFi</strong>：<code>Mixed Reality &gt; Remoting</code> → 输入IP → Enable → 运行</li>
 </ul>
-<hr>
 
 <h2 class="relative group">四、项目打包部署 
     <div id="四项目打包部署" class="anchor"></div>
@@ -1273,7 +1271,12 @@
 <li>填写 IP，身份验证类型：通用</li>
 <li><code>F5</code> 部署（首次需输入 Pin）</li>
 </ol>
-<hr>
+
+<figure>
+      <img class="my-0 rounded-md" src="./embed_imgs/5317.png" alt="环境配置截图" />
+  
+  
+  </figure>
 
 <h2 class="relative group">参考文章 
     <div id="参考文章" class="anchor"></div>

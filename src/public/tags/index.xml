@@ -7,44 +7,94 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Thu, 10 Oct 2024 09:32:32 +0000</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 19:14:37 +0800</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>游戏</title>
-      <link>//localhost:1313/tags/%E6%B8%B8%E6%88%8F/</link>
-      <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
+      <title>Pygame</title>
+      <link>//localhost:1313/tags/pygame/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
       
-      <guid>//localhost:1313/tags/%E6%B8%B8%E6%88%8F/</guid>
+      <guid>//localhost:1313/tags/pygame/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Jazz</title>
-      <link>//localhost:1313/tags/jazz/</link>
+      <title>Python</title>
+      <link>//localhost:1313/tags/python/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/python/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>编程</title>
+      <link>//localhost:1313/tags/%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>//localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>开发</title>
+      <link>//localhost:1313/tags/%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>学习</title>
+      <link>//localhost:1313/tags/%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>游戏开发</title>
+      <link>//localhost:1313/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>环境</title>
+      <link>//localhost:1313/tags/%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>//localhost:1313/tags/jazz/</guid>
+      <guid>//localhost:1313/tags/%E7%8E%AF%E5%A2%83/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>音乐</title>
-      <link>//localhost:1313/tags/%E9%9F%B3%E4%B9%90/</link>
+      <title>配置</title>
+      <link>//localhost:1313/tags/%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>//localhost:1313/tags/%E9%9F%B3%E4%B9%90/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>前端</title>
-      <link>//localhost:1313/tags/%E5%89%8D%E7%AB%AF/</link>
-      <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
-      
-      <guid>//localhost:1313/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>//localhost:1313/tags/%E9%85%8D%E7%BD%AE/</guid>
       <description></description>
       
     </item>
