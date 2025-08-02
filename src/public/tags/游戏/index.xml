@@ -11,12 +11,12 @@
     
     <item>
       <title>洛克人</title>
-      <link>//localhost:1313/thoughts/mega/</link>
+      <link>//localhost:1313/thoughts/pygame-tutorials/</link>
       <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
       
-      <guid>//localhost:1313/thoughts/mega/</guid>
+      <guid>//localhost:1313/thoughts/pygame-tutorials/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/mega/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/pygame-tutorials/featured.jpg" />
     </item>
     
   </channel>

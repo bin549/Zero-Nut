@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>开发 on 首页</title>
+    <link>//localhost:1313/tags/%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 开发 on 首页</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
+    <lastBuildDate>Sat, 02 Aug 2025 19:14:37 +0800</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>一.pygame简介</title>
+      <link>//localhost:1313/thoughts/pygame-tutorials/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
+      
+      <guid>//localhost:1313/thoughts/pygame-tutorials/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/pygame-tutorials/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>VR开发工具概述</title>
+      <link>//localhost:1313/thoughts/vr-dev-tool/</link>
+      <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
+      
+      <guid>//localhost:1313/thoughts/vr-dev-tool/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/vr-dev-tool/featured.jpg" />
+    </item>
+    
+  </channel>
+</rss>

@@ -7,46 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 12:45:54 +0800</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 19:14:37 +0800</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>梦想家</title>
-      <link>//localhost:1313/thoughts/dream/</link>
-      <pubDate>Fri, 18 Oct 2024 12:45:54 +0800</pubDate>
+      <title>Pygame入门到入土</title>
+      <link>//localhost:1313/thoughts/pygame-tutorials/</link>
+      <pubDate>Sat, 02 Aug 2025 19:14:37 +0800</pubDate>
       
-      <guid>//localhost:1313/thoughts/dream/</guid>
+      <guid>//localhost:1313/thoughts/pygame-tutorials/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/dream/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/pygame-tutorials/featured.jpg" />
     </item>
     
     <item>
-      <title>洛克人</title>
-      <link>//localhost:1313/thoughts/mega/</link>
-      <pubDate>Thu, 10 Oct 2024 09:32:32 +0000</pubDate>
-      
-      <guid>//localhost:1313/thoughts/mega/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/mega/featured.jpg" />
-    </item>
-    
-    <item>
-      <title>爵士乐</title>
-      <link>//localhost:1313/thoughts/jazz/</link>
+      <title>VR开发概述</title>
+      <link>//localhost:1313/thoughts/vr-dev-tool/</link>
       <pubDate>Tue, 10 Sep 2024 14:00:51 +0800</pubDate>
       
-      <guid>//localhost:1313/thoughts/jazz/</guid>
+      <guid>//localhost:1313/thoughts/vr-dev-tool/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/jazz/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/vr-dev-tool/featured.jpg" />
     </item>
     
     <item>
-      <title>博客搭建</title>
-      <link>//localhost:1313/thoughts/blog/</link>
-      <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
+      <title>Hololens 2开发笔记</title>
+      <link>//localhost:1313/thoughts/hololens/</link>
+      <pubDate>Sat, 11 Feb 2023 16:26:54 +0800</pubDate>
       
-      <guid>//localhost:1313/thoughts/blog/</guid>
+      <guid>//localhost:1313/thoughts/hololens/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/blog/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/hololens/featured.jpg" />
     </item>
     
     <item>

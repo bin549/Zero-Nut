@@ -1,0 +1,1941 @@
+<!doctype html>
+<html
+  lang="zh-cn"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>VR开发概述 &middot; 首页</title>
+  <meta name="title" content="VR开发概述 &middot; 首页" />
+  
+  <meta name="description" content="针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。" />
+  <meta name="keywords" content="开发, 配置, 环境, " />
+  
+  
+  <link rel="canonical" href="//localhost:1313/thoughts/vr-dev-tool/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.75efbde0b99ff286fae6f03226990076e6f98602b18d149b71f05e113f0fc7184122892266ac783102fe78fdbd53798b33201d9f3b7e00286104f2b671d240e7.css"
+    integrity="sha512-de&#43;94Lmf8ob65vAyJpkAdub5hgKxjRSbcfBeET8PxxhBIokiZqx4MQL&#43;eP29U3mLMyAdnzt&#43;AChhBPK2cdJA5w==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.bbc8dde0b636dfba88adfae8e405171481feff60d739793c7fc554106ba10668f5b613319c1cc3cc1540ddd9c9729b4f5548e53a373eb28910851d353f35a39c.js"
+    integrity="sha512-u8jd4LY237qIrfro5AUXFIH&#43;/2DXOXk8f8VUEGuhBmj1thMxnBzDzBVA3dnJcptPVUjlOjc&#43;sokQhR01PzWjnA==" data-copy="复制" data-copied="已复制"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="//localhost:1313/thoughts/vr-dev-tool/">
+  <meta property="og:site_name" content="首页">
+  <meta property="og:title" content="VR开发概述">
+  <meta property="og:description" content="针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="thoughts">
+    <meta property="article:published_time" content="2024-09-10T14:00:51+08:00">
+    <meta property="article:modified_time" content="2024-10-11T14:30:51+08:00">
+    <meta property="article:tag" content="开发">
+    <meta property="article:tag" content="配置">
+    <meta property="article:tag" content="环境">
+    <meta property="og:image" content="//localhost:1313/thoughts/vr-dev-tool/featured.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/thoughts/vr-dev-tool/featured.jpg">
+  <meta name="twitter:title" content="VR开发概述">
+  <meta name="twitter:description" content="针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "随笔",
+    "name": "VR开发概述",
+    "headline": "VR开发概述",
+    "description": "针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。",
+    
+    "inLanguage": "zh-cn",
+    "url" : "\/\/localhost:1313\/thoughts\/vr-dev-tool\/",
+    "author" : {
+      "@type": "Person",
+      "name": " "
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-09-10T14:00:51\u002b08:00",
+    "datePublished": "2024-09-10T14:00:51\u002b08:00",
+    
+    "dateModified": "2024-10-11T14:30:51\u002b08:00",
+    
+    "keywords": ["开发","配置","环境"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "209"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content=" " />
+  
+  
+  
+  
+  <link href="https://github.com/bin549" rel="me" />
+  
+  
+  
+  
+  <link href="https://bin549.itch.io" rel="me" />
+  
+  
+  
+  
+  <link href="https://learn.stem-powered.com/course/creator?id=11" rel="me" />
+  
+  
+  
+  
+  <link href="https://afdian.com/a/bin549" rel="me" />
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+  
+  
+  
+  <meta name="theme-color"/>
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a
+      >
+    </div>
+    
+    
+      <div class="min-h-[148px]"></div>
+<div
+  class="fixed inset-x-0 min-h-[130px] opacity-65 pl-[24px] pr-[24px] bg-gradient-to-b from-neutral from-60% dark:from-neutral-800 to-transparent mix-blend-normal z-index-80"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px] z-index-100">
+  <div
+    id="menu-blur"
+    class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 padding-main-menu">
+    
+    
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">首页</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a
+  href="/thoughts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+    <span class="mr-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M368 128C368 172.4 342.6 211.5 304 234.4V256C304 273.7 289.7 288 272 288H176C158.3 288 144 273.7 144 256V234.4C105.4 211.5 80 172.4 80 128C80 57.31 144.5 0 224 0C303.5 0 368 57.31 368 128V128zM168 176C185.7 176 200 161.7 200 144C200 126.3 185.7 112 168 112C150.3 112 136 126.3 136 144C136 161.7 150.3 176 168 176zM280 112C262.3 112 248 126.3 248 144C248 161.7 262.3 176 280 176C297.7 176 312 161.7 312 144C312 126.3 297.7 112 280 112zM3.379 273.7C11.28 257.9 30.5 251.5 46.31 259.4L224 348.2L401.7 259.4C417.5 251.5 436.7 257.9 444.6 273.7C452.5 289.5 446.1 308.7 430.3 316.6L295.6 384L430.3 451.4C446.1 459.3 452.5 478.5 444.6 494.3C436.7 510.1 417.5 516.5 401.7 508.6L224 419.8L46.31 508.6C30.5 516.5 11.28 510.1 3.379 494.3C-4.525 478.5 1.882 459.3 17.69 451.4L152.4 384L17.69 316.6C1.882 308.7-4.525 289.5 3.379 273.7V273.7z"/></svg>
+
+  </span>
+
+
+    </span>
+  
+  <p class="text-base font-medium" title="随笔">
+    随笔
+  </p>
+</a>
+
+
+
+            
+            
+  <a
+  href="/murmur/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+    <span class="mr-1">
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+<path fill="currentColor" d="M50.8 452.1L19.2 477.4c-2.1 1.7-4.7 2.6-7.4 2.6C5.3 480 0 474.7 0 468.2V192C0 86 86 0 192 0S384 86 384 192V468.2c0 6.5-5.3 11.8-11.8 11.8c-2.7 0-5.3-.9-7.4-2.6l-31.6-25.3c-3.3-2.7-7.5-4.1-11.8-4.1c-5.9 0-11.5 2.8-15 7.5l-37.6 50.1c-3 4-7.8 6.4-12.8 6.4s-9.8-2.4-12.8-6.4l-38.4-51.2c-3-4-7.8-6.4-12.8-6.4s-9.8 2.4-12.8 6.4l-38.4 51.2c-3 4-7.8 6.4-12.8 6.4s-9.8-2.4-12.8-6.4L77.6 455.5c-3.6-4.7-9.1-7.5-15-7.5c-4.3 0-8.4 1.5-11.7 4.1zM160 192c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zm96 32c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32z"/></svg>
+  </span>
+
+
+    </span>
+  
+  <p class="text-base font-medium" title="碎碎念">
+    碎碎念
+  </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 padding-top-[5px]">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/thoughts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+      <div class="mr-2">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M368 128C368 172.4 342.6 211.5 304 234.4V256C304 273.7 289.7 288 272 288H176C158.3 288 144 273.7 144 256V234.4C105.4 211.5 80 172.4 80 128C80 57.31 144.5 0 224 0C303.5 0 368 57.31 368 128V128zM168 176C185.7 176 200 161.7 200 144C200 126.3 185.7 112 168 112C150.3 112 136 126.3 136 144C136 161.7 150.3 176 168 176zM280 112C262.3 112 248 126.3 248 144C248 161.7 262.3 176 280 176C297.7 176 312 161.7 312 144C312 126.3 297.7 112 280 112zM3.379 273.7C11.28 257.9 30.5 251.5 46.31 259.4L224 348.2L401.7 259.4C417.5 251.5 436.7 257.9 444.6 273.7C452.5 289.5 446.1 308.7 430.3 316.6L295.6 384L430.3 451.4C446.1 459.3 452.5 478.5 444.6 494.3C436.7 510.1 417.5 516.5 401.7 508.6L224 419.8L46.31 508.6C30.5 516.5 11.28 510.1 3.379 494.3C-4.525 478.5 1.882 459.3 17.69 451.4L152.4 384L17.69 316.6C1.882 308.7-4.525 289.5 3.379 273.7V273.7z"/></svg>
+
+  </span>
+
+
+      </div>
+    
+    <p class="text-bg font-bg" title="随笔">
+      随笔
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/murmur/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+      <div class="mr-2">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+<path fill="currentColor" d="M50.8 452.1L19.2 477.4c-2.1 1.7-4.7 2.6-7.4 2.6C5.3 480 0 474.7 0 468.2V192C0 86 86 0 192 0S384 86 384 192V468.2c0 6.5-5.3 11.8-11.8 11.8c-2.7 0-5.3-.9-7.4-2.6l-31.6-25.3c-3.3-2.7-7.5-4.1-11.8-4.1c-5.9 0-11.5 2.8-15 7.5l-37.6 50.1c-3 4-7.8 6.4-12.8 6.4s-9.8-2.4-12.8-6.4l-38.4-51.2c-3-4-7.8-6.4-12.8-6.4s-9.8 2.4-12.8 6.4l-38.4 51.2c-3 4-7.8 6.4-12.8 6.4s-9.8-2.4-12.8-6.4L77.6 455.5c-3.6-4.7-9.1-7.5-15-7.5c-4.3 0-8.4 1.5-11.7 4.1zM160 192c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zm96 32c17.7 0 32-14.3 32-32s-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32z"/></svg>
+  </span>
+
+
+      </div>
+    
+    <p class="text-bg font-bg" title="碎碎念">
+      碎碎念
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+<script
+  type="text/javascript"
+  src="/js/background-blur.min.4812321520cc2e4cd52bf9137015a55bb6c0b5e66a6b2c96b8654c0ec99be59e8e6425dd838a6fd9bac54000586f37f4a9680bbefaa2aee4601a69e188005cf6.js"
+  integrity="sha512-SBIyFSDMLkzVK/kTcBWlW7bAteZqayyWuGVMDsmb5Z6OZCXdg4pv2brFQABYbzf0qWgLvvqiruRgGmnhiABc9g=="
+  data-target-id="menu-blur"></script>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/thoughts/vr-dev-tool/featured_hu_8c369c95bb67ff9a.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+
+<script type="text/javascript" src="/js/background-blur.min.4812321520cc2e4cd52bf9137015a55bb6c0b5e66a6b2c96b8654c0ec99be59e8e6425dd838a6fd9bac54000586f37f4a9680bbefaa2aee4601a69e188005cf6.js" integrity="sha512-SBIyFSDMLkzVK/kTcBWlW7bAteZqayyWuGVMDsmb5Z6OZCXdg4pv2brFQABYbzf0qWgLvvqiruRgGmnhiABc9g==" data-target-id="background-blur"></script>
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        VR开发概述
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2024-09-10T14:00:51&#43;08:00">2024-09-10</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2024-10-11T14:30:51&#43;08:00">更新于: 2024-10-11</time><span class="px-2 text-primary-500">&middot;</span><span>209 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title=""
+    data-title-i18n-disable=""
+    data-title-i18n-enable="">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 margin-top-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E5%BC%80%E5%8F%91/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    开发
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 margin-top-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E9%85%8D%E7%BD%AE/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    配置
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 margin-top-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E7%8E%AF%E5%A2%83/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    环境
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+          
+          
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+        width="96"
+        height="96"
+        alt=" "
+        src="/img/avatar_hu_751ea4deee93581e.png">
+    
+  
+  <div class="place-self-center">
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">反者道之动</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/bin549"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://bin549.itch.io"
+          target="_blank"
+          aria-label="Itch-Io"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" height="235.452" width="261.728" viewBox="0 0 245.37069 220.73612"><path fill="currentColor" d="M31.99 1.365C21.287 7.72.2 31.945 0 38.298v10.516C0 62.144 12.46 73.86 23.773 73.86c13.584 0 24.902-11.258 24.903-24.62 0 13.362 10.93 24.62 24.515 24.62 13.586 0 24.165-11.258 24.165-24.62 0 13.362 11.622 24.62 25.207 24.62h.246c13.586 0 25.208-11.258 25.208-24.62 0 13.362 10.58 24.62 24.164 24.62 13.585 0 24.515-11.258 24.515-24.62 0 13.362 11.32 24.62 24.903 24.62 11.313 0 23.773-11.714 23.773-25.046V38.298c-.2-6.354-21.287-30.58-31.988-36.933C180.118.197 157.056-.005 122.685 0c-34.37.003-81.228.54-90.697 1.365zm65.194 66.217a28.025 28.025 0 0 1-4.78 6.155c-5.128 5.014-12.157 8.122-19.906 8.122a28.482 28.482 0 0 1-19.948-8.126c-1.858-1.82-3.27-3.766-4.563-6.032l-.006.004c-1.292 2.27-3.092 4.215-4.954 6.037a28.5 28.5 0 0 1-19.948 8.12c-.934 0-1.906-.258-2.692-.528-1.092 11.372-1.553 22.24-1.716 30.164l-.002.045c-.02 4.024-.04 7.333-.06 11.93.21 23.86-2.363 77.334 10.52 90.473 19.964 4.655 56.7 6.775 93.555 6.788h.006c36.854-.013 73.59-2.133 93.554-6.788 12.883-13.14 10.31-66.614 10.52-90.474-.022-4.596-.04-7.905-.06-11.93l-.003-.045c-.162-7.926-.623-18.793-1.715-30.165-.786.27-1.757.528-2.692.528a28.5 28.5 0 0 1-19.948-8.12c-1.862-1.822-3.662-3.766-4.955-6.037l-.006-.004c-1.294 2.266-2.705 4.213-4.563 6.032a28.48 28.48 0 0 1-19.947 8.125c-7.748 0-14.778-3.11-19.906-8.123a28.025 28.025 0 0 1-4.78-6.155 27.99 27.99 0 0 1-4.736 6.155 28.49 28.49 0 0 1-19.95 8.124c-.27 0-.54-.012-.81-.02h-.007c-.27.008-.54.02-.813.02a28.49 28.49 0 0 1-19.95-8.123 27.992 27.992 0 0 1-4.736-6.155zm-20.486 26.49l-.002.01h.015c8.113.017 15.32 0 24.25 9.746 7.028-.737 14.372-1.105 21.722-1.094h.006c7.35-.01 14.694.357 21.723 1.094 8.93-9.747 16.137-9.73 24.25-9.746h.014l-.002-.01c3.833 0 19.166 0 29.85 30.007L210 165.244c8.504 30.624-2.723 31.373-16.727 31.4-20.768-.773-32.267-15.855-32.267-30.935-11.496 1.884-24.907 2.826-38.318 2.827h-.006c-13.412 0-26.823-.943-38.318-2.827 0 15.08-11.5 30.162-32.267 30.935-14.004-.027-25.23-.775-16.726-31.4L46.85 124.08c10.684-30.007 26.017-30.007 29.85-30.007zm45.985 23.582v.006c-.02.02-21.863 20.08-25.79 27.215l14.304-.573v12.474c0 .584 5.74.346 11.486.08h.006c5.744.266 11.485.504 11.485-.08v-12.474l14.304.573c-3.928-7.135-25.79-27.215-25.79-27.215v-.006l-.003.002z"/></svg>
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://learn.stem-powered.com/course/creator?id=11"
+          target="_blank"
+          aria-label="Spotify"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/></svg>
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://afdian.com/a/bin549"
+          target="_blank"
+          aria-label="Ko-Fi"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="211.67mm" height="211.67mm" version="1.1" viewBox="0 0 211.67 211.67" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="clipPath25">
+   <path d="m0 600h1654.8v-600h-1654.8z" fill="currentColor"/>
+  </clipPath>
+ </defs>
+ <g transform="translate(-3.0786 -29.59)">
+  <g transform="matrix(.35278 0 0 -.35278 3.0785 241.26)">
+   <g clip-path="url(#clipPath25)">
+    <g transform="translate(600 300)">
+     <path d="m-300 300c-165.69 0-300-134.31-300-300 0-165.69 134.31-300 300-300 165.68 0 300 134.31 300 300 0 165.69-134.32 300-300 300zm-188.93-166.99h329.58c23.223 0 46.032-6.8325 65.073-20.125 18.412-12.856 36.378-33.646 42.697-67.02 14.674-77.514-43.568-135.76-126.12-131.18 0.438-21.268-3.8105-59.422-44.878-69.696-3.282-0.821-6.6604-1.186-10.044-1.207-72.13-0.448-222.53-0.88916-222.53-0.88916s-46.066-0.01555-49.176 45.962c-1.023 77.88-0.48339 223.69-0.48339 223.69s-0.02651 2.9267-0.02051 3.6577c0.043 5.607 4.4359 16.8 15.901 16.8zm312.71-55.573v-107.8s14.302-1.6507 31.907 0.54932c20.356 6.6 39.06 20.901 39.06 57.199 0 14.85-5.2614 25.601-11.837 33.239-9.341 10.848-23.152 16.809-37.469 16.809h-21.661z" fill="currentColor"/>
+    </g>
+    <g transform="translate(256.61 203.37)">
+     <path d="m0 0c3.585-1.806 5.876 0.437 5.876 0.437s52.457 47.878 76.089 75.452c21.018 24.667 22.389 66.234-13.708 81.766-36.096 15.532-65.795-18.272-65.795-18.272-25.755 28.326-64.734 26.891-82.763 7.721-18.027-19.169-11.732-52.072 1.717-70.383 12.626-17.19 68.119-66.65 76.529-75.015 0 0 0.614-0.641 2.055-1.706" fill="currentColor"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一xr通用开发框架">一、XR通用开发框架</a>
+      <ul>
+        <li><a href="#11-steamvr-plugin">1.1 SteamVR Plugin</a></li>
+        <li><a href="#12-mrtk">1.2 MRTK</a></li>
+        <li><a href="#13-xr-interaction-toolkit">1.3 XR Interaction Toolkit</a></li>
+        <li><a href="#14-unreal-engine">1.4 Unreal Engine</a></li>
+        <li><a href="#15-godot">1.5 Godot</a></li>
+        <li><a href="#16-vrtk">1.6 VRTK</a></li>
+      </ul>
+    </li>
+    <li><a href="#二xr设备sdk">二、XR设备SDK</a>
+      <ul>
+        <li><a href="#21-oculus-integration">2.1 Oculus Integration</a></li>
+        <li><a href="#22-pico-sdk">2.2 Pico SDK</a></li>
+        <li><a href="#23-htc-sdk">2.3 HTC SDK</a></li>
+        <li><a href="#24-googlevr-sdk">2.4 GoogleVR SDK</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#摘要">摘要</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一xr通用开发框架">一、XR通用开发框架</a>
+      <ul>
+        <li><a href="#11-steamvr-plugin">1.1 SteamVR Plugin</a></li>
+        <li><a href="#12-mrtk">1.2 MRTK</a></li>
+        <li><a href="#13-xr-interaction-toolkit">1.3 XR Interaction Toolkit</a></li>
+        <li><a href="#14-unreal-engine">1.4 Unreal Engine</a></li>
+        <li><a href="#15-godot">1.5 Godot</a></li>
+        <li><a href="#16-vrtk">1.6 VRTK</a></li>
+      </ul>
+    </li>
+    <li><a href="#二xr设备sdk">二、XR设备SDK</a>
+      <ul>
+        <li><a href="#21-oculus-integration">2.1 Oculus Integration</a></li>
+        <li><a href="#22-pico-sdk">2.2 Pico SDK</a></li>
+        <li><a href="#23-htc-sdk">2.3 HTC SDK</a></li>
+        <li><a href="#24-googlevr-sdk">2.4 GoogleVR SDK</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#摘要">摘要</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">VR开发工具概述 
+    <div id="vr开发工具概述" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vr%e5%bc%80%e5%8f%91%e5%b7%a5%e5%85%b7%e6%a6%82%e8%bf%b0" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+<p><strong>日期</strong>: 2024-09-10<br>
+<strong>最后修改</strong>: 2024-10-11<br>
+<strong>作者</strong>: Z</p>
+<blockquote>
+<p>针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。</p></blockquote>
+<hr>
+
+<h2 class="relative group">一、XR通用开发框架 
+    <div id="一xr通用开发框架" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%80xr%e9%80%9a%e7%94%a8%e5%bc%80%e5%8f%91%e6%a1%86%e6%9e%b6" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>针对XR设备开发还处于初步发展阶段，缺乏统一的标准。不像PC或移动端，可以做到一次开发多设备部署，如移动端应用基于Android SDK开发后，就可以运行于绝大部分Android手机。</p>
+<p>越来越多的VR设备推出，控制器类型逐渐趋向于碎片化。从开发层面上来看，不同的控制器具有不同的键值映射，当现有 VR 应用程序移植到另外一个VR平台的时候，需要针对目标平台进行交互适配。<br>
+每有新的控制器发布，都会给开发者带来一些额外的工作量，游戏项目需要修改交互代码以适配新的设备。</p>
+<p>随着XR内容生态的发展，这一问题得到了改善，主流引擎提供了统一的XR开发框架，开发者无需关注设备间差异，只需关注引擎，专注于内容创作本身，而复杂的设备和平台兼容将由底层的通用开发框架来负责。</p>
+<hr>
+
+<h3 class="relative group">1.1 SteamVR Plugin 
+    <div id="11-steamvr-plugin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#11-steamvr-plugin" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>SteamVR Plugin 是 Valve 提供给 Unity 开发者的开发工具，主要帮助开发者实现三项主要功能：</p>
+<ol>
+<li>为 VR 控制器加载呈现相对应的 3D 模型</li>
+<li>处理控制器的输入</li>
+<li>根据用户实际手部动作估算骨骼数据并呈现手部姿态</li>
+</ol>
+<p>此外，它还提供了交互系统（Interaction System），帮助开发者快速实现常见的 VR 交互功能。<br>
+2.x 版本引入 <strong>Input System</strong>，开发者可以围绕动作（Action）而非设备按键编程，提高新设备的适配效率。</p>
+<hr>
+
+<h3 class="relative group">1.2 MRTK 
+    <div id="12-mrtk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#12-mrtk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>MRTK（Mixed Reality Toolkit）是微软提供的混合现实开发工具包，支持 Unreal Engine 与 Unity。<br>
+主要特性包括：</p>
+<ul>
+<li>跨平台输入系统</li>
+<li>空间交互构建模块</li>
+<li>编辑器内模拟</li>
+<li>模块化组件结构</li>
+</ul>
+<p>MRTK v3 基于 <strong>OpenXR</strong> 原生构建，可运行在 HoloLens 2、Meta Quest 2、Magic Leap 2 等设备上。</p>
+<hr>
+
+<h3 class="relative group">1.3 XR Interaction Toolkit 
+    <div id="13-xr-interaction-toolkit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#13-xr-interaction-toolkit" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>XR Interaction Toolkit 是 Unity 官方推出的 XR 开发工具包，提供跨平台的移动、抓取、UI 交互等功能。<br>
+无需编写代码即可实现常见交互，也支持自定义扩展。<br>
+最新版本增加了 <strong>Poke Interactor</strong>、<strong>Multi-grab Support</strong> 等新特性。</p>
+<hr>
+
+<h3 class="relative group">1.4 Unreal Engine 
+    <div id="14-unreal-engine" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#14-unreal-engine" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>UE（Unreal Engine）在 VR 领域画面与沉浸感表现出色，支持：</p>
+<ul>
+<li>OpenXR、SteamVR、MRTK</li>
+<li>Oculus、三星、谷歌等厂商插件</li>
+<li>VR 游戏交互、UI、优化与平台发布流程</li>
+</ul>
+<hr>
+
+<h3 class="relative group">1.5 Godot 
+    <div id="15-godot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#15-godot" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Godot 从 3.0 开始支持 VR，4.0 将 <strong>OpenXR</strong> 集成进引擎，支持 Quest 2、Pico 4、Magic Leap 2 等。<br>
+推荐使用官方 <strong>Godot XR Tools</strong> 插件，提供移动、交互、UI 等模块及项目模板。</p>
+<hr>
+
+<h3 class="relative group">1.6 VRTK 
+    <div id="16-vrtk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#16-vrtk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>VRTK（Virtual Reality Toolkit）是 Unity VR 交互开发框架，支持 Oculus、SteamVR、Daydream 等平台。<br>
+V4 完全重写，模块化、硬件无关，便于跨平台适配。</p>
+<hr>
+
+<h2 class="relative group">二、XR设备SDK 
+    <div id="二xr设备sdk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%ba%8cxr%e8%ae%be%e5%a4%87sdk" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>即使有通用框架，由于 OpenXR 兼容性不足，各大厂商仍会提供自家 SDK 供开发者使用。</p>
+<hr>
+
+<h3 class="relative group">2.1 Oculus Integration 
+    <div id="21-oculus-integration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#21-oculus-integration" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Meta 提供的 Unity 插件，支持 Quest 系列设备，集成：</p>
+<ul>
+<li>渲染功能</li>
+<li>社交系统</li>
+<li>头像系统</li>
+<li>音频与语音</li>
+<li>示例框架</li>
+</ul>
+<hr>
+
+<h3 class="relative group">2.2 Pico SDK 
+    <div id="22-pico-sdk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#22-pico-sdk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Pico 针对 Neo 3、Pico 4 提供 SDK，支持渲染、输入、追踪、MR 捕捉，并配套支付与数据体系。</p>
+<hr>
+
+<h3 class="relative group">2.3 HTC SDK 
+    <div id="23-htc-sdk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#23-htc-sdk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>支持 Vive 系列设备，提供指尖追踪、手势识别插件，可用于 Unity/Unreal。</p>
+<hr>
+
+<h3 class="relative group">2.4 GoogleVR SDK 
+    <div id="24-googlevr-sdk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#24-googlevr-sdk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>分为 Cardboard 与 Daydream 两种方案，支持头部追踪、立体渲染、畸变修正、控制器支持等功能。</p>
+<hr>
+
+<h2 class="relative group">结论 
+    <div id="结论" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%bb%93%e8%ae%ba" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>本文介绍了主流 XR 通用开发框架与厂商 SDK，为 XR 开发者提供了工具选型参考。</p>
+<hr>
+
+<h2 class="relative group">摘要 
+    <div id="摘要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%91%98%e8%a6%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>针对 XR 设备开发还处于初期阶段，缺乏统一标准。<br>
+随着 OpenXR 普及与主流引擎支持，跨平台 XR 开发将逐步简化。</p>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
+          integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
+          data-oid="views_thoughts/vr-dev-tool/index.md"
+          data-oid-likes="likes_thoughts/vr-dev-tool/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/thoughts/hololens/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hololens 2开发笔记</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-02-11T16:26:54&#43;08:00">2023-02-11</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/thoughts/pygame-tutorials/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Pygame入门到入土</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-08-02T19:14:37&#43;08:00">2025-08-02</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+        
+          
+        
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部"
+    title="返回顶部">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+      <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+        <ul class="flex flex-col list-none sm:flex-row">
+          
+            <li
+              class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href="/tags/"
+                title="标签">
+                
+                标签
+              </a>
+            </li>
+          
+            <li
+              class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                href=""
+                title="">
+                
+                关于
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          <span class='inline-block'> Z的枯燥生活 © 2025 </span> <a href='https://beian.miit.gov.cn'>粤ICP备2024319385号-1</a></span>.
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+    
+<style>
+  #music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: white;
+    color: #333;
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    display: none;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  #music-player.dark-mode {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    font-size: 10px;
+    padding: 0;
+    z-index: 10000;
+  }
+  
+  .dark-mode .close-button {
+    background-color: #333;
+    color: #999;
+  }
+  
+  .close-button:hover {
+    background-color: #f0f0f0;
+    color: #cc0000;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .close-button:hover {
+    background-color: #444;
+    color: #ff6666;
+  }
+  
+  .control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .control-button:hover {
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .control-button {
+    color: #999;
+  }
+  
+  .dark-mode .control-button:hover {
+    color: #3399ff;
+  }
+  
+  .now-playing-dot {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .dark-mode .now-playing-dot {
+    box-shadow: 0 0 0 2px #333;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 5px rgba(76, 175, 80, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+  }
+  
+   
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.7); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .play-music-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .play-music-button:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #0066cc;
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .play-music-button,
+  .dark .play-music-button {
+    color: #999;
+  }
+  
+  .dark-mode .play-music-button:hover,
+  .dark .play-music-button:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #3399ff;
+  }
+  
+   
+  .play-music-button.playing svg path:last-child {
+    d: path('M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z');
+  }
+  
+   
+  #audio-player {
+    display: none;
+  }
+  
+   
+  @media (max-width: 768px) {
+    #music-player {
+      bottom: 15px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+    }
+    
+    .control-button {
+      width: 38px;
+      height: 38px;
+    }
+    
+    .control-button svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .close-button {
+      width: 18px;
+      height: 18px;
+      top: -6px;
+      right: -6px;
+    }
+    
+    .close-button svg {
+      width: 10px;
+      height: 10px;
+    }
+    
+    .now-playing-dot {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #music-player {
+      bottom: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      padding: 3px;
+    }
+    
+    .control-button {
+      width: 34px;
+      height: 34px;
+    }
+    
+    .control-button svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+</style>
+
+<div id="music-player">
+  <button id="close-player" class="close-button" title="关闭播放器">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+  </button>
+  
+  <div class="player-controls">
+    <button id="play-pause" class="control-button" title="播放/暂停">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="now-playing-dot"></div>
+  
+  <audio id="audio-player">
+    <source id="audio-source" src="/music/Toby Fox - Fallen Down (Reprise).mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放。
+  </audio>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    function detectDarkMode() {
+      if (document.documentElement.classList.contains('dark') || 
+          window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementById('music-player').classList.add('dark-mode');
+      }
+    }
+    
+    
+    const defaultPlaylist = [
+      { title: "Fallen Down (Reprise)", artist: "Toby Fox", src: "/music/Toby Fox - Fallen Down (Reprise).mp3" },
+      { title: "Home", artist: "Disasterpeace", src: "/music/Disasterpeace - Home.mp3" },
+      { title: "Time Passes", artist: "Kevin MacLeod", src: "/music/Kevin MacLeod - Time Passes.mp3" }
+    ];
+    
+    
+    let currentPlaylist = [...defaultPlaylist];
+    
+    
+    let currentSongIndex = 0;
+    
+    
+    let activeButton = null;
+    
+    
+    let currentMusicFile = null;
+    
+    
+    let activeCard = null;
+    
+    
+    const musicPlayer = document.getElementById('music-player');
+    const audioPlayer = document.getElementById('audio-player');
+    const audioSource = document.getElementById('audio-source');
+    const playPauseBtn = document.getElementById('play-pause');
+    const closePlayerBtn = document.getElementById('close-player');
+    
+    
+    function loadSong(index) {
+      const song = currentPlaylist[index];
+      
+      playPauseBtn.setAttribute('title', `${song.title} - ${song.artist}`);
+      audioSource.src = song.src;
+      currentMusicFile = song.src.split('/').pop();
+      audioPlayer.load();
+    }
+    
+    
+    playPauseBtn.addEventListener('click', function() {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, true);
+        }
+      } else {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+        }
+      }
+    });
+    
+    
+    closePlayerBtn.addEventListener('click', function() {
+      musicPlayer.classList.add('fade-out');
+      
+      
+      setTimeout(function() {
+        musicPlayer.style.display = 'none';
+        musicPlayer.classList.remove('fade-out');
+        
+        audioPlayer.pause();
+        
+        if (activeButton) {
+          updateButtonState(activeButton, false);
+          activeButton = null;
+        }
+        
+        if (activeCard) {
+          updateButtonState(activeCard, false);
+          activeCard = null;
+        }
+      }, 300);
+    });
+    
+    
+    audioPlayer.addEventListener('ended', function() {
+      currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
+      loadSong(currentSongIndex);
+      audioPlayer.play();
+    });
+    
+    
+    function updateButtonState(button, isPlaying) {
+      if (button.classList.contains('play-music-button')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        } else {
+          button.classList.remove('playing');
+          button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+        }
+      } else if (button.classList.contains('post-content')) {
+        
+        if (isPlaying) {
+          button.classList.add('playing');
+        } else {
+          button.classList.remove('playing');
+        }
+      }
+    }
+    
+    
+    loadSong(currentSongIndex);
+    
+    
+    detectDarkMode();
+    
+    
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          detectDarkMode();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true
+    });
+    
+    
+    window.togglePostMusic = function(button, title, artist, file) {
+      
+      const musicFile = file.replace(/^\/music\//, '');
+      
+      
+      const isSameMusic = currentMusicFile === musicFile;
+      
+      
+      const isPlaying = !audioPlayer.paused;
+      
+      
+      if (activeButton && activeButton !== button) {
+        updateButtonState(activeButton, false);
+      }
+      
+      
+      if (button.classList.contains('post-content')) {
+        
+        if (activeCard && activeCard !== button) {
+          updateButtonState(activeCard, false);
+        }
+        activeCard = button;
+      } else {
+        
+        activeButton = button;
+      }
+      
+      
+      musicPlayer.classList.remove('fade-in');
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      
+      if (isSameMusic) {
+        
+        if (isPlaying) {
+          
+          audioPlayer.pause();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, false);
+          if (activeButton) updateButtonState(activeButton, false);
+        } else {
+          
+          audioPlayer.play();
+          playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+          
+          if (activeCard) updateButtonState(activeCard, true);
+          if (activeButton) updateButtonState(activeButton, true);
+        }
+      } else {
+        
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+        
+        if (activeCard) updateButtonState(activeCard, true);
+        if (activeButton) updateButtonState(activeButton, true);
+      }
+    };
+    
+    
+    window.playPostMusic = function(title, artist, file) {
+      musicPlayer.classList.remove('fade-in');
+      
+      if (musicPlayer.style.display === 'none' || !musicPlayer.style.display) {
+        musicPlayer.style.display = 'flex';
+        musicPlayer.classList.add('fade-in');
+      }
+      
+      if (title && artist && file) {
+        currentPlaylist = [{ 
+          title: title, 
+          artist: artist, 
+          src: '/music/' + file 
+        }];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      } else {
+        currentPlaylist = [...defaultPlaylist];
+        currentSongIndex = 0;
+        loadSong(0);
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0v-3.5z"/></svg>';
+      }
+    };
+    
+    
+    document.addEventListener('keydown', function(e) {
+      
+      if (musicPlayer.style.display === 'flex') {
+        
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault(); 
+          playPauseBtn.click();
+        }
+        
+        else if (e.code === 'Escape') {
+          closePlayerBtn.click();
+        }
+      }
+    });
+    
+    
+    audioPlayer.addEventListener('play', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, true);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, true);
+      }
+    });
+    
+    audioPlayer.addEventListener('pause', function() {
+      if (activeButton) {
+        updateButtonState(activeButton, false);
+      }
+      if (activeCard) {
+        updateButtonState(activeCard, false);
+      }
+    });
+  });
+</script>  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-index-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

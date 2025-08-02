@@ -7,17 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>&lt;span class=&#39;inline-block&#39;&gt; Z的枯燥生活 © 2025 &lt;/span&gt; &lt;a href=&#39;https://beian.miit.gov.cn&#39;&gt;粤ICP备2024319385号-1&lt;/a&gt;&lt;/span&gt;.</copyright>
-    <lastBuildDate>Sat, 17 Aug 2024 17:26:56 +0800</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>博客搭建</title>
-      <link>//localhost:1313/thoughts/blog/</link>
-      <pubDate>Sat, 17 Aug 2024 17:26:56 +0800</pubDate>
-      
-      <guid>//localhost:1313/thoughts/blog/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/thoughts/blog/featured.jpg" />
-    </item>
+    <atom:link href="//localhost:1313/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
