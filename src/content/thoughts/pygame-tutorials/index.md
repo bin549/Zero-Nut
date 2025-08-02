@@ -52,15 +52,10 @@ print(pygame.ver)
 * 在2D坐标系中对点的定位，可用（x,y）表示，x表示x轴上的分量也是到y轴的距离，同理y表示y轴上的分量也是到x轴的距离  （x，y）坐标表示中，x y的大小代表距离，x y的正负则代表方向
 * pygame中的坐标系中原点在左上角(0,0)，x轴水平向右，逐渐增加,反之减少，y轴水平向下，逐渐增加，反之减少。
 
-<img src=./assets/tutorials/Computer_coordinates_2D.png height=250 style="margin-left: 80px;">
-
-
-
+ 
 ### 3.1.2 pygame基础库（Pygame Library）
 
 * Pygame提供了各种游戏开发所需的工具和功能。Pygame在SDL（Simple Direct Media Layer，使用C语言编写的多媒体开发库）的基础上开发而成，它提供了诸多操作模块，比如图像模块（image）、声音模块（mixer）、输入/输出（鼠标、键盘、显示屏）模块等。相比于开发3D游戏而言，Pygame更擅长开发2D游戏，
-
-<img src=./assets/tutorials/module.jpg height=520 style="margin-left: 80px;">
 
 
 #### 3.1.3 基本流程
@@ -811,7 +806,6 @@ exit_button = Button(450, 200, exit_img, 0.8)
 
 
 ```python
-
 run = True
 while run:
 	screen.fill((202, 228, 241))
@@ -924,7 +918,6 @@ pygame.display.set_caption("Mandelbrot set")
 
 
 ```python
-
 def fractal():
     for y in range(400): 
         for x in range(400): 
@@ -1004,7 +997,6 @@ pass_pipe = False
 
 
 ```python
-
 bg = pygame.image.load('assets/flappybird/images/bg.png')
 ground_img = pygame.image.load('assets/flappybird/images/ground.png')
 button_img = pygame.image.load('assets/flappybird/images/restart.png')

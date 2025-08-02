@@ -1,5 +1,5 @@
 ---
-title: "Hololens 2开发笔记"
+title: "我在Hololens 2上开发软件"
 date: 2023-02-11T16:26:54+08:00
 lastmod: 2025-08-02T19:04:57+08:00
 author: "Z"

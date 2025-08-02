@@ -1192,7 +1192,6 @@
 <li>在2D坐标系中对点的定位，可用（x,y）表示，x表示x轴上的分量也是到y轴的距离，同理y表示y轴上的分量也是到x轴的距离  （x，y）坐标表示中，x y的大小代表距离，x y的正负则代表方向</li>
 <li>pygame中的坐标系中原点在左上角(0,0)，x轴水平向右，逐渐增加,反之减少，y轴水平向下，逐渐增加，反之减少。</li>
 </ul>
-<img src=./assets/tutorials/Computer_coordinates_2D.png height=250 style="margin-left: 80px;">
 
 <h3 class="relative group">3.1.2 pygame基础库（Pygame Library） 
     <div id="312-pygame基础库pygame-library" class="anchor"></div>
@@ -1206,7 +1205,6 @@
 <ul>
 <li>Pygame提供了各种游戏开发所需的工具和功能。Pygame在SDL（Simple Direct Media Layer，使用C语言编写的多媒体开发库）的基础上开发而成，它提供了诸多操作模块，比如图像模块（image）、声音模块（mixer）、输入/输出（鼠标、键盘、显示屏）模块等。相比于开发3D游戏而言，Pygame更擅长开发2D游戏，</li>
 </ul>
-<img src=./assets/tutorials/module.jpg height=520 style="margin-left: 80px;">
 
 <h4 class="relative group">3.1.3 基本流程 
     <div id="313-基本流程" class="anchor"></div>
@@ -2094,8 +2092,7 @@ load(...)
 </h4>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">run</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">run</span> <span class="o">=</span> <span class="kc">True</span>
 </span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">run</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">	<span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">202</span><span class="p">,</span> <span class="mi">228</span><span class="p">,</span> <span class="mi">241</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">start_button</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">):</span>
@@ -2244,8 +2241,7 @@ load(...)
 </h4>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fractal</span><span class="p">():</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fractal</span><span class="p">():</span>
 </span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span> 
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span> 
 </span></span><span class="line"><span class="cl">            <span class="n">zx</span><span class="p">,</span> <span class="n">zy</span> <span class="o">=</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">400.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.25</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="mf">400.0</span> 
@@ -2344,8 +2340,7 @@ load(...)
 </span></span><span class="line"><span class="cl"><span class="n">last_pipe</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">get_ticks</span><span class="p">()</span> <span class="o">-</span> <span class="n">pipe_frequency</span>
 </span></span><span class="line"><span class="cl"><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
 </span></span><span class="line"><span class="cl"><span class="n">pass_pipe</span> <span class="o">=</span> <span class="kc">False</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">bg</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;assets/flappybird/images/bg.png&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">bg</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;assets/flappybird/images/bg.png&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">ground_img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;assets/flappybird/images/ground.png&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">button_img</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;assets/flappybird/images/restart.png&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
@@ -2570,7 +2565,7 @@ load(...)
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >VR开发概述</span
+                  >浅谈VR开发</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
