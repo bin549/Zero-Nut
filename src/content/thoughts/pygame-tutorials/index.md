@@ -123,13 +123,9 @@ while not done:
             pygame.quit()   #卸载所有模块
             sys.exit()  #终止程序，确保退出程序
     # --- 游戏逻辑
-
     # --- 游戏图形绘制
- 
     screen.fill(WHITE)  # 清空屏幕
- 
     pygame.display.flip()   # 更新屏幕内容
- 
     clock.tick(60)  #限制每秒刷新60次
 ```
 
@@ -595,7 +591,6 @@ class SpriteSheet():
 		image.blit(self.sheet, (0, 0), ((frame * width), 0, width, height))
 		image = pygame.transform.scale(image, (width * scale, height * scale))
 		image.set_colorkey(colour)
-
 		return image
 
 sprite_sheet = SpriteSheet(sprite_sheet_image)

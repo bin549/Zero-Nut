@@ -1308,13 +1308,9 @@
 </span></span><span class="line"><span class="cl">            <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>   <span class="c1">#卸载所有模块</span>
 </span></span><span class="line"><span class="cl">            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>  <span class="c1">#终止程序，确保退出程序</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># --- 游戏逻辑</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># --- 游戏图形绘制</span>
-</span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">WHITE</span><span class="p">)</span>  <span class="c1"># 清空屏幕</span>
-</span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">    <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>   <span class="c1"># 更新屏幕内容</span>
-</span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>  <span class="c1">#限制每秒刷新60次</span>
 </span></span></code></pre></div>
 <h3 class="relative group">3.2 pygame图形学相关 
@@ -1847,7 +1843,6 @@ load(...)
 </span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sheet</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">((</span><span class="n">frame</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">		<span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="n">scale</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">		<span class="n">image</span><span class="o">.</span><span class="n">set_colorkey</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="n">image</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">sprite_sheet</span> <span class="o">=</span> <span class="n">SpriteSheet</span><span class="p">(</span><span class="n">sprite_sheet_image</span><span class="p">)</span>
