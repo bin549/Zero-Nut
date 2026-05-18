@@ -1,18 +1,7 @@
 [
   {
-    "id": 62,
-    "date": "2026-05-18T16:42:58.0000000+08:00",
-    "text": "12321",
-    "image": null,
-    "music": {
-      "title": "Perfect",
-      "artist": "Ed Sheeran",
-      "file": "Ed Sheeran - Perfect.mp3"
-    }
-  },
-  {
     "id": 61,
-    "date": "2026-06-30T14:00:00.000Z",
+    "date": "2026-05-18T22:00:00.0000000+08:00",
     "text": "友情就像树，需要浇水才能延续——而我们手中能浇的水就这么多。",
     "image": "/images/backgrounds/time.jpg",
     "music": {
