@@ -18,10 +18,28 @@
       <Setter Property="CornerRadius" Value="10" />
       <Setter Property="Padding" Value="10,8" />
     </Style>
-    <Style Selector="Button">
+    <Style Selector="Button.app-btn">
       <Setter Property="CornerRadius" Value="10" />
       <Setter Property="Padding" Value="14,10" />
       <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="Button.app-btn.fab">
+      <Setter Property="Width" Value="62" />
+      <Setter Property="Height" Value="62" />
+      <Setter Property="CornerRadius" Value="31" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="FontSize" Value="34" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Button.app-btn.music-link">
+      <Setter Property="Padding" Value="10,5" />
+      <Setter Property="CornerRadius" Value="999" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Background" Value="#1F7A4C" />
+      <Setter Property="Foreground" Value="#F5FFF8" />
     </Style>
   </Window.Styles>
 
@@ -34,8 +52,9 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
-          <Button x:Name="ToggleFullscreenButton" Content="Toggle Fullscreen" Background="#2B8C7F" Click="ToggleFullscreen_Click" />
-          <Button x:Name="SyncButton" Background="#D97706" Click="Sync_Click">
+          <Button x:Name="ToggleThemeButton" Classes="app-btn" Content="Night Mode" Background="#4B5563" Click="ToggleTheme_Click" />
+          <Button x:Name="ToggleFullscreenButton" Classes="app-btn" Content="Toggle Fullscreen" Background="#2B8C7F" Click="ToggleFullscreen_Click" />
+          <Button x:Name="SyncButton" Classes="app-btn" Background="#D97706" Click="Sync_Click">
             <StackPanel Orientation="Horizontal" Spacing="10">
               <TextBlock Text="Sync to GitHub" />
               <ProgressBar x:Name="SyncProgress" Width="48" Height="4" IsIndeterminate="True" IsVisible="False" />
@@ -46,8 +65,8 @@
     </Border>
 
     <Border Grid.Row="1" Margin="20" Background="#FFFDF9" CornerRadius="24" BorderBrush="#E4DACC" BorderThickness="1">
-      <Grid ColumnDefinitions="1.1*,10,0.95*">
-        <Border Grid.Column="0" Padding="22,22,18,18" BorderBrush="#EEE4D7" BorderThickness="0,0,1,0">
+      <Grid>
+        <Border Padding="22,22,18,18">
           <Grid RowDefinitions="Auto,*,Auto" RowSpacing="14">
             <StackPanel Spacing="6">
               <TextBlock Text="Posts" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
@@ -69,10 +88,14 @@
                               <TextBlock Grid.Column="1" Text="{Binding DateText}" Foreground="#6B7280" FontSize="12" />
                             </Grid>
                             <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="15" Foreground="#1F2937" />
-                            <TextBlock Text="{Binding MusicDisplay}" Foreground="#1F7A4C" FontSize="12" IsVisible="{Binding HasMusic}" />
+                            <Button Classes="app-btn music-link"
+                                    Content="{Binding MusicDisplay}"
+                                    Tag="{Binding}"
+                                    Click="PlayMusic_Click"
+                                    IsVisible="{Binding HasMusic}" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
-                              <Button Content="Edit" Background="#247B87" Tag="{Binding}" Click="EditPost_Click" />
-                              <Button Content="Delete" Background="#B42318" Tag="{Binding}" Click="DeletePost_Click" />
+                              <Button Classes="app-btn" Content="Edit" Background="#247B87" Tag="{Binding}" Click="EditPost_Click" />
+                              <Button Classes="app-btn" Content="Delete" Background="#B42318" Tag="{Binding}" Click="DeletePost_Click" />
                             </StackPanel>
                           </StackPanel>
                         </Grid>
@@ -93,7 +116,7 @@
                       VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Spacing="6">
                   <TextBlock Text="No posts found" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="#24364A" />
-                  <TextBlock Text="Add a new post with the form on the right." HorizontalAlignment="Center" Foreground="#6B7280" />
+                  <TextBlock Text="Tap the + button to create your first post." HorizontalAlignment="Center" Foreground="#6B7280" />
                 </StackPanel>
               </Border>
             </Grid>
@@ -104,74 +127,127 @@
           </Grid>
         </Border>
 
-        <GridSplitter Grid.Column="1" Width="10" Background="Transparent" />
-
-        <Border Grid.Column="2" Padding="22" Background="#FDF9F3" CornerRadius="0,24,24,0">
-          <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Spacing="18">
-              <StackPanel Spacing="4">
-                <TextBlock Text="Create post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
-                <TextBlock Text="Add text, image and music metadata in one pass." Foreground="#6B7280" FontSize="13" />
-              </StackPanel>
-
-              <StackPanel Spacing="8">
-                <TextBlock Text="Post text" FontWeight="SemiBold" />
-                <TextBox x:Name="PostTextBox" AcceptsReturn="True" MinHeight="168" TextWrapping="Wrap" Watermark="Enter your post text here..." />
-              </StackPanel>
-
-              <StackPanel Spacing="8">
-                <TextBlock Text="Date" FontWeight="SemiBold" />
-                <StackPanel Orientation="Horizontal" Spacing="10">
-                  <DatePicker x:Name="PostDatePicker" Width="180" />
-                  <TimePicker x:Name="PostTimePicker" Width="140" />
-                </StackPanel>
-              </StackPanel>
-
-              <StackPanel Spacing="8">
-                <TextBlock Text="Background image" FontWeight="SemiBold" />
-                <Button Content="Choose Image" Background="#50657B" Click="SelectImage_Click" HorizontalAlignment="Left" />
-                <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
-                  <StackPanel Spacing="10">
-                    <TextBlock x:Name="SelectedImageNameText" Text="No image selected" Foreground="#56616D" />
-                    <Image x:Name="SelectedImagePreview" Height="140" Stretch="UniformToFill" IsVisible="False" />
-                    <Button x:Name="ClearImageButton" Content="Clear image" Background="#B42318" Click="ClearImage_Click" IsVisible="False" HorizontalAlignment="Left" />
-                  </StackPanel>
-                </Border>
-              </StackPanel>
-
-              <StackPanel Spacing="8">
-                <TextBlock Text="Music" FontWeight="SemiBold" />
-                <Button Content="Choose Music File" Background="#50657B" Click="SelectMusic_Click" HorizontalAlignment="Left" />
-                <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
-                  <StackPanel Spacing="10">
-                    <TextBlock x:Name="SelectedMusicNameText" Text="No music selected" Foreground="#56616D" />
-                    <Button x:Name="ClearMusicButton" Content="Clear music" Background="#B42318" Click="ClearMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
-                    <Border x:Name="MusicMetadataPanel" Background="#F7F2EA" CornerRadius="10" Padding="10" IsVisible="False">
-                      <StackPanel Spacing="8">
-                        <StackPanel Spacing="6">
-                          <TextBlock Text="Music title" FontWeight="SemiBold" />
-                          <TextBox x:Name="MusicTitleTextBox" Watermark="Enter music title" />
-                        </StackPanel>
-                        <StackPanel Spacing="6">
-                          <TextBlock Text="Artist" FontWeight="SemiBold" />
-                          <TextBox x:Name="MusicArtistTextBox" Watermark="Enter artist name" />
-                        </StackPanel>
-                      </StackPanel>
-                    </Border>
-                  </StackPanel>
-                </Border>
-              </StackPanel>
-
-              <Button Content="Add Post" Background="#2B8C7F" Click="AddPost_Click" Padding="16,12" />
-
-              <Border x:Name="StatusBorder" Background="#E7F4EE" BorderBrush="#B9E3C8" BorderThickness="1" CornerRadius="12" Padding="12" IsVisible="False">
-                <TextBlock x:Name="StatusText" Foreground="#155724" TextWrapping="Wrap" />
-              </Border>
-            </StackPanel>
-          </ScrollViewer>
+        <Border x:Name="StatusBorder"
+                Background="#E7F4EE"
+                BorderBrush="#B9E3C8"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="12"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,18,18,0"
+                IsVisible="False"
+                ZIndex="3">
+          <TextBlock x:Name="StatusText" Foreground="#155724" TextWrapping="Wrap" />
         </Border>
 
-        <Border x:Name="EditOverlay" Grid.ColumnSpan="3" Background="#B312263A" IsVisible="False" ZIndex="10">
+        <Border Background="#FFF8EF"
+                BorderBrush="#E7DDD0"
+                BorderThickness="1"
+                CornerRadius="14"
+                Padding="12"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="24,0,0,24"
+                ZIndex="3">
+          <StackPanel Spacing="8">
+            <TextBlock Text="Player" FontWeight="SemiBold" Foreground="#2A3D52" />
+            <TextBlock x:Name="NowPlayingText" Text="Not playing" Foreground="#5B6673" />
+            <StackPanel Orientation="Horizontal" Spacing="10">
+              <Button x:Name="TogglePlaybackButton" Classes="app-btn" Content="Pause" Background="#247B87" Click="TogglePlayback_Click" IsEnabled="False" />
+              <Button x:Name="StopPlaybackButton" Classes="app-btn" Content="Stop" Background="#B42318" Click="StopPlayback_Click" IsEnabled="False" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+
+        <Button x:Name="OpenCreateDialogButton"
+                Classes="app-btn fab"
+                Content="+"
+                Background="#2B8C7F"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,24,24"
+                ZIndex="4"
+                Click="OpenCreateDialog_Click" />
+
+        <Border x:Name="CreateOverlay" Background="#B312263A" IsVisible="False" ZIndex="9">
+          <Border HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Width="820"
+                  MaxHeight="840"
+                  Background="#FFFDF9"
+                  CornerRadius="24"
+                  BorderBrush="#E4DACC"
+                  BorderThickness="1"
+                  Padding="22">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+              <StackPanel Spacing="16">
+                <Grid ColumnDefinitions="*,Auto">
+                  <StackPanel Spacing="4">
+                    <TextBlock Text="Create post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
+                    <TextBlock Text="Add text, image and music metadata in one pass." Foreground="#6B7280" FontSize="13" />
+                  </StackPanel>
+                  <Button Classes="app-btn" Content="×" Background="Transparent" Foreground="#56616D" Click="CloseCreateDialog_Click" Padding="8,4" FontSize="24" />
+                </Grid>
+
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Post text" FontWeight="SemiBold" />
+                  <TextBox x:Name="PostTextBox" AcceptsReturn="True" MinHeight="168" TextWrapping="Wrap" Watermark="Enter your post text here..." />
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Date" FontWeight="SemiBold" />
+                  <StackPanel Orientation="Horizontal" Spacing="10">
+                    <DatePicker x:Name="PostDatePicker" Width="180" />
+                    <TimePicker x:Name="PostTimePicker" Width="140" />
+                  </StackPanel>
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Background image" FontWeight="SemiBold" />
+                  <Button Classes="app-btn" Content="Choose Image" Background="#50657B" Click="SelectImage_Click" HorizontalAlignment="Left" />
+                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+                    <StackPanel Spacing="10">
+                      <TextBlock x:Name="SelectedImageNameText" Text="No image selected" Foreground="#56616D" />
+                      <Image x:Name="SelectedImagePreview" Height="140" Stretch="UniformToFill" IsVisible="False" />
+                      <Button x:Name="ClearImageButton" Classes="app-btn" Content="Clear image" Background="#B42318" Click="ClearImage_Click" IsVisible="False" HorizontalAlignment="Left" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Music" FontWeight="SemiBold" />
+                  <Button Classes="app-btn" Content="Choose Music File" Background="#50657B" Click="SelectMusic_Click" HorizontalAlignment="Left" />
+                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+                    <StackPanel Spacing="10">
+                      <TextBlock x:Name="SelectedMusicNameText" Text="No music selected" Foreground="#56616D" />
+                      <Button x:Name="ClearMusicButton" Classes="app-btn" Content="Clear music" Background="#B42318" Click="ClearMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
+                      <Border x:Name="MusicMetadataPanel" Background="#F7F2EA" CornerRadius="10" Padding="10" IsVisible="False">
+                        <StackPanel Spacing="8">
+                          <StackPanel Spacing="6">
+                            <TextBlock Text="Music title" FontWeight="SemiBold" />
+                            <TextBox x:Name="MusicTitleTextBox" Watermark="Enter music title" />
+                          </StackPanel>
+                          <StackPanel Spacing="6">
+                            <TextBlock Text="Artist" FontWeight="SemiBold" />
+                            <TextBox x:Name="MusicArtistTextBox" Watermark="Enter artist name" />
+                          </StackPanel>
+                        </StackPanel>
+                      </Border>
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+                  <Button Classes="app-btn" Content="Cancel" Background="#6B7280" Click="CloseCreateDialog_Click" />
+                  <Button Classes="app-btn" Content="Add Post" Background="#2B8C7F" Click="AddPost_Click" Padding="16,12" />
+                </StackPanel>
+              </StackPanel>
+            </ScrollViewer>
+          </Border>
+        </Border>
+
+        <Border x:Name="EditOverlay" Background="#B312263A" IsVisible="False" ZIndex="10">
           <Border HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   Width="820"
@@ -188,7 +264,7 @@
                     <TextBlock Text="Edit post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
                     <TextBlock Text="Update content, date, image and music." Foreground="#6B7280" FontSize="13" />
                   </StackPanel>
-                  <Button Content="×" Background="Transparent" Foreground="#56616D" Click="CloseEditDialog_Click" Padding="8,4" FontSize="24" />
+                  <Button Classes="app-btn" Content="×" Background="Transparent" Foreground="#56616D" Click="CloseEditDialog_Click" Padding="8,4" FontSize="24" />
                 </Grid>
 
                 <StackPanel Spacing="8">
@@ -206,23 +282,23 @@
 
                 <StackPanel Spacing="8">
                   <TextBlock Text="Background image" FontWeight="SemiBold" />
-                  <Button Content="Choose Image" Background="#50657B" Click="SelectEditImage_Click" HorizontalAlignment="Left" />
+                  <Button Classes="app-btn" Content="Choose Image" Background="#50657B" Click="SelectEditImage_Click" HorizontalAlignment="Left" />
                   <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
                       <TextBlock x:Name="EditSelectedImageNameText" Text="No image selected" Foreground="#56616D" />
                       <Image x:Name="EditSelectedImagePreview" Height="140" Stretch="UniformToFill" IsVisible="False" />
-                      <Button x:Name="EditClearImageButton" Content="Clear image" Background="#B42318" Click="ClearEditImage_Click" IsVisible="False" HorizontalAlignment="Left" />
+                      <Button x:Name="EditClearImageButton" Classes="app-btn" Content="Clear image" Background="#B42318" Click="ClearEditImage_Click" IsVisible="False" HorizontalAlignment="Left" />
                     </StackPanel>
                   </Border>
                 </StackPanel>
 
                 <StackPanel Spacing="8">
                   <TextBlock Text="Music" FontWeight="SemiBold" />
-                  <Button Content="Choose Music File" Background="#50657B" Click="SelectEditMusic_Click" HorizontalAlignment="Left" />
+                  <Button Classes="app-btn" Content="Choose Music File" Background="#50657B" Click="SelectEditMusic_Click" HorizontalAlignment="Left" />
                   <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
                       <TextBlock x:Name="EditSelectedMusicNameText" Text="No music selected" Foreground="#56616D" />
-                      <Button x:Name="EditClearMusicButton" Content="Clear music" Background="#B42318" Click="ClearEditMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
+                      <Button x:Name="EditClearMusicButton" Classes="app-btn" Content="Clear music" Background="#B42318" Click="ClearEditMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
                       <Border x:Name="EditMusicMetadataPanel" Background="#F7F2EA" CornerRadius="10" Padding="10" IsVisible="False">
                         <StackPanel Spacing="8">
                           <StackPanel Spacing="6">
@@ -240,15 +316,15 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
-                  <Button Content="Cancel" Background="#6B7280" Click="CloseEditDialog_Click" />
-                  <Button Content="Save Changes" Background="#2B8C7F" Click="SaveEditedPost_Click" />
+                  <Button Classes="app-btn" Content="Cancel" Background="#6B7280" Click="CloseEditDialog_Click" />
+                  <Button Classes="app-btn" Content="Save Changes" Background="#2B8C7F" Click="SaveEditedPost_Click" />
                 </StackPanel>
               </StackPanel>
             </ScrollViewer>
           </Border>
         </Border>
 
-        <Border x:Name="DeleteOverlay" Grid.ColumnSpan="3" Background="#B312263A" IsVisible="False" ZIndex="11">
+        <Border x:Name="DeleteOverlay" Background="#B312263A" IsVisible="False" ZIndex="11">
           <Border HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   Width="420"
@@ -261,8 +337,8 @@
               <TextBlock Text="Delete post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
               <TextBlock x:Name="DeletePromptText" TextWrapping="Wrap" Foreground="#374151" />
               <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
-                <Button Content="Cancel" Background="#6B7280" Click="CloseDeleteDialog_Click" />
-                <Button Content="Delete" Background="#B42318" Click="ConfirmDelete_Click" />
+                <Button Classes="app-btn" Content="Cancel" Background="#6B7280" Click="CloseDeleteDialog_Click" />
+                <Button Classes="app-btn" Content="Delete" Background="#B42318" Click="ConfirmDelete_Click" />
               </StackPanel>
             </StackPanel>
           </Border>

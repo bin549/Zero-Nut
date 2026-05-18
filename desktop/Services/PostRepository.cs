@@ -54,7 +54,6 @@ public sealed class PostRepository {
         if (index < 0) {
             throw new InvalidOperationException($"Post with ID {updatedPost.Id} not found");
         }
-
         posts[index] = new PostRecord {
             Id = posts[index].Id,
             Date = string.IsNullOrWhiteSpace(updatedPost.Date) ? posts[index].Date : updatedPost.Date,
@@ -73,14 +72,11 @@ public sealed class PostRepository {
         if (postToDelete is null) {
             throw new InvalidOperationException($"Post with ID {postId} not found");
         }
-
         var removed = posts.RemoveAll(post => post.Id == postId);
         if (removed == 0) {
             throw new InvalidOperationException($"Post with ID {postId} not found");
         }
-
         await SavePostsAsync(posts);
-
         DeleteUnusedMusicFile(postToDelete.Music?.File, posts);
     }
 
