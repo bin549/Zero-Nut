@@ -19,9 +19,8 @@ hugo.linux
 .idea/*
 
 desktop/dist/*
-desktop/node_modules/*
-desktop/build/*
-desktop/dist/*
+desktop/Debug/*
+desktop/bin/*
 desktop/node_modules/*
 desktop/build/*
 desktop/.idea/*
