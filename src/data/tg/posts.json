@@ -1,134 +1,145 @@
-[ 
+[
   {
-    "id": 61,
-    "date": "2026-06-30T14:00:00.000Z",
-    "text": "友情就像树，需要浇水才能延续——而我们手中能浇的水就这么多。",
-    "image": "/images/backgrounds/time.jpg",
-    "music": {
-      "title": "End Credits",
-      "artist": "Alec Holowka",
-      "file": "Alec Holowka - End Credits.mp3"
+    "Id": 62,
+    "Date": "2026-05-18T16:27:17.0000000\u002B08:00",
+    "Text": "zzcvxcv",
+    "Image": null,
+    "Music": {
+      "Title": "Head Above Water",
+      "Artist": "Avril Lavigne",
+      "File": "Avril Lavigne - Head Above Water.mp3"
     }
   },
   {
-    "id": 61,
-    "date": "2026-02-03T14:00:00.000Z",
-    "text": "爱就是当看到心仪的人时，想把饭盆分她一半——当然，只是想想而已。",
-    "image": "/images/backgrounds/time.jpg",
-    "music": {
-      "title": "忠犬REBIRTH",
-      "artist": "新谷早苗",
-      "file": "新谷早苗 - 忠犬REBIRTH.mp3"
+    "Id": 61,
+    "Date": "2026-06-30T14:00:00.000Z",
+    "Text": "\u53CB\u60C5\u5C31\u50CF\u6811\uFF0C\u9700\u8981\u6D47\u6C34\u624D\u80FD\u5EF6\u7EED\u2014\u2014\u800C\u6211\u4EEC\u624B\u4E2D\u80FD\u6D47\u7684\u6C34\u5C31\u8FD9\u4E48\u591A\u3002",
+    "Image": "/images/backgrounds/time.jpg",
+    "Music": {
+      "Title": "End Credits",
+      "Artist": "Alec Holowka",
+      "File": "Alec Holowka - End Credits.mp3"
     }
   },
   {
-    "id": 60,
-    "date": "2025-05-07T13:07:00.000Z",
-    "text": "我一直抵抗着那股要带走自己的洪流，却真正地随回忆一起融化在了时间里。",
-    "image": "/images/backgrounds/time.jpg",
-    "music": {
-      "title": "Time Passes",
-      "artist": "Kevin MacLeod",
-      "file": "Kevin MacLeod - Time Passes.mp3"
+    "Id": 61,
+    "Date": "2026-02-03T14:00:00.000Z",
+    "Text": "\u7231\u5C31\u662F\u5F53\u770B\u5230\u5FC3\u4EEA\u7684\u4EBA\u65F6\uFF0C\u60F3\u628A\u996D\u76C6\u5206\u5979\u4E00\u534A\u2014\u2014\u5F53\u7136\uFF0C\u53EA\u662F\u60F3\u60F3\u800C\u5DF2\u3002",
+    "Image": "/images/backgrounds/time.jpg",
+    "Music": {
+      "Title": "\u5FE0\u72ACREBIRTH",
+      "Artist": "\u65B0\u8C37\u65E9\u82D7",
+      "File": "\u65B0\u8C37\u65E9\u82D7 - \u5FE0\u72ACREBIRTH.mp3"
     }
   },
   {
-    "id": 59,
-    "date": "2025-05-06T15:14:00.000Z",
-    "text": "怎么会喜欢一个不存在的东西，世界上哪有正方体，只有我心爱的正方形。",
-    "image": "/images/backgrounds/geometry.jpg",
-    "music": {
-      "title": "Home",
-      "artist": "Disasterpeace",
-      "file": "Disasterpeace - Home.mp3"
+    "Id": 60,
+    "Date": "2025-05-07T13:07:00.000Z",
+    "Text": "\u6211\u4E00\u76F4\u62B5\u6297\u7740\u90A3\u80A1\u8981\u5E26\u8D70\u81EA\u5DF1\u7684\u6D2A\u6D41\uFF0C\u5374\u771F\u6B63\u5730\u968F\u56DE\u5FC6\u4E00\u8D77\u878D\u5316\u5728\u4E86\u65F6\u95F4\u91CC\u3002",
+    "Image": "/images/backgrounds/time.jpg",
+    "Music": {
+      "Title": "Time Passes",
+      "Artist": "Kevin MacLeod",
+      "File": "Kevin MacLeod - Time Passes.mp3"
     }
   },
   {
-    "id": 57,
-    "date": "2025-03-01T14:14:00.000Z",
-    "text": "死亡不是终点",
-    "image": "/images/backgrounds/memory.jpg",
-    "music": {
-      "title": "memory",
-      "artist": "光田康典",
-      "file": "光田康典 - memory.mp3"
+    "Id": 59,
+    "Date": "2025-05-06T15:14:00.000Z",
+    "Text": "\u600E\u4E48\u4F1A\u559C\u6B22\u4E00\u4E2A\u4E0D\u5B58\u5728\u7684\u4E1C\u897F\uFF0C\u4E16\u754C\u4E0A\u54EA\u6709\u6B63\u65B9\u4F53\uFF0C\u53EA\u6709\u6211\u5FC3\u7231\u7684\u6B63\u65B9\u5F62\u3002",
+    "Image": "/images/backgrounds/geometry.jpg",
+    "Music": {
+      "Title": "Home",
+      "Artist": "Disasterpeace",
+      "File": "Disasterpeace - Home.mp3"
     }
   },
   {
-    "id": 56,
-    "date": "2024-10-18T00:14:06+00:00",
-    "text": "深夜蹲大同新专辑",
-    "image": "/images/backgrounds/music.jpg",
-    "music": {
-      "title": "XZMHXDXH",
-      "artist": "方大同",
-      "file": "方大同 - XZMHXDXH.mp3"
+    "Id": 57,
+    "Date": "2025-03-01T14:14:00.000Z",
+    "Text": "\u6B7B\u4EA1\u4E0D\u662F\u7EC8\u70B9",
+    "Image": "/images/backgrounds/memory.jpg",
+    "Music": {
+      "Title": "memory",
+      "Artist": "\u5149\u7530\u5EB7\u5178",
+      "File": "\u5149\u7530\u5EB7\u5178 - memory.mp3"
     }
   },
   {
-    "id": 55,
-    "date": "2023-03-18T14:46:00.000Z",
-    "text": "more care. more scare.",
-    "image": "/images/backgrounds/abstract.jpg",
-    "music": {
-      "title": "Fallen Down (Reprise)",
-      "artist": "Toby Fox",
-      "file": "Toby Fox - Fallen Down (Reprise).mp3"
+    "Id": 56,
+    "Date": "2024-10-18T00:14:06\u002B00:00",
+    "Text": "\u6DF1\u591C\u8E72\u5927\u540C\u65B0\u4E13\u8F91",
+    "Image": "/images/backgrounds/music.jpg",
+    "Music": {
+      "Title": "XZMHXDXH",
+      "Artist": "\u65B9\u5927\u540C",
+      "File": "\u65B9\u5927\u540C - XZMHXDXH.mp3"
     }
   },
   {
-    "id": 54,
-    "date": "2025-02-10T06:20:00.000Z",
-    "text": "表达的冲动只是喉头一痒，清清嗓子便没了开口的欲望。",
-    "image": "/images/backgrounds/silence.jpg",
-    "music": {
-      "title": "z",
-      "artist": "浜渦正志",
-      "file": "浜渦正志 - z.mp3"
+    "Id": 55,
+    "Date": "2023-03-18T14:46:00.000Z",
+    "Text": "more care. more scare.",
+    "Image": "/images/backgrounds/abstract.jpg",
+    "Music": {
+      "Title": "Fallen Down (Reprise)",
+      "Artist": "Toby Fox",
+      "File": "Toby Fox - Fallen Down (Reprise).mp3"
     }
   },
   {
-    "id": 53,
-    "date": "2023-01-13T20:52:00.000Z",
-    "text": "To be alone, you need someone to be alone from.",
-    "image": "/images/backgrounds/alone.jpg",
-    "music": {
-      "title": "Gregg's Woods",
-      "artist": "Alec Holowka",
-      "file": "Alec Holowka - Gregg's Woods.mp3"
+    "Id": 54,
+    "Date": "2025-02-10T06:20:00.000Z",
+    "Text": "\u8868\u8FBE\u7684\u51B2\u52A8\u53EA\u662F\u5589\u5934\u4E00\u75D2\uFF0C\u6E05\u6E05\u55D3\u5B50\u4FBF\u6CA1\u4E86\u5F00\u53E3\u7684\u6B32\u671B\u3002",
+    "Image": "/images/backgrounds/silence.jpg",
+    "Music": {
+      "Title": "z",
+      "Artist": "\u6D5C\u6E26\u6B63\u5FD7",
+      "File": "\u6D5C\u6E26\u6B63\u5FD7 - z.mp3"
     }
   },
   {
-    "id": 52,
-    "date": "2023-01-06T15:59:00.000Z",
-    "text": "越喜欢某样东西，当失去时，失落感也将越强烈。",
-    "image": "/images/backgrounds/loss.jpg",
-    "music": {
-      "title": "分",
-      "artist": "祖堅正慶",
-      "file": "祖堅正慶 - 分.mp3"
+    "Id": 53,
+    "Date": "2023-01-13T20:52:00.000Z",
+    "Text": "To be alone, you need someone to be alone from.",
+    "Image": "/images/backgrounds/alone.jpg",
+    "Music": {
+      "Title": "Gregg\u0027s Woods",
+      "Artist": "Alec Holowka",
+      "File": "Alec Holowka - Gregg\u0027s Woods.mp3"
     }
   },
   {
-    "id": 42,
-    "date": "2022-07-13T21:40:06+00:00",
-    "text": "当这个世界被人类的期待填满，我唯有将自己的回忆细细珍藏。",
-    "image": "/images/backgrounds/memory2.jpg",
-    "music": {
-      "title": "赛尔号传送仓纯音乐",
-      "artist": "XX_xxdcds",
-      "file": "XX_xxdcds - 赛尔号传送仓纯音乐.mp3"
+    "Id": 52,
+    "Date": "2023-01-06T15:59:00.000Z",
+    "Text": "\u8D8A\u559C\u6B22\u67D0\u6837\u4E1C\u897F\uFF0C\u5F53\u5931\u53BB\u65F6\uFF0C\u5931\u843D\u611F\u4E5F\u5C06\u8D8A\u5F3A\u70C8\u3002",
+    "Image": "/images/backgrounds/loss.jpg",
+    "Music": {
+      "Title": "\u5206",
+      "Artist": "\u7956\u5805\u6B63\u6176",
+      "File": "\u7956\u5805\u6B63\u6176 - \u5206.mp3"
     }
   },
   {
-    "id": 1,
-    "date": "2018-04-15T12:00:39+00:00",
-    "text": "I liked how things were when they were.",
-    "image": "/images/backgrounds/nostalgia.jpg",
-    "music": {
-      "title": "Why Can't We Go Backwards",
-      "artist": "Alan Silvestri",
-      "file": "Alan Silvestri - Why Can't We Go Backwards.mp3"
+    "Id": 42,
+    "Date": "2022-07-13T21:40:06\u002B00:00",
+    "Text": "\u5F53\u8FD9\u4E2A\u4E16\u754C\u88AB\u4EBA\u7C7B\u7684\u671F\u5F85\u586B\u6EE1\uFF0C\u6211\u552F\u6709\u5C06\u81EA\u5DF1\u7684\u56DE\u5FC6\u7EC6\u7EC6\u73CD\u85CF\u3002",
+    "Image": "/images/backgrounds/memory2.jpg",
+    "Music": {
+      "Title": "\u8D5B\u5C14\u53F7\u4F20\u9001\u4ED3\u7EAF\u97F3\u4E50",
+      "Artist": "XX_xxdcds",
+      "File": "XX_xxdcds - \u8D5B\u5C14\u53F7\u4F20\u9001\u4ED3\u7EAF\u97F3\u4E50.mp3"
+    }
+  },
+  {
+    "Id": 1,
+    "Date": "2018-04-15T12:00:39\u002B00:00",
+    "Text": "I liked how things were when they were.",
+    "Image": "/images/backgrounds/nostalgia.jpg",
+    "Music": {
+      "Title": "Why Can\u0027t We Go Backwards",
+      "Artist": "Alan Silvestri",
+      "File": "Alan Silvestri - Why Can\u0027t We Go Backwards.mp3"
     }
   }
 ]
