@@ -8,9 +8,65 @@
         Width="1400"
         Height="900"
         MinWidth="1100"
-        MinHeight="760"
-        Background="#F4EFE8">
+        MinHeight="760">
   <Window.Styles>
+    <Style Selector="Window">
+      <Setter Property="Background" Value="#F4EFE8" />
+    </Style>
+    <Style Selector="Window.theme-dark">
+      <Setter Property="Background" Value="#111827" />
+    </Style>
+    <Style Selector="Border.header-shell">
+      <Setter Property="Background" Value="#F1F5F9" />
+      <Setter Property="BorderBrush" Value="#D6E0EA" />
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.header-shell">
+      <Setter Property="Background" Value="#0F172A" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="BorderBrush" Value="#0F172A" />
+    </Style>
+    <Style Selector="Border.main-shell">
+      <Setter Property="Background" Value="#FFFDF9" />
+      <Setter Property="BorderBrush" Value="#E4DACC" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.main-shell">
+      <Setter Property="Background" Value="#111827" />
+      <Setter Property="BorderBrush" Value="#334155" />
+    </Style>
+    <Style Selector="Border.surface">
+      <Setter Property="Background" Value="#FFFDF9" />
+      <Setter Property="BorderBrush" Value="#E4DACC" />
+    </Style>
+    <Style Selector="Border.surface-alt">
+      <Setter Property="Background" Value="#F7F2EA" />
+      <Setter Property="BorderBrush" Value="#E7DDD0" />
+    </Style>
+    <Style Selector="Border.card">
+      <Setter Property="Background" Value="#FFFFFF" />
+      <Setter Property="BorderBrush" Value="#E7DDD0" />
+    </Style>
+    <Style Selector="Border.overlay-panel">
+      <Setter Property="Background" Value="#FFFDF9" />
+      <Setter Property="BorderBrush" Value="#E4DACC" />
+    </Style>
+    <Style Selector="TextBlock.title-text">
+      <Setter Property="Foreground" Value="#12263A" />
+    </Style>
+    <Style Selector="TextBlock.body-text">
+      <Setter Property="Foreground" Value="#1F2937" />
+    </Style>
+    <Style Selector="TextBlock.muted-text">
+      <Setter Property="Foreground" Value="#6B7280" />
+    </Style>
+    <Style Selector="Button.music-link">
+      <Setter Property="Background" Value="#1F7A4C" />
+      <Setter Property="Foreground" Value="#F5FFF8" />
+    </Style>
+    <Style Selector="Button.dark-toggle">
+      <Setter Property="Background" Value="#64748B" />
+      <Setter Property="Foreground" Value="#F8FAFC" />
+    </Style>
     <Style Selector="TextBox">
       <Setter Property="Background" Value="#FFFDF9" />
       <Setter Property="BorderBrush" Value="#D8CEC0" />
@@ -38,23 +94,67 @@
       <Setter Property="CornerRadius" Value="999" />
       <Setter Property="FontSize" Value="12" />
       <Setter Property="HorizontalAlignment" Value="Left" />
-      <Setter Property="Background" Value="#1F7A4C" />
-      <Setter Property="Foreground" Value="#F5FFF8" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.surface">
+      <Setter Property="Background" Value="#1F2937" />
+      <Setter Property="BorderBrush" Value="#334155" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.surface-alt">
+      <Setter Property="Background" Value="#111827" />
+      <Setter Property="BorderBrush" Value="#334155" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.card">
+      <Setter Property="Background" Value="#1F2937" />
+      <Setter Property="BorderBrush" Value="#334155" />
+    </Style>
+    <Style Selector="Window.theme-dark Border.overlay-panel">
+      <Setter Property="Background" Value="#111827" />
+      <Setter Property="BorderBrush" Value="#334155" />
+    </Style>
+    <Style Selector="Window.theme-dark TextBlock.title-text">
+      <Setter Property="Foreground" Value="#F8FAFC" />
+    </Style>
+    <Style Selector="Window.theme-dark TextBlock.body-text">
+      <Setter Property="Foreground" Value="#E5E7EB" />
+    </Style>
+    <Style Selector="Window.theme-dark TextBlock.muted-text">
+      <Setter Property="Foreground" Value="#9CA3AF" />
+    </Style>
+    <Style Selector="Window.theme-dark TextBox">
+      <Setter Property="Background" Value="#111827" />
+      <Setter Property="BorderBrush" Value="#374151" />
+      <Setter Property="Foreground" Value="#E5E7EB" />
+    </Style>
+    <Style Selector="Window.theme-dark Button.app-btn.music-link">
+      <Setter Property="Background" Value="#14532D" />
+      <Setter Property="Foreground" Value="#D1FAE5" />
+    </Style>
+    <Style Selector="Window.theme-dark Button.dark-toggle">
+      <Setter Property="Background" Value="#6B7280" />
+      <Setter Property="Foreground" Value="#F9FAFB" />
+    </Style>
+    <Style Selector="Button.header-action">
+      <Setter Property="Background" Value="#3B82F6" />
+      <Setter Property="Foreground" Value="#F8FAFC" />
+    </Style>
+    <Style Selector="Window.theme-dark Button.header-action">
+      <Setter Property="Background" Value="#334155" />
+      <Setter Property="Foreground" Value="#E5E7EB" />
     </Style>
   </Window.Styles>
 
   <Grid RowDefinitions="Auto,*">
-    <Border Background="#12263A" Padding="22,18">
+    <Border Classes="header-shell" Padding="22,18">
       <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
         <StackPanel Spacing="4">
-          <TextBlock Text="Posts Manager" FontSize="28" FontWeight="SemiBold" Foreground="#FFF8F0" />
-          <TextBlock Text="Zero Nut desktop editor for posts.json" Foreground="#C5D0DB" FontSize="13" />
+          <TextBlock Text="Posts Manager" FontSize="28" FontWeight="SemiBold" Classes="title-text" />
+          <TextBlock Text="Zero Nut desktop editor for posts.json" Classes="muted-text" FontSize="13" />
         </StackPanel>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
-          <Button x:Name="ToggleThemeButton" Classes="app-btn" Content="Night Mode" Background="#4B5563" Click="ToggleTheme_Click" />
-          <Button x:Name="ToggleFullscreenButton" Classes="app-btn" Content="Toggle Fullscreen" Background="#2B8C7F" Click="ToggleFullscreen_Click" />
-          <Button x:Name="SyncButton" Classes="app-btn" Background="#D97706" Click="Sync_Click">
+          <Button x:Name="ToggleThemeButton" Classes="app-btn dark-toggle" Content="Night Mode" Click="ToggleTheme_Click" />
+          <Button x:Name="ToggleFullscreenButton" Classes="app-btn header-action" Content="Toggle Fullscreen" Click="ToggleFullscreen_Click" />
+          <Button x:Name="SyncButton" Classes="app-btn header-action" Click="Sync_Click">
             <StackPanel Orientation="Horizontal" Spacing="10">
               <TextBlock Text="Sync to GitHub" />
               <ProgressBar x:Name="SyncProgress" Width="48" Height="4" IsIndeterminate="True" IsVisible="False" />
@@ -64,13 +164,13 @@
       </Grid>
     </Border>
 
-    <Border Grid.Row="1" Margin="20" Background="#FFFDF9" CornerRadius="24" BorderBrush="#E4DACC" BorderThickness="1">
+    <Border Grid.Row="1" Margin="20" Classes="main-shell" CornerRadius="24" BorderThickness="1">
       <Grid>
         <Border Padding="22,22,18,18">
           <Grid RowDefinitions="Auto,*,Auto" RowSpacing="14">
             <StackPanel Spacing="6">
-              <TextBlock Text="Posts" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
-              <TextBlock Text="Recent entries from src/data/tg/posts.json." Foreground="#6B7280" FontSize="13" />
+              <TextBlock Text="Posts" FontSize="20" FontWeight="SemiBold" Classes="title-text" />
+              <TextBlock Text="Recent entries from src/data/tg/posts.json." FontSize="13" Classes="muted-text" />
             </StackPanel>
 
             <Grid Grid.Row="1">
@@ -78,16 +178,16 @@
                 <ItemsControl x:Name="PostsItemsControl">
                   <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                      <Border Margin="0,0,0,14" CornerRadius="18" BorderBrush="#E7DDD0" BorderThickness="1" Background="#FFFFFF" ClipToBounds="True">
+                      <Border Margin="0,0,0,14" Classes="card" CornerRadius="18" BorderThickness="1" ClipToBounds="True">
                         <Grid Height="170">
                           <Image Source="{Binding BackgroundBitmap}" Opacity="0.12" Stretch="UniformToFill" />
-                          <Border Background="#F7F2EA" Opacity="0.72" CornerRadius="18" />
+                          <Border Classes="surface-alt" Opacity="0.72" CornerRadius="18" />
                           <StackPanel Margin="18" Spacing="10">
                             <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
-                              <TextBlock Text="{Binding IdLabel}" FontWeight="SemiBold" Foreground="#12324D" />
-                              <TextBlock Grid.Column="1" Text="{Binding DateText}" Foreground="#6B7280" FontSize="12" />
+                              <TextBlock Text="{Binding IdLabel}" FontWeight="SemiBold" Classes="title-text" />
+                              <TextBlock Grid.Column="1" Text="{Binding DateText}" FontSize="12" Classes="muted-text" />
                             </Grid>
-                            <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="15" Foreground="#1F2937" />
+                            <TextBlock Text="{Binding Text}" TextWrapping="Wrap" FontSize="15" Classes="body-text" />
                             <Button Classes="app-btn music-link"
                                     Content="{Binding MusicDisplay}"
                                     Tag="{Binding}"
@@ -105,31 +205,27 @@
                 </ItemsControl>
               </ScrollViewer>
 
-              <Border x:Name="NoPostsMessage"
-                      Background="#F5F0E8"
+               <Border x:Name="NoPostsMessage" Classes="card"
                       CornerRadius="18"
-                      BorderBrush="#E7DDD0"
                       BorderThickness="1"
                       Padding="28"
                       IsVisible="False"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Spacing="6">
-                  <TextBlock Text="No posts found" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Foreground="#24364A" />
-                  <TextBlock Text="Tap the + button to create your first post." HorizontalAlignment="Center" Foreground="#6B7280" />
+                  <TextBlock Text="No posts found" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Classes="title-text" />
+                  <TextBlock Text="Tap the + button to create your first post." HorizontalAlignment="Center" Classes="muted-text" />
                 </StackPanel>
               </Border>
             </Grid>
 
-            <Border Grid.Row="2" Background="#F7F2EA" CornerRadius="14" Padding="12">
-              <TextBlock x:Name="PostsFilePathText" Text="File path:" Foreground="#56616D" TextWrapping="Wrap" />
+            <Border Grid.Row="2" Classes="surface-alt" CornerRadius="14" Padding="12">
+              <TextBlock x:Name="PostsFilePathText" Text="File path:" TextWrapping="Wrap" Classes="muted-text" />
             </Border>
           </Grid>
         </Border>
 
-        <Border x:Name="StatusBorder"
-                Background="#E7F4EE"
-                BorderBrush="#B9E3C8"
+        <Border x:Name="StatusBorder" Classes="surface"
                 BorderThickness="1"
                 CornerRadius="12"
                 Padding="12"
@@ -138,11 +234,10 @@
                 Margin="0,18,18,0"
                 IsVisible="False"
                 ZIndex="3">
-          <TextBlock x:Name="StatusText" Foreground="#155724" TextWrapping="Wrap" />
+          <TextBlock x:Name="StatusText" TextWrapping="Wrap" Classes="body-text" />
         </Border>
 
-        <Border Background="#FFF8EF"
-                BorderBrush="#E7DDD0"
+        <Border Classes="overlay-panel"
                 BorderThickness="1"
                 CornerRadius="14"
                 Padding="12"
@@ -151,8 +246,8 @@
                 Margin="24,0,0,24"
                 ZIndex="3">
           <StackPanel Spacing="8">
-            <TextBlock Text="Player" FontWeight="SemiBold" Foreground="#2A3D52" />
-            <TextBlock x:Name="NowPlayingText" Text="Not playing" Foreground="#5B6673" />
+            <TextBlock Text="Player" FontWeight="SemiBold" Classes="title-text" />
+            <TextBlock x:Name="NowPlayingText" Text="Not playing" Classes="muted-text" />
             <StackPanel Orientation="Horizontal" Spacing="10">
               <Button x:Name="TogglePlaybackButton" Classes="app-btn" Content="Pause" Background="#247B87" Click="TogglePlayback_Click" IsEnabled="False" />
               <Button x:Name="StopPlaybackButton" Classes="app-btn" Content="Stop" Background="#B42318" Click="StopPlayback_Click" IsEnabled="False" />
@@ -171,32 +266,27 @@
                 Click="OpenCreateDialog_Click" />
 
         <Border x:Name="CreateOverlay" Background="#B312263A" IsVisible="False" ZIndex="9">
-          <Border HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Width="820"
-                  MaxHeight="840"
-                  Background="#FFFDF9"
+          <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="820" MaxHeight="840" Classes="overlay-panel"
                   CornerRadius="24"
-                  BorderBrush="#E4DACC"
                   BorderThickness="1"
                   Padding="22">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
               <StackPanel Spacing="16">
                 <Grid ColumnDefinitions="*,Auto">
                   <StackPanel Spacing="4">
-                    <TextBlock Text="Create post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
-                    <TextBlock Text="Add text, image and music metadata in one pass." Foreground="#6B7280" FontSize="13" />
+                    <TextBlock Text="Create post" FontSize="20" FontWeight="SemiBold" Classes="title-text" />
+                    <TextBlock Text="Add text, image and music metadata in one pass." Classes="muted-text" FontSize="13" />
                   </StackPanel>
                   <Button Classes="app-btn" Content="×" Background="Transparent" Foreground="#56616D" Click="CloseCreateDialog_Click" Padding="8,4" FontSize="24" />
                 </Grid>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Post text" FontWeight="SemiBold" />
+                  <TextBlock Text="Post text" FontWeight="SemiBold" Classes="title-text" />
                   <TextBox x:Name="PostTextBox" AcceptsReturn="True" MinHeight="168" TextWrapping="Wrap" Watermark="Enter your post text here..." />
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Date" FontWeight="SemiBold" />
+                  <TextBlock Text="Date" FontWeight="SemiBold" Classes="title-text" />
                   <StackPanel Orientation="Horizontal" Spacing="10">
                     <DatePicker x:Name="PostDatePicker" Width="180" />
                     <TimePicker x:Name="PostTimePicker" Width="140" />
@@ -204,11 +294,11 @@
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Background image" FontWeight="SemiBold" />
+                  <TextBlock Text="Background image" FontWeight="SemiBold" Classes="title-text" />
                   <Button Classes="app-btn" Content="Choose Image" Background="#50657B" Click="SelectImage_Click" HorizontalAlignment="Left" />
-                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+              <Border Classes="card" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
-                      <TextBlock x:Name="SelectedImageNameText" Text="No image selected" Foreground="#56616D" />
+                      <TextBlock x:Name="SelectedImageNameText" Text="No image selected" Classes="muted-text" />
                       <Image x:Name="SelectedImagePreview" Height="140" Stretch="UniformToFill" IsVisible="False" />
                       <Button x:Name="ClearImageButton" Classes="app-btn" Content="Clear image" Background="#B42318" Click="ClearImage_Click" IsVisible="False" HorizontalAlignment="Left" />
                     </StackPanel>
@@ -216,20 +306,20 @@
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Music" FontWeight="SemiBold" />
+                  <TextBlock Text="Music" FontWeight="SemiBold" Classes="title-text" />
                   <Button Classes="app-btn" Content="Choose Music File" Background="#50657B" Click="SelectMusic_Click" HorizontalAlignment="Left" />
-                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+                  <Border Classes="card" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
-                      <TextBlock x:Name="SelectedMusicNameText" Text="No music selected" Foreground="#56616D" />
+                      <TextBlock x:Name="SelectedMusicNameText" Text="No music selected" Classes="muted-text" />
                       <Button x:Name="ClearMusicButton" Classes="app-btn" Content="Clear music" Background="#B42318" Click="ClearMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
-                      <Border x:Name="MusicMetadataPanel" Background="#F7F2EA" CornerRadius="10" Padding="10" IsVisible="False">
+                      <Border x:Name="MusicMetadataPanel" Classes="surface-alt" CornerRadius="10" Padding="10" IsVisible="False">
                         <StackPanel Spacing="8">
                           <StackPanel Spacing="6">
-                            <TextBlock Text="Music title" FontWeight="SemiBold" />
+                            <TextBlock Text="Music title" FontWeight="SemiBold" Classes="title-text" />
                             <TextBox x:Name="MusicTitleTextBox" Watermark="Enter music title" />
                           </StackPanel>
                           <StackPanel Spacing="6">
-                            <TextBlock Text="Artist" FontWeight="SemiBold" />
+                            <TextBlock Text="Artist" FontWeight="SemiBold" Classes="title-text" />
                             <TextBox x:Name="MusicArtistTextBox" Watermark="Enter artist name" />
                           </StackPanel>
                         </StackPanel>
@@ -248,32 +338,27 @@
         </Border>
 
         <Border x:Name="EditOverlay" Background="#B312263A" IsVisible="False" ZIndex="10">
-          <Border HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Width="820"
-                  MaxHeight="840"
-                  Background="#FFFDF9"
+          <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="820" MaxHeight="840" Classes="overlay-panel"
                   CornerRadius="24"
-                  BorderBrush="#E4DACC"
                   BorderThickness="1"
                   Padding="22">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
               <StackPanel Spacing="16">
                 <Grid ColumnDefinitions="*,Auto">
                   <StackPanel Spacing="4">
-                    <TextBlock Text="Edit post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
-                    <TextBlock Text="Update content, date, image and music." Foreground="#6B7280" FontSize="13" />
+                    <TextBlock Text="Edit post" FontSize="20" FontWeight="SemiBold" Classes="title-text" />
+                    <TextBlock Text="Update content, date, image and music." Classes="muted-text" FontSize="13" />
                   </StackPanel>
                   <Button Classes="app-btn" Content="×" Background="Transparent" Foreground="#56616D" Click="CloseEditDialog_Click" Padding="8,4" FontSize="24" />
                 </Grid>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Post text" FontWeight="SemiBold" />
+                  <TextBlock Text="Post text" FontWeight="SemiBold" Classes="title-text" />
                   <TextBox x:Name="EditPostTextBox" AcceptsReturn="True" MinHeight="160" TextWrapping="Wrap" />
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Date" FontWeight="SemiBold" />
+                  <TextBlock Text="Date" FontWeight="SemiBold" Classes="title-text" />
                   <StackPanel Orientation="Horizontal" Spacing="10">
                     <DatePicker x:Name="EditDatePicker" Width="180" />
                     <TimePicker x:Name="EditTimePicker" Width="140" />
@@ -281,11 +366,11 @@
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Background image" FontWeight="SemiBold" />
+                  <TextBlock Text="Background image" FontWeight="SemiBold" Classes="title-text" />
                   <Button Classes="app-btn" Content="Choose Image" Background="#50657B" Click="SelectEditImage_Click" HorizontalAlignment="Left" />
-                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+                  <Border Classes="card" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
-                      <TextBlock x:Name="EditSelectedImageNameText" Text="No image selected" Foreground="#56616D" />
+                      <TextBlock x:Name="EditSelectedImageNameText" Text="No image selected" Classes="muted-text" />
                       <Image x:Name="EditSelectedImagePreview" Height="140" Stretch="UniformToFill" IsVisible="False" />
                       <Button x:Name="EditClearImageButton" Classes="app-btn" Content="Clear image" Background="#B42318" Click="ClearEditImage_Click" IsVisible="False" HorizontalAlignment="Left" />
                     </StackPanel>
@@ -293,20 +378,20 @@
                 </StackPanel>
 
                 <StackPanel Spacing="8">
-                  <TextBlock Text="Music" FontWeight="SemiBold" />
+                  <TextBlock Text="Music" FontWeight="SemiBold" Classes="title-text" />
                   <Button Classes="app-btn" Content="Choose Music File" Background="#50657B" Click="SelectEditMusic_Click" HorizontalAlignment="Left" />
-                  <Border Background="#FFFFFF" BorderBrush="#E7DDD0" BorderThickness="1" CornerRadius="12" Padding="12">
+                  <Border Classes="card" BorderThickness="1" CornerRadius="12" Padding="12">
                     <StackPanel Spacing="10">
-                      <TextBlock x:Name="EditSelectedMusicNameText" Text="No music selected" Foreground="#56616D" />
+                      <TextBlock x:Name="EditSelectedMusicNameText" Text="No music selected" Classes="muted-text" />
                       <Button x:Name="EditClearMusicButton" Classes="app-btn" Content="Clear music" Background="#B42318" Click="ClearEditMusic_Click" IsVisible="False" HorizontalAlignment="Left" />
-                      <Border x:Name="EditMusicMetadataPanel" Background="#F7F2EA" CornerRadius="10" Padding="10" IsVisible="False">
+                      <Border x:Name="EditMusicMetadataPanel" Classes="surface-alt" CornerRadius="10" Padding="10" IsVisible="False">
                         <StackPanel Spacing="8">
                           <StackPanel Spacing="6">
-                            <TextBlock Text="Music title" FontWeight="SemiBold" />
+                            <TextBlock Text="Music title" FontWeight="SemiBold" Classes="title-text" />
                             <TextBox x:Name="EditMusicTitleTextBox" />
                           </StackPanel>
                           <StackPanel Spacing="6">
-                            <TextBlock Text="Artist" FontWeight="SemiBold" />
+                            <TextBlock Text="Artist" FontWeight="SemiBold" Classes="title-text" />
                             <TextBox x:Name="EditMusicArtistTextBox" />
                           </StackPanel>
                         </StackPanel>
@@ -328,14 +413,13 @@
           <Border HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   Width="420"
-                  Background="#FFFDF9"
+                  Classes="overlay-panel"
                   CornerRadius="24"
-                  BorderBrush="#E4DACC"
                   BorderThickness="1"
                   Padding="22">
             <StackPanel Spacing="16">
-              <TextBlock Text="Delete post" FontSize="20" FontWeight="SemiBold" Foreground="#12263A" />
-              <TextBlock x:Name="DeletePromptText" TextWrapping="Wrap" Foreground="#374151" />
+              <TextBlock Text="Delete post" FontSize="20" FontWeight="SemiBold" Classes="title-text" />
+              <TextBlock x:Name="DeletePromptText" TextWrapping="Wrap" Classes="body-text" />
               <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
                 <Button Classes="app-btn" Content="Cancel" Background="#6B7280" Click="CloseDeleteDialog_Click" />
                 <Button Classes="app-btn" Content="Delete" Background="#B42318" Click="ConfirmDelete_Click" />

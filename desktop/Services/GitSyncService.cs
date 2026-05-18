@@ -23,7 +23,8 @@ public sealed class GitSyncService {
         };
         startInfo.ArgumentList.Add("-lc");
         startInfo.ArgumentList.Add(command);
-        using var process = Process.Start(startInfo) ?? throw new InvalidOperationException("Failed to start git sync process");
+        using var process = Process.Start(startInfo) ??
+                            throw new InvalidOperationException("Failed to start git sync process");
         var stdoutTask = process.StandardOutput.ReadToEndAsync();
         var stderrTask = process.StandardError.ReadToEndAsync();
         await process.WaitForExitAsync();

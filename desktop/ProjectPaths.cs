@@ -24,7 +24,6 @@ public static class ProjectPaths {
             }
             current = current.Parent;
         }
-
         return "/Users/Shared/1_work/web/zero-nut";
     }
 }

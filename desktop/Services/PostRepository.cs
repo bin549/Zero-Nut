@@ -14,16 +14,13 @@ public sealed class PostRepository {
 
     public async Task<IReadOnlyList<PostRecord>> LoadPostsAsync(bool strict = false) {
         ProjectPaths.EnsureRequiredDirectories();
-
         if (!File.Exists(ProjectPaths.PostsFilePath)) {
             return [];
         }
-
         var json = await File.ReadAllTextAsync(ProjectPaths.PostsFilePath);
         if (string.IsNullOrWhiteSpace(json)) {
             return [];
         }
-
         try {
             return JsonSerializer.Deserialize<List<PostRecord>>(json, JsonOptions) ?? [];
         } catch when (!strict) {
@@ -34,7 +31,6 @@ public sealed class PostRepository {
     public async Task<PostRecord> AddPostAsync(PostRecord draft) {
         var posts = (await LoadPostsAsync(strict: true)).ToList();
         var highestId = posts.Count == 0 ? 0 : posts.Max(post => post.Id);
-
         var newPost = new PostRecord {
             Id = highestId + 1,
             Date = string.IsNullOrWhiteSpace(draft.Date) ? DateTimeOffset.UtcNow.ToString("o") : draft.Date,
@@ -42,7 +38,6 @@ public sealed class PostRepository {
             Image = draft.Image,
             Music = draft.Music
         };
-
         posts.Insert(0, newPost);
         await SavePostsAsync(posts);
         return newPost;
@@ -61,7 +56,6 @@ public sealed class PostRepository {
             Image = updatedPost.Image,
             Music = updatedPost.Music
         };
-
         await SavePostsAsync(posts);
         return posts[index];
     }
@@ -90,20 +84,16 @@ public sealed class PostRepository {
         if (string.IsNullOrWhiteSpace(fileName)) {
             return;
         }
-
         var normalizedFileName = Path.GetFileName(fileName);
         if (string.IsNullOrWhiteSpace(normalizedFileName)) {
             return;
         }
-
         var stillReferenced = remainingPosts.Any(post =>
             post.Music is not null &&
             string.Equals(Path.GetFileName(post.Music.File), normalizedFileName, StringComparison.OrdinalIgnoreCase));
-
         if (stillReferenced) {
             return;
         }
-
         var musicFilePath = Path.Combine(ProjectPaths.MusicDirectory, normalizedFileName);
         if (File.Exists(musicFilePath)) {
             File.Delete(musicFilePath);

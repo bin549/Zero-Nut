@@ -19,21 +19,17 @@ namespace DesktopApp;
 public partial class MainWindow : Window {
     [DllImport("libc", SetLastError = true)]
     private static extern int kill(int pid, int sig);
-
     private const int MacSigStop = 17;
     private const int MacSigCont = 19;
     private const int LinuxSigStop = 19;
     private const int LinuxSigCont = 18;
-
     private readonly PostRepository _postRepository = new();
     private readonly AssetService _assetService = new();
     private readonly GitSyncService _gitSyncService = new();
     private readonly ObservableCollection<PostCardModel> _currentPosts = [];
-
     private string? _selectedImagePath;
     private Bitmap? _selectedImageBitmap;
     private string? _selectedMusicFileName;
-
     private string? _editSelectedImagePath;
     private Bitmap? _editSelectedImageBitmap;
     private string? _editSelectedMusicFileName;
@@ -50,6 +46,7 @@ public partial class MainWindow : Window {
         ProjectPaths.EnsureRequiredDirectories();
         PostsItemsControl.ItemsSource = _currentPosts;
         PostsFilePathText.Text = $"File path: {ProjectPaths.PostsFilePath}";
+        Classes.Set("theme-dark", Application.Current?.RequestedThemeVariant == ThemeVariant.Dark);
         SetAddDateTimeNow();
         Loaded += OnLoaded;
     }
@@ -63,12 +60,10 @@ public partial class MainWindow : Window {
         try {
             DisposeCurrentPosts();
             _currentPosts.Clear();
-
             var posts = await _postRepository.LoadPostsAsync();
             foreach (var post in posts) {
                 _currentPosts.Add(CreatePostCard(post));
             }
-
             UpdateEmptyState();
         } catch (Exception ex) {
             UpdateEmptyState();
@@ -100,7 +95,6 @@ public partial class MainWindow : Window {
                 out var parsed)) {
             return parsed;
         }
-
         return DateTimeOffset.UtcNow;
     }
 
@@ -115,7 +109,6 @@ public partial class MainWindow : Window {
             chosenTime.Minutes,
             chosenTime.Seconds,
             DateTimeKind.Local);
-
         return new DateTimeOffset(localDateTime);
     }
 
@@ -149,7 +142,6 @@ public partial class MainWindow : Window {
         StatusBorder.BorderBrush = new SolidColorBrush(success ? Color.Parse("#B9E3C8") : Color.Parse("#F5C6CB"));
         StatusText.Foreground = new SolidColorBrush(success ? Color.Parse("#155724") : Color.Parse("#721c24"));
         StatusBorder.IsVisible = true;
-
         _statusHideCts?.Cancel();
         _statusHideCts = new CancellationTokenSource();
         _ = HideStatusLaterAsync(_statusHideCts.Token);
@@ -168,7 +160,6 @@ public partial class MainWindow : Window {
         bitmapField?.Dispose();
         bitmapField = null;
         pathField = relativePath;
-
         if (string.IsNullOrWhiteSpace(relativePath)) {
             name.Text = "No image selected";
             preview.Source = null;
@@ -176,7 +167,6 @@ public partial class MainWindow : Window {
             clearButton.IsVisible = false;
             return;
         }
-
         name.Text = Path.GetFileName(relativePath);
         bitmapField = _assetService.LoadBitmap(relativePath);
         preview.Source = bitmapField;
@@ -228,13 +218,11 @@ public partial class MainWindow : Window {
                 }
             }
         });
-
         var file = files.FirstOrDefault();
         var sourcePath = file?.TryGetLocalPath();
         if (string.IsNullOrWhiteSpace(sourcePath)) {
             return;
         }
-
         var importedPath = _assetService.ImportImage(sourcePath);
         if (editing) {
             SetSelectedImagePreview(EditSelectedImagePreview, EditSelectedImageNameText, EditClearImageButton,
@@ -255,13 +243,11 @@ public partial class MainWindow : Window {
                 }
             }
         });
-
         var file = files.FirstOrDefault();
         var sourcePath = file?.TryGetLocalPath();
         if (string.IsNullOrWhiteSpace(sourcePath)) {
             return;
         }
-
         var importedFileName = _assetService.ImportMusic(sourcePath);
         if (editing) {
             _editSelectedMusicFileName = importedFileName;
@@ -284,7 +270,6 @@ public partial class MainWindow : Window {
             ShowStatus("Post text cannot be empty", false);
             return;
         }
-
         MusicInfo? music = null;
         if (!string.IsNullOrWhiteSpace(_selectedMusicFileName)) {
             var title = MusicTitleTextBox.Text?.Trim();
@@ -293,21 +278,18 @@ public partial class MainWindow : Window {
                 ShowStatus("Please enter music title and artist", false);
                 return;
             }
-
             music = new MusicInfo {
                 Title = title,
                 Artist = artist,
                 File = _selectedMusicFileName
             };
         }
-
         var post = new PostRecord {
             Text = text,
             Date = ComposeDateTime(PostDatePicker.SelectedDate, PostTimePicker.SelectedTime).ToString("o"),
             Image = _selectedImagePath,
             Music = music
         };
-
         try {
             await _postRepository.AddPostAsync(post);
             await ReloadPostsAsync();
@@ -356,19 +338,16 @@ public partial class MainWindow : Window {
         if (sender is not Button { Tag: PostCardModel post } || post.Music is null) {
             return;
         }
-
         var fileName = Path.GetFileName(post.Music.File);
         if (string.IsNullOrWhiteSpace(fileName)) {
             ShowStatus("No music file configured for this post", false);
             return;
         }
-
         var fullPath = Path.Combine(ProjectPaths.MusicDirectory, fileName);
         if (!File.Exists(fullPath)) {
             ShowStatus($"Music file not found: {fileName}", false);
             return;
         }
-
         try {
             StartPlayback(fullPath, post.MusicDisplay);
             ShowStatus($"Playing: {post.MusicDisplay}", true);
@@ -381,7 +360,6 @@ public partial class MainWindow : Window {
         if (_playbackProcess is null || _playbackProcess.HasExited) {
             return;
         }
-
         try {
             if (_isPlaybackPaused) {
                 ResumePlayback(_playbackProcess);
@@ -405,7 +383,6 @@ public partial class MainWindow : Window {
 
     private void StartPlayback(string fullPath, string label) {
         StopPlayback();
-
         Process process;
         if (OperatingSystem.IsMacOS()) {
             var info = new ProcessStartInfo("afplay") {
@@ -433,7 +410,6 @@ public partial class MainWindow : Window {
             process = Process.Start(info) ??
                       throw new InvalidOperationException("Could not start ffplay process.");
         }
-
         _playbackProcess = process;
         _isPlaybackPaused = false;
         _nowPlayingPath = fullPath;
@@ -450,11 +426,9 @@ public partial class MainWindow : Window {
             await process.WaitForExitAsync();
         } catch {
         }
-
         if (!ReferenceEquals(_playbackProcess, process)) {
             return;
         }
-
         await Dispatcher.UIThread.InvokeAsync(() => {
             _playbackProcess = null;
             _isPlaybackPaused = false;
@@ -471,7 +445,6 @@ public partial class MainWindow : Window {
         if (_playbackProcess is null) {
             return;
         }
-
         try {
             if (!_playbackProcess.HasExited) {
                 _playbackProcess.Kill(entireProcessTree: true);
@@ -495,7 +468,6 @@ public partial class MainWindow : Window {
             SendUnixSignal(process.Id, stop: true);
             return;
         }
-
         throw new PlatformNotSupportedException("Pause is currently supported on Unix-like systems.");
     }
 
@@ -504,7 +476,6 @@ public partial class MainWindow : Window {
             SendUnixSignal(process.Id, stop: false);
             return;
         }
-
         throw new PlatformNotSupportedException("Resume is currently supported on Unix-like systems.");
     }
 
@@ -512,11 +483,9 @@ public partial class MainWindow : Window {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
             throw new PlatformNotSupportedException("Signals are not supported on Windows.");
         }
-
         var signal = stop
             ? (OperatingSystem.IsMacOS() ? MacSigStop : LinuxSigStop)
             : (OperatingSystem.IsMacOS() ? MacSigCont : LinuxSigCont);
-
         var result = kill(pid, signal);
         if (result != 0) {
             throw new Win32Exception(Marshal.GetLastWin32Error());
@@ -531,18 +500,15 @@ public partial class MainWindow : Window {
         if (sender is not Button { Tag: PostCardModel post }) {
             return;
         }
-
         _editingPostId = post.Id;
         EditPostTextBox.Text = post.Text;
         SetEditDateTime(ParseDateTimeForEdit(post.DateRaw));
-
         if (string.IsNullOrWhiteSpace(post.ImagePath)) {
             ClearEditImageSelection();
         } else {
             SetSelectedImagePreview(EditSelectedImagePreview, EditSelectedImageNameText, EditClearImageButton,
                 post.ImagePath, ref _editSelectedImageBitmap, ref _editSelectedImagePath);
         }
-
         if (post.Music is null) {
             ClearEditMusicSelection();
         } else {
@@ -553,7 +519,6 @@ public partial class MainWindow : Window {
             EditMusicTitleTextBox.Text = post.Music.Title;
             EditMusicArtistTextBox.Text = post.Music.Artist;
         }
-
         EditOverlay.IsVisible = true;
     }
 
@@ -585,7 +550,6 @@ public partial class MainWindow : Window {
             ShowStatus("Post text cannot be empty", false);
             return;
         }
-
         MusicInfo? music = null;
         if (!string.IsNullOrWhiteSpace(_editSelectedMusicFileName)) {
             var title = EditMusicTitleTextBox.Text?.Trim();
@@ -594,14 +558,12 @@ public partial class MainWindow : Window {
                 ShowStatus("Please enter music title and artist", false);
                 return;
             }
-
             music = new MusicInfo {
                 Title = title,
                 Artist = artist,
                 File = _editSelectedMusicFileName
             };
         }
-
         var updated = new PostRecord {
             Id = _editingPostId,
             Text = text,
@@ -609,7 +571,6 @@ public partial class MainWindow : Window {
             Image = _editSelectedImagePath,
             Music = music
         };
-
         try {
             await _postRepository.UpdatePostAsync(updated);
             await ReloadPostsAsync();
@@ -633,7 +594,6 @@ public partial class MainWindow : Window {
         if (sender is not Button { Tag: PostCardModel post }) {
             return;
         }
-
         _deletingPostId = post.Id;
         DeletePromptText.Text = $"Delete post #{post.Id}? This action cannot be undone.";
         DeleteOverlay.IsVisible = true;
@@ -649,7 +609,6 @@ public partial class MainWindow : Window {
             DeleteOverlay.IsVisible = false;
             return;
         }
-
         try {
             await _postRepository.DeletePostAsync(_deletingPostId);
             await ReloadPostsAsync();
@@ -685,11 +644,10 @@ public partial class MainWindow : Window {
         if (Application.Current is null) {
             return;
         }
-
         var current = Application.Current.RequestedThemeVariant;
-        Application.Current.RequestedThemeVariant =
-            current == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-
+        var isDark = current == ThemeVariant.Dark;
+        Application.Current.RequestedThemeVariant = isDark ? ThemeVariant.Light : ThemeVariant.Dark;
+        Classes.Set("theme-dark", !isDark);
         UpdateThemeButtonText();
     }
 
@@ -697,8 +655,8 @@ public partial class MainWindow : Window {
         if (Application.Current is null) {
             return;
         }
-
         var isDark = Application.Current.RequestedThemeVariant == ThemeVariant.Dark;
+        Classes.Set("theme-dark", isDark);
         ToggleThemeButton.Content = isDark ? "Light Mode" : "Night Mode";
     }
 
